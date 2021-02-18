@@ -7,5 +7,7 @@
 
 protocol EditorViewModelProtocol: class {
     
+    var borders: [Border] { get }
+    
     func pickNewPhotoFromAssets(_ completionHandler: @escaping (ImageAssetProtocol) -> Void)
 }

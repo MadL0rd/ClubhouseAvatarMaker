@@ -8,6 +8,7 @@ target 'ClubhouseAvatarMaker' do
   pod 'SwiftLint'
   pod 'R.swift'
   pod 'DKImagePickerController'
+  pod 'CropViewController'
 
 #  Exclude DEPLOYMENT_TARGET warnings
   post_install do |installer|
