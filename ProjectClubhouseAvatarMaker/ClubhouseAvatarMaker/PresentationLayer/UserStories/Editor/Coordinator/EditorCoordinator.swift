@@ -34,4 +34,13 @@ final class EditorCoordinator {
 // MARK: - Interface for view
 extension EditorCoordinator: EditorCoordinatorProtocol {
 
+    func openAboutUs() {
+        let vc = AboutUsCoordinator.createModule()
+        transition.showInRootNavigationController(vc)
+    }
+    
+    func openSubscribtion() {
+        let vc = SubscriptionCoordinator.createModule()
+        transition.showInRootNavigationController(vc)
+    }
 }

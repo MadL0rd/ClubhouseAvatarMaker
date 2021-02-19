@@ -50,6 +50,22 @@
 		895ED40225DF50BC006EEA12 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */; };
 		895ED40825DF51E0006EEA12 /* UIColor+rgba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED40725DF51E0006EEA12 /* UIColor+rgba.swift */; };
 		895ED40C25DF5855006EEA12 /* UIImage+overlayedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */; };
+		895ED42725DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED41D25DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift */; };
+		895ED42825DF6BB4006EEA12 /* AboutUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED41E25DF6BB4006EEA12 /* AboutUsViewModel.swift */; };
+		895ED42925DF6BB4006EEA12 /* AboutUsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED42025DF6BB4006EEA12 /* AboutUsCoordinator.swift */; };
+		895ED42A25DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED42125DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift */; };
+		895ED42B25DF6BB4006EEA12 /* AboutUsOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED42225DF6BB4006EEA12 /* AboutUsOutput.swift */; };
+		895ED42C25DF6BB4006EEA12 /* AboutUsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED42325DF6BB4006EEA12 /* AboutUsInput.swift */; };
+		895ED42D25DF6BB4006EEA12 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED42525DF6BB4006EEA12 /* AboutUsView.swift */; };
+		895ED42E25DF6BB4006EEA12 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED42625DF6BB4006EEA12 /* AboutUsViewController.swift */; };
+		895ED43D25DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43325DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift */; };
+		895ED43E25DF6BBB006EEA12 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43425DF6BBB006EEA12 /* SubscriptionViewModel.swift */; };
+		895ED43F25DF6BBB006EEA12 /* SubscriptionOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43525DF6BBB006EEA12 /* SubscriptionOutput.swift */; };
+		895ED44025DF6BBB006EEA12 /* SubscriptionCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43725DF6BBB006EEA12 /* SubscriptionCoordinatorProtocol.swift */; };
+		895ED44125DF6BBB006EEA12 /* SubscriptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43825DF6BBB006EEA12 /* SubscriptionCoordinator.swift */; };
+		895ED44225DF6BBB006EEA12 /* SubscriptionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43925DF6BBB006EEA12 /* SubscriptionInput.swift */; };
+		895ED44325DF6BBB006EEA12 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */; };
+		895ED44425DF6BBB006EEA12 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */; };
 		8965D9D4259CA6F7007FDE48 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */; };
 		8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */; };
 		896F63DE25994AE50001599C /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F63DD25994AE50001599C /* UIView+shake.swift */; };
@@ -61,7 +77,6 @@
 		89AD8EA8255D71F000660695 /* UIViewController+addChildViewControllerToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8EA7255D71F000660695 /* UIViewController+addChildViewControllerToView.swift */; };
 		89CD71AA254E1BE50017C0DA /* TouchClearUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD71A9254E1BE50017C0DA /* TouchClearUIComponents.swift */; };
 		89CD71DE2550D4FB0017C0DA /* String+SizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD71DD2550D4FA0017C0DA /* String+SizeCalculator.swift */; };
-		89CD71E22550D8720017C0DA /* LimitatableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD71E12550D8720017C0DA /* LimitatableTextView.swift */; };
 		89CD71F825521BE00017C0DA /* ContentFittingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD71F725521BE00017C0DA /* ContentFittingTableView.swift */; };
 		89DD264B25DC9F0000AD2868 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD264A25DC9F0000AD2868 /* R.generated.swift */; };
 		89DD277225DCFB2C00AD2868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89DD277025DCFB2C00AD2868 /* Images.xcassets */; };
@@ -147,6 +162,22 @@
 		895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		895ED40725DF51E0006EEA12 /* UIColor+rgba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgba.swift"; sourceTree = "<group>"; };
 		895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+overlayedColor.swift"; sourceTree = "<group>"; };
+		895ED41D25DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewModelProtocol.swift; sourceTree = "<group>"; };
+		895ED41E25DF6BB4006EEA12 /* AboutUsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewModel.swift; sourceTree = "<group>"; };
+		895ED42025DF6BB4006EEA12 /* AboutUsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsCoordinator.swift; sourceTree = "<group>"; };
+		895ED42125DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		895ED42225DF6BB4006EEA12 /* AboutUsOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsOutput.swift; sourceTree = "<group>"; };
+		895ED42325DF6BB4006EEA12 /* AboutUsInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsInput.swift; sourceTree = "<group>"; };
+		895ED42525DF6BB4006EEA12 /* AboutUsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		895ED42625DF6BB4006EEA12 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		895ED43325DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModelProtocol.swift; sourceTree = "<group>"; };
+		895ED43425DF6BBB006EEA12 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
+		895ED43525DF6BBB006EEA12 /* SubscriptionOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionOutput.swift; sourceTree = "<group>"; };
+		895ED43725DF6BBB006EEA12 /* SubscriptionCoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		895ED43825DF6BBB006EEA12 /* SubscriptionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionCoordinator.swift; sourceTree = "<group>"; };
+		895ED43925DF6BBB006EEA12 /* SubscriptionInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionInput.swift; sourceTree = "<group>"; };
+		895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		896F63DD25994AE50001599C /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
@@ -158,7 +189,6 @@
 		89AD8EA7255D71F000660695 /* UIViewController+addChildViewControllerToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addChildViewControllerToView.swift"; sourceTree = "<group>"; };
 		89CD71A9254E1BE50017C0DA /* TouchClearUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchClearUIComponents.swift; sourceTree = "<group>"; };
 		89CD71DD2550D4FA0017C0DA /* String+SizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SizeCalculator.swift"; sourceTree = "<group>"; };
-		89CD71E12550D8720017C0DA /* LimitatableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitatableTextView.swift; sourceTree = "<group>"; };
 		89CD71F725521BE00017C0DA /* ContentFittingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFittingTableView.swift; sourceTree = "<group>"; };
 		89DD264A25DC9F0000AD2868 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		89DD277025DCFB2C00AD2868 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -397,6 +427,84 @@
 			path = AlertViews;
 			sourceTree = "<group>";
 		};
+		895ED41B25DF6BB4006EEA12 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				895ED42225DF6BB4006EEA12 /* AboutUsOutput.swift */,
+				895ED42325DF6BB4006EEA12 /* AboutUsInput.swift */,
+				895ED41C25DF6BB4006EEA12 /* ViewModel */,
+				895ED41F25DF6BB4006EEA12 /* Coordinator */,
+				895ED42425DF6BB4006EEA12 /* View */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		895ED41C25DF6BB4006EEA12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				895ED41D25DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift */,
+				895ED41E25DF6BB4006EEA12 /* AboutUsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		895ED41F25DF6BB4006EEA12 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				895ED42025DF6BB4006EEA12 /* AboutUsCoordinator.swift */,
+				895ED42125DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		895ED42425DF6BB4006EEA12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				895ED42625DF6BB4006EEA12 /* AboutUsViewController.swift */,
+				895ED42525DF6BB4006EEA12 /* AboutUsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		895ED43125DF6BBB006EEA12 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				895ED43525DF6BBB006EEA12 /* SubscriptionOutput.swift */,
+				895ED43925DF6BBB006EEA12 /* SubscriptionInput.swift */,
+				895ED43625DF6BBB006EEA12 /* Coordinator */,
+				895ED43225DF6BBB006EEA12 /* ViewModel */,
+				895ED43A25DF6BBB006EEA12 /* View */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		895ED43225DF6BBB006EEA12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				895ED43325DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift */,
+				895ED43425DF6BBB006EEA12 /* SubscriptionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		895ED43625DF6BBB006EEA12 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				895ED43725DF6BBB006EEA12 /* SubscriptionCoordinatorProtocol.swift */,
+				895ED43825DF6BBB006EEA12 /* SubscriptionCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		895ED43A25DF6BBB006EEA12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */,
+				895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		89A228D8253FB21E00C75363 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,7 +638,6 @@
 				89F00A672542E16200D482F6 /* UIStyleManager.swift */,
 				89F00A682542E16200D482F6 /* ButtonWithTouchSize.swift */,
 				89CD71A9254E1BE50017C0DA /* TouchClearUIComponents.swift */,
-				89CD71E12550D8720017C0DA /* LimitatableTextView.swift */,
 				89CD71F725521BE00017C0DA /* ContentFittingTableView.swift */,
 				89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */,
 				89AD8E49255BAA7300660695 /* ArrowDownButton.swift */,
@@ -555,6 +662,8 @@
 			children = (
 				895ED32825DD319A006EEA12 /* Loading */,
 				895ED2DF25DD19FC006EEA12 /* Editor */,
+				895ED41B25DF6BB4006EEA12 /* AboutUs */,
+				895ED43125DF6BBB006EEA12 /* Subscription */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -792,13 +901,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895ED42C25DF6BB4006EEA12 /* AboutUsInput.swift in Sources */,
+				895ED42925DF6BB4006EEA12 /* AboutUsCoordinator.swift in Sources */,
 				8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */,
 				89F00AB32542E16200D482F6 /* AppDelegate.swift in Sources */,
 				895ED35625DD5061006EEA12 /* PHAssetsManager.swift in Sources */,
 				895ED35B25DD5062006EEA12 /* PHPickerResult+ImageAssetProtocol.swift in Sources */,
+				895ED42725DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift in Sources */,
 				89AD8E6A255D441000660695 /* AnnouncementViewController.swift in Sources */,
-				89CD71E22550D8720017C0DA /* LimitatableTextView.swift in Sources */,
 				89AD8E4A255BAA7300660695 /* ArrowDownButton.swift in Sources */,
+				895ED42A25DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift in Sources */,
+				895ED42B25DF6BB4006EEA12 /* AboutUsOutput.swift in Sources */,
+				895ED43E25DF6BBB006EEA12 /* SubscriptionViewModel.swift in Sources */,
 				895ED33425DD319B006EEA12 /* LoadingViewModelProtocol.swift in Sources */,
 				89AD8EA8255D71F000660695 /* UIViewController+addChildViewControllerToView.swift in Sources */,
 				89F00AB02542E16200D482F6 /* AppRouter.swift in Sources */,
@@ -821,16 +935,22 @@
 				895ED2EF25DD19FC006EEA12 /* EditorCoordinatorProtocol.swift in Sources */,
 				895ED33625DD319B006EEA12 /* LoadingOutput.swift in Sources */,
 				89F00AA42542E16200D482F6 /* Array+safeIndex.swift in Sources */,
+				895ED44425DF6BBB006EEA12 /* SubscriptionViewController.swift in Sources */,
 				895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */,
 				895ED35925DD5062006EEA12 /* PHAsset+ImageAssetProtocol.swift in Sources */,
 				555D06AB2552FB23005E926B /* UIView+TapAnimation.swift in Sources */,
 				89F00AC02542E16200D482F6 /* SegmentedControl.swift in Sources */,
+				895ED44325DF6BBB006EEA12 /* SubscriptionView.swift in Sources */,
 				89F00AB12542E16200D482F6 /* MainAppRouter.swift in Sources */,
+				895ED44225DF6BBB006EEA12 /* SubscriptionInput.swift in Sources */,
 				89CD71F825521BE00017C0DA /* ContentFittingTableView.swift in Sources */,
 				895ED40825DF51E0006EEA12 /* UIColor+rgba.swift in Sources */,
 				895ED35425DD5061006EEA12 /* AssetsManager.swift in Sources */,
 				895ED3F325DF46E5006EEA12 /* ColorCollectionViewCell.swift in Sources */,
+				895ED43F25DF6BBB006EEA12 /* SubscriptionOutput.swift in Sources */,
+				895ED43D25DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift in Sources */,
 				89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */,
+				895ED42D25DF6BB4006EEA12 /* AboutUsView.swift in Sources */,
 				895ED3FA25DF5035006EEA12 /* PickerViewManager.swift in Sources */,
 				89CD71AA254E1BE50017C0DA /* TouchClearUIComponents.swift in Sources */,
 				895ED35825DD5062006EEA12 /* AssetsManagerErrors.swift in Sources */,
@@ -847,11 +967,15 @@
 				8965D9D4259CA6F7007FDE48 /* PaddingLabel.swift in Sources */,
 				89F00ABF2542E16200D482F6 /* LabelsSegmentedControl.swift in Sources */,
 				89F00AC22542E16200D482F6 /* ButtonWithTouchSize.swift in Sources */,
+				895ED44025DF6BBB006EEA12 /* SubscriptionCoordinatorProtocol.swift in Sources */,
+				895ED44125DF6BBB006EEA12 /* SubscriptionCoordinator.swift in Sources */,
 				895ED40225DF50BC006EEA12 /* UIViewController+alert.swift in Sources */,
 				55464D5A255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift in Sources */,
 				895ED34125DD381D006EEA12 /* PhotoCollectionViewCell.swift in Sources */,
 				89F00AC12542E16200D482F6 /* UIStyleManager.swift in Sources */,
 				895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */,
+				895ED42825DF6BB4006EEA12 /* AboutUsViewModel.swift in Sources */,
+				895ED42E25DF6BB4006EEA12 /* AboutUsViewController.swift in Sources */,
 				895ED2FE25DD1C0E006EEA12 /* AvatarView.swift in Sources */,
 				895ED40C25DF5855006EEA12 /* UIImage+overlayedColor.swift in Sources */,
 				895ED35C25DD5062006EEA12 /* ImageAssetProtocol.swift in Sources */,

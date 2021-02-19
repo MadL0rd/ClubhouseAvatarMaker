@@ -15,7 +15,11 @@ enum AlertType {
 extension UIViewController {
 
     func showErrorAlert(with message: String?, errorHandler: (() -> Void)? = nil) {
-        let alert = createAlert(title: "Ошибка", message: message, type: .error, style: .alert, handler: errorHandler)
+        let alert = createAlert(title: NSLocalizedString("Error!", comment: ""),
+                                message: message,
+                                type: .error,
+                                style: .alert,
+                                handler: errorHandler)
         present(alert, animated: true, completion: nil)
     }
 
@@ -29,11 +33,15 @@ extension UIViewController {
                                       message: message,
                                       preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Oк", style: .default, handler: { (_) in
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                                     style: .default,
+                                     handler: { (_) in
               okHandler?()
           })
         
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: { (_) in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                         style: .cancel,
+                                         handler: { (_) in
             cancelHandler?()
         })
 
@@ -47,10 +55,10 @@ extension UIViewController {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Отмена",
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                       style: .cancel,
                                       handler: { (_) in resultHandler(false) }))
-        alert.addAction(UIAlertAction(title: "Продолжить",
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""),
                                       style: UIAlertAction.Style.default,
                                       handler: { (_) in resultHandler(true) }))
         present(alert, animated: true, completion: nil)
@@ -64,7 +72,7 @@ extension UIViewController {
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
 
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+        let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: { (_) in
             handler?()
         })
 
@@ -86,17 +94,17 @@ extension UIViewController {
         vc.view.addSubview(pickerView)
         alert.setValue(vc, forKey: "contentViewController")
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Отмена", comment: ""),
+        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Cancel", comment: ""), comment: ""),
                                       style: .cancel,
                                       handler: nil))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Выбрать", comment: ""),
+        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Select", comment: ""), comment: ""),
                                       style: UIAlertAction.Style.default,
                                       handler: { (_) in stringReturnHandler(pickerManager.selectedValue) }))
         present(alert, animated: true, completion: nil)
     }
     
     func showAlertWithColorPicker(startColor: UIColor?, colorReturnHandler: @escaping (_ color: UIColor) -> Void) {
-        let alert = UIAlertController(title: "Выберите цвет",
+        let alert = UIAlertController(title: NSLocalizedString("Choose color", comment: ""),
                                       message: "",
                                       preferredStyle: UIAlertController.Style.alert)
         let colorPicker = ColorPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 265))
@@ -109,10 +117,10 @@ extension UIViewController {
         vc.view.addSubview(colorPicker)
         alert.setValue(vc, forKey: "contentViewController")
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Отмена", comment: ""),
+        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Cancel", comment: ""), comment: ""),
                                       style: .cancel,
                                       handler: nil))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Выбрать", comment: ""),
+        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Select", comment: ""), comment: ""),
                                       style: UIAlertAction.Style.default,
                                       handler: { (_) in colorReturnHandler(colorPicker.color) }))
         present(alert, animated: true, completion: nil)

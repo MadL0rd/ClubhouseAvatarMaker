@@ -78,12 +78,13 @@ final class EditorViewController: UIViewController {
         _view.avatar.borderTintColor = selectedBorderColor
         
         _view.saveButton.addTarget(self, action: #selector(saveCurrentImage(sender:)), for: .touchUpInside)
+        _view.aboutButton.addTarget(self, action: #selector(openAboutUsPage(sender:)), for: .touchUpInside)
         _view.recropButton.addTarget(self, action: #selector(recropImage(sender:)), for: .touchUpInside)
-        
+        _view.pickColorButton.addTarget(self, action: #selector(pickCustomColor(sender:)), for: .touchUpInside)
+
         _view.newUserSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         _view.muteSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         _view.emojiSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
-        _view.pickColorButton.addTarget(self, action: #selector(pickCustomColor(sender:)), for: .touchUpInside)
     }
     
     // MARK: - Private methods
@@ -111,6 +112,12 @@ final class EditorViewController: UIViewController {
     @objc private func selectNewPhoto() {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
+        guard viewModel.authorizationStatusIsOK else {
+            showErrorAlert(with: NSLocalizedString("To pick photo you should provide this app access to gallery", comment: "")) { [ weak self ] in
+                self?.viewModel.openSettings()
+            }
+            return
+        }
         viewModel.pickNewPhotoFromAssets(changePhoto(asset:))
     }
     
@@ -132,14 +139,28 @@ final class EditorViewController: UIViewController {
         guard let currentPhoto = currentPhoto
         else { return }
         sender.tapAnimation()
+        vibroGeneratorLight.impactOccurred()
+        guard viewModel.authorizationStatusIsOK else {
+            showErrorAlert(with: NSLocalizedString("To save photo you should provide this app access to gallery", comment: "")) { [ weak self ] in
+                self?.viewModel.openSettings()
+            }
+            return
+        }
         var resultPhoto = currentPhoto
-        if var borderImage = _view.avatar.border?.image {
-            if let tintColor = selectedBorderColor {
+        if let border = _view.avatar.border,
+           var borderImage = border.image {
+            if border.colorable,
+               let tintColor = selectedBorderColor {
                 borderImage = borderImage.overlayed(by: tintColor)
             }
             resultPhoto = currentPhoto.mergeWith(topImage: borderImage)
         }
         UIImageWriteToSavedPhotosAlbum(resultPhoto, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc private func openAboutUsPage(sender: UIButton) {
+        sender.tapAnimation()
+        coordinator.openAboutUs()
     }
     
     @objc private func recropImage(sender: UIButton) {

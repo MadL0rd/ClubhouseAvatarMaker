@@ -31,7 +31,8 @@ final class EditorViewModel {
         Border(image: R.image.border11(), colorable: false, title: nil),
         Border(image: R.image.border12(), colorable: false, title: nil),
         Border(image: R.image.border13(), colorable: false, title: nil),
-        Border(image: R.image.border14(), colorable: false, title: "JoJo")
+        Border(image: R.image.border14(), colorable: false, title: "JoJo"),
+        Border(image: R.image.catBorder(), colorable: false, title: "* chpok *")
     ]
     var colors = [UIColor]()
     
@@ -101,8 +102,21 @@ extension EditorViewModel: EditorViewModelProtocol {
     
     // MARK: - Assets
     
+    var authorizationStatusIsOK: Bool {
+        switch assetsManager.authorizationStatus {
+        case .authorized, .limited:
+            return true
+        @unknown default:
+            return false
+        }
+    }
+    
     func pickNewPhotoFromAssets(_ completionHandler: @escaping (ImageAssetProtocol) -> Void) {
         assetsManager.getSinglePhoto(completionHandler)
+    }
+    
+    func openSettings() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
     }
 }
 

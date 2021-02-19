@@ -7,4 +7,6 @@
 
 protocol EditorCoordinatorProtocol: class {
     
+    func openAboutUs()
+    func openSubscribtion()
 }

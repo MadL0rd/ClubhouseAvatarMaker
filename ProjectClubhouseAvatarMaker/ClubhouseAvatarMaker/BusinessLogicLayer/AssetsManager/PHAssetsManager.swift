@@ -14,6 +14,10 @@ class PHAssetsManager: AssetsManagerProtocol {
     private var picker: PHPickerViewController!
     private var completionHandlerSingle: ((_: ImageAssetProtocol) -> Void)?
     private var completionHandlerArray: ((_: [ImageAssetProtocol]) -> Void)?
+    
+    var authorizationStatus: PHAuthorizationStatus {
+        return PHPhotoLibrary.authorizationStatus()
+    }
 
     var rootVC: UIViewController? {
         UIApplication.shared.keyWindow?.rootViewController

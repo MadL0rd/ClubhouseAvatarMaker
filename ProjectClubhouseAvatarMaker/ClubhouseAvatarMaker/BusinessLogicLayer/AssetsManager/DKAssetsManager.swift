@@ -11,6 +11,10 @@ import DKImagePickerController
 
 class DKAssetsManager: NSObject, AssetsManagerProtocol {
     
+    var authorizationStatus: PHAuthorizationStatus {
+        return PHPhotoLibrary.authorizationStatus()
+    }
+    
     var rootVC: UIViewController? {
         UIApplication.shared.keyWindow?.rootViewController
     }

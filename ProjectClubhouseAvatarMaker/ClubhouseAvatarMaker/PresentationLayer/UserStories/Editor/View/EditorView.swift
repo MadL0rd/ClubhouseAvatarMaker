@@ -13,6 +13,7 @@ final class EditorView: UIView {
     let mainAvatarWidth = UIConstants.screenBounds.width * 0.7
     
     let saveButton = ButtonWithTouchSize()
+    let aboutButton = ButtonWithTouchSize()
     let recropButton = ButtonWithTouchSize()
     let pickColorButton = ButtonWithTouchSize()
 
@@ -107,6 +108,11 @@ final class EditorView: UIView {
         saveButton.setDefaultAreaPadding()
         saveButton.setImage(R.image.saveButtonTest(), for: .normal)
         
+        addSubview(aboutButton)
+        aboutButton.translatesAutoresizingMaskIntoConstraints = false
+        aboutButton.setDefaultAreaPadding()
+        aboutButton.setImage(R.image.aboutButton(), for: .normal)
+        
         addSubview(recropButton)
         recropButton.translatesAutoresizingMaskIntoConstraints = false
         recropButton.setDefaultAreaPadding()
@@ -161,9 +167,9 @@ final class EditorView: UIView {
         settingsView.backgroundColor = R.color.backgroundLight()
         settingsView.layer.cornerRadius = 42
         settingsView.layer.shadowColor = R.color.gray()?.cgColor
-        settingsView.layer.shadowOpacity = 0.6
+        settingsView.layer.shadowOpacity = 0.7
         settingsView.layer.shadowOffset = .zero
-        settingsView.layer.shadowRadius = 3
+        settingsView.layer.shadowRadius = 5
         
         settingsView.addSubview(settingsStack)
         settingsStack.translatesAutoresizingMaskIntoConstraints = false
@@ -211,6 +217,11 @@ final class EditorView: UIView {
             saveButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideMargin),
             saveButton.widthAnchor.constraint(equalToConstant: 50),
             saveButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            aboutButton.topAnchor.constraint(equalTo: avatar.topAnchor),
+            aboutButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideMargin),
+            aboutButton.widthAnchor.constraint(equalToConstant: 50),
+            aboutButton.heightAnchor.constraint(equalToConstant: 50),
             
             recropButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
             recropButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideMargin),

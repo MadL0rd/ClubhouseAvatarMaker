@@ -9,6 +9,8 @@ import Photos
 
 protocol AssetsManagerProtocol {
     
+    var authorizationStatus: PHAuthorizationStatus { get }
+    
     func getSinglePhoto(_ completionHandler: @escaping ( _ photo: ImageAssetProtocol) -> Void)
     func getPhotosArray(maxCount: Int, completionHandler: @escaping (_ photos: [ImageAssetProtocol]) -> Void)
 }
