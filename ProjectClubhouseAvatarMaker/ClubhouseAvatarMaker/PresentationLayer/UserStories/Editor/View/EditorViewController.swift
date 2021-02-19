@@ -28,7 +28,11 @@ final class EditorViewController: UIViewController {
             }
         }
     }
-    private var selectedBorderColor = R.color.backgroundDark()
+    private var selectedBorderColor = R.color.backgroundDark() {
+        didSet {
+            enableNewBorderColor()
+        }
+    }
     
     private var showNewUserIcon = true
     private var showMuteIcon = true
@@ -65,6 +69,10 @@ final class EditorViewController: UIViewController {
         _view.photosCollectionView.delegate = self
         _view.photosCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         
+        _view.colorsCollectionView.dataSource = self
+        _view.colorsCollectionView.delegate = self
+        _view.colorsCollectionView.register(ColorCollectionViewCell.self, forCellWithReuseIdentifier: ColorCollectionViewCell.identifier)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(selectNewPhoto))
         _view.avatar.addGestureRecognizer(tap)
         _view.avatar.borderTintColor = selectedBorderColor
@@ -75,6 +83,7 @@ final class EditorViewController: UIViewController {
         _view.newUserSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         _view.muteSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         _view.emojiSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
+        _view.pickColorButton.addTarget(self, action: #selector(pickCustomColor(sender:)), for: .touchUpInside)
     }
     
     // MARK: - Private methods
@@ -88,6 +97,13 @@ final class EditorViewController: UIViewController {
         cropController.toolbar.resetButtonHidden = true
         cropController.modalPresentationStyle = .fullScreen
         present(cropController, animated: true, completion: nil)
+    }
+    
+    private func enableNewBorderColor() {
+        UIView.animate(withDuration: 0.3) { [ weak self ] in
+            self?._view.avatar.borderTintColor = self?.selectedBorderColor
+        }
+        _view.photosCollectionView.reloadData()
     }
     
     // MARK: - UI elements actions
@@ -128,6 +144,7 @@ final class EditorViewController: UIViewController {
         else { return }
         sender.tapAnimation()
         cropSelectedImage(image)
+        vibroGeneratorLight.impactOccurred()
     }
     
     @objc private func switchButtonTapped(button: TwoStateButton) {
@@ -146,26 +163,56 @@ final class EditorViewController: UIViewController {
         button.toggle()
         vibroGeneratorLight.impactOccurred()
     }
+    
+    @objc private func pickCustomColor(sender: UIButton) {
+        sender.tapAnimation()
+        vibroGeneratorLight.impactOccurred()
+        showAlertWithColorPicker(startColor: selectedBorderColor) { [ weak self ] color in
+            self?.selectedBorderColor = color
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension EditorViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.borders.count
+        switch collectionView {
+        case _view.photosCollectionView:
+            return viewModel.borders.count
+        case _view.colorsCollectionView:
+            return viewModel.colors.count
+        default:
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        cell.avatar.photo.image = currentPhoto
-        if let border = viewModel.borders[exist: indexPath.row] {
-            cell.avatar.setBorder(border, animated: false)
-            cell.avatar.borderTintColor = selectedBorderColor
-            cell.manageColorableIconVisibility(visible: border.colorable)
-            cell.nameLabel.text = border.title ?? PhotoCollectionViewCell.defaultName
-            cell.muteView.isHidden = !showMuteIcon
-            cell.newUserView.isHidden = !showNewUserIcon
+        var cell: UICollectionViewCell!
+        switch collectionView {
+        case _view.photosCollectionView:
+            let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
+            photoCell.avatar.photo.image = currentPhoto
+            if let border = viewModel.borders[exist: indexPath.row] {
+                photoCell.avatar.setBorder(border, animated: false)
+                photoCell.avatar.borderTintColor = selectedBorderColor
+                photoCell.manageColorableIconVisibility(visible: border.colorable)
+                photoCell.nameLabel.text = border.title ?? PhotoCollectionViewCell.defaultName
+                photoCell.muteView.isHidden = !showMuteIcon
+                photoCell.newUserView.isHidden = !showNewUserIcon
+            }
+            cell = photoCell
+            
+        case _view.colorsCollectionView:
+            let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCollectionViewCell.identifier, for: indexPath) as! ColorCollectionViewCell
+            colorCell.backgroundColor = viewModel.colors[exist: indexPath.row]
+            cell = colorCell
+            
+        default:
+            break
         }
+        
         return cell
     }
 }
@@ -175,12 +222,27 @@ extension EditorViewController: UICollectionViewDataSource {
 extension EditorViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
-        else { return }
-        cell.tapAnimation()
-        if let border = cell.avatar.border {
-            _view.avatar.setBorder(border)
+        switch collectionView {
+        case _view.photosCollectionView:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
+            else { return }
+            cell.tapAnimation()
+            if let border = viewModel.borders[exist: indexPath.row] {
+                _view.avatar.setBorder(border)
+                _view.manageColorsCollectionViewVisibility(visible: border.colorable)
+                vibroGeneratorLight.impactOccurred()
+            }
+            
+        case _view.colorsCollectionView:
+            guard let cell = collectionView.cellForItem(at: indexPath),
+                  let color = viewModel.colors[exist: indexPath.row]
+            else { return }
+            cell.tapAnimation()
             vibroGeneratorLight.impactOccurred()
+            selectedBorderColor = color
+            
+        default:
+            break
         }
     }
 }

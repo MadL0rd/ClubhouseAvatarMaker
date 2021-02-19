@@ -14,7 +14,8 @@ final class EditorView: UIView {
     
     let saveButton = ButtonWithTouchSize()
     let recropButton = ButtonWithTouchSize()
-    
+    let pickColorButton = ButtonWithTouchSize()
+
     let photosCollectionViewLayout = UICollectionViewFlowLayout()
     private(set) var photosCollectionView: UICollectionView!
     
@@ -36,7 +37,8 @@ final class EditorView: UIView {
         return (UIConstants.screenBounds.width - (sideMargin + photosCellSpacing) * 2) / 3
     }
     
-    let colorCellSideSize: CGFloat = 30
+    let colorCellSideSize: CGFloat = ColorCollectionViewCell.colorCellSideSize
+    let colorCellSpacing: CGFloat = 6
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,6 +69,17 @@ final class EditorView: UIView {
         }
         photosCollectionView.reloadData()
     }
+    
+    func manageColorsCollectionViewVisibility(visible: Bool) {
+        UIView.animate(withDuration: 0.3) { [ weak self ] in
+            guard let self = self
+            else { return }
+            self.photosCollectionView.transform = .init(translationX: 0, y: visible ? self.colorCellSideSize : 0)
+            self.colorsCollectionView.alpha = visible ? 1 : 0
+            self.pickColorButton.transform = .init(translationX: visible ? 0 : 150, y: 0)
+            self.pickColorButton.alpha = visible ? 1 : 0
+        }
+    }
 
     // MARK: - Private methods
     
@@ -80,6 +93,7 @@ final class EditorView: UIView {
         avatar.isUserInteractionEnabled = true
         
         setupButtons()
+        setupColorsCollection()
         setupPhotosCollection()
         setupBottomMenu()
         
@@ -97,23 +111,28 @@ final class EditorView: UIView {
         recropButton.setDefaultAreaPadding()
         recropButton.setImage(R.image.cropIcon(), for: .normal)
         recropButton.isHidden = true
+        
+        addSubview(pickColorButton)
+        pickColorButton.translatesAutoresizingMaskIntoConstraints = false
+        pickColorButton.setDefaultAreaPadding()
+        pickColorButton.setImage(R.image.colorableIcon(), for: .normal)
+        pickColorButton.transform = .init(translationX: 150, y: 0)
+        pickColorButton.alpha = 0
     }
     
     private func setupColorsCollection() {
         colorsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: colorsCollectionViewLayout)
         addSubview(colorsCollectionView)
         colorsCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        colorsCollectionView.backgroundColor = R.color.backgroundLight()
-        colorsCollectionViewLayout.minimumLineSpacing = photosCellSpacing + 5
-        colorsCollectionViewLayout.minimumInteritemSpacing = photosCellSpacing
-        colorsCollectionViewLayout.scrollDirection = .vertical
-        colorsCollectionViewLayout.itemSize = CGSize(width: photoCellWidth, height: photoCellHeight)
-        colorsCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 100, right: 0)
-        colorsCollectionView.contentInset = UIEdgeInsets(top: sideMargin * 1.7,
-                                                         left: sideMargin,
-                                                         bottom: sideMargin + 90,
-                                                         right: sideMargin)
-        colorsCollectionView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 60)
+        colorsCollectionView.backgroundColor = R.color.main()
+        colorsCollectionViewLayout.minimumLineSpacing = colorCellSpacing
+        colorsCollectionViewLayout.minimumInteritemSpacing = colorCellSpacing
+        colorsCollectionViewLayout.scrollDirection = .horizontal
+        colorsCollectionViewLayout.itemSize = CGSize(width: colorCellSideSize, height: colorCellSideSize)
+        colorsCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: colorCellSideSize, bottom: 0, right: colorCellSideSize)
+        colorsCollectionView.contentInset = UIEdgeInsets(top: 0, left: colorCellSideSize, bottom: 0, right: colorCellSideSize)
+        colorsCollectionView.showsHorizontalScrollIndicator = false
+        colorsCollectionView.alpha = 0
     }
     
     private func setupPhotosCollection() {
@@ -176,6 +195,11 @@ final class EditorView: UIView {
             avatar.widthAnchor.constraint(equalToConstant: mainAvatarWidth),
             avatar.heightAnchor.constraint(equalToConstant: mainAvatarWidth),
             
+            colorsCollectionView.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: sideMargin / 2),
+            colorsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            colorsCollectionView.widthAnchor.constraint(equalTo: widthAnchor),
+            colorsCollectionView.heightAnchor.constraint(equalToConstant: colorCellSideSize),
+            
             photosCollectionView.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: sideMargin),
             photosCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
             photosCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -190,6 +214,11 @@ final class EditorView: UIView {
             recropButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideMargin),
             recropButton.widthAnchor.constraint(equalToConstant: 50),
             recropButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            pickColorButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
+            pickColorButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideMargin),
+            pickColorButton.widthAnchor.constraint(equalToConstant: 50),
+            pickColorButton.heightAnchor.constraint(equalToConstant: 50),
             
             settingsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 50),
             settingsView.leftAnchor.constraint(equalTo: leftAnchor),
