@@ -11,6 +11,7 @@ final class EditorView: UIView {
     
     let avatar = AvatarView()
     let mainAvatarWidth = UIConstants.screenBounds.width * 0.7
+    let emojiView = EmojiContainer()
     
     let saveButton = ButtonWithTouchSize()
     let aboutButton = ButtonWithTouchSize()
@@ -76,6 +77,14 @@ final class EditorView: UIView {
         photosCollectionView.reloadData()
     }
     
+    func manageEmojiViewVisibility(visible: Bool) {
+        UIView.animate(withDuration: 0.3) { [ weak self ] in
+            guard let self = self
+            else { return }
+            self.emojiView.alpha = visible ? 1 : 0
+        }
+    }
+    
     func manageColorsCollectionViewVisibility(visible: Bool) {
         UIView.animate(withDuration: 0.3) { [ weak self ] in
             guard let self = self
@@ -125,6 +134,11 @@ final class EditorView: UIView {
         avatar.setCornerRadiusByWidth(mainAvatarWidth)
         avatar.isUserInteractionEnabled = true
         
+        avatar.addSubview(emojiView)
+        emojiView.translatesAutoresizingMaskIntoConstraints = false
+        emojiView.label.text = "♠"
+        emojiView.setSize(avatarSideSize: mainAvatarWidth)
+        
         setupButtons()
         setupSuccessMessage()
         setupColorsCollection()
@@ -132,6 +146,7 @@ final class EditorView: UIView {
         setupBottomMenu()
         
         makeConstraints()
+        makeSettingsConstraints()
     }
     
     private func setupButtons() {
@@ -139,7 +154,8 @@ final class EditorView: UIView {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.setDefaultAreaPadding()
         saveButton.setImage(R.image.saveButtonTest(), for: .normal)
-        
+        saveButton.setImage(R.image.saveButtonTest(), for: .focused)
+
         addSubview(aboutButton)
         aboutButton.translatesAutoresizingMaskIntoConstraints = false
         aboutButton.setDefaultAreaPadding()
@@ -155,6 +171,7 @@ final class EditorView: UIView {
         pickColorButton.translatesAutoresizingMaskIntoConstraints = false
         pickColorButton.setDefaultAreaPadding()
         pickColorButton.setImage(R.image.colorableIcon(), for: .normal)
+        pickColorButton.setImage(R.image.colorableIcon(), for: .focused)
         pickColorButton.transform = CGAffineTransform(translationX: 150, y: 0).rotated(by: .pi / 2)
         pickColorButton.alpha = 0
         UIStyleManager.shadow(pickColorButton)
@@ -173,7 +190,7 @@ final class EditorView: UIView {
         successMessageLabel.text = "🎉 \(congratulationsText) 🎉\n\(saveText)"
         successMessageLabel.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner],
                                          radius: 25)
-        successMessageLabel.alpha = 1
+        successMessageLabel.alpha = 0
         successMessageLabel.transform = successLabelHiddenTransform
     }
     
@@ -252,6 +269,9 @@ final class EditorView: UIView {
             avatar.widthAnchor.constraint(equalToConstant: mainAvatarWidth),
             avatar.heightAnchor.constraint(equalToConstant: mainAvatarWidth),
             
+            emojiView.leftAnchor.constraint(equalTo: avatar.leftAnchor, constant: 15),
+            emojiView.topAnchor.constraint(equalTo: avatar.topAnchor, constant: 15),
+
             successMessageLabel.bottomAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 10),
             successMessageLabel.centerXAnchor.constraint(equalTo: avatar.centerXAnchor),
             successMessageLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.8),
@@ -284,8 +304,12 @@ final class EditorView: UIView {
             pickColorButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
             pickColorButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideMargin),
             pickColorButton.widthAnchor.constraint(equalToConstant: 50),
-            pickColorButton.heightAnchor.constraint(equalToConstant: 50),
-            
+            pickColorButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    private func makeSettingsConstraints() {
+        NSLayoutConstraint.activate([
             settingsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 50),
             settingsView.leftAnchor.constraint(equalTo: leftAnchor),
             settingsView.rightAnchor.constraint(equalTo: rightAnchor),

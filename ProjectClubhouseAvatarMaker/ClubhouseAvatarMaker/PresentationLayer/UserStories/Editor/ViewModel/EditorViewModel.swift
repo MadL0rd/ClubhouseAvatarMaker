@@ -106,6 +106,8 @@ extension EditorViewModel: EditorViewModelProtocol {
         switch assetsManager.authorizationStatus {
         case .authorized, .limited:
             return true
+        case .notDetermined, .restricted, .denied:
+            return false
         @unknown default:
             return false
         }

@@ -36,7 +36,11 @@ final class EditorViewController: UIViewController {
     
     private var showNewUserIcon = true
     private var showMuteIcon = true
-    private var addEmoji = true
+    private var addEmoji = true {
+        didSet {
+            _view.manageEmojiViewVisibility(visible: addEmoji)
+        }
+    }
 
     private var _view: EditorView {
         return view as! EditorView
@@ -154,6 +158,11 @@ final class EditorViewController: UIViewController {
                 borderImage = borderImage.overlayed(by: tintColor)
             }
             resultPhoto = currentPhoto.mergeWith(topImage: borderImage)
+        }
+        
+        if addEmoji,
+           let emojiImage = _view.emojiView.makeImage() {
+            resultPhoto = currentPhoto.mergeWith(topImage: emojiImage)
         }
         UIImageWriteToSavedPhotosAlbum(resultPhoto, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
