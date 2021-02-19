@@ -76,7 +76,8 @@ final class EditorView: UIView {
             else { return }
             self.photosCollectionView.transform = .init(translationX: 0, y: visible ? self.colorCellSideSize : 0)
             self.colorsCollectionView.alpha = visible ? 1 : 0
-            self.pickColorButton.transform = .init(translationX: visible ? 0 : 150, y: 0)
+            self.pickColorButton.transform = CGAffineTransform(translationX: visible ? 0 : 150, y: 0)
+                .rotated(by: visible ? 0 : .pi / 2)
             self.pickColorButton.alpha = visible ? 1 : 0
         }
     }
@@ -116,8 +117,9 @@ final class EditorView: UIView {
         pickColorButton.translatesAutoresizingMaskIntoConstraints = false
         pickColorButton.setDefaultAreaPadding()
         pickColorButton.setImage(R.image.colorableIcon(), for: .normal)
-        pickColorButton.transform = .init(translationX: 150, y: 0)
+        pickColorButton.transform = CGAffineTransform(translationX: 150, y: 0).rotated(by: .pi / 2)
         pickColorButton.alpha = 0
+        UIStyleManager.shadow(pickColorButton)
     }
     
     private func setupColorsCollection() {

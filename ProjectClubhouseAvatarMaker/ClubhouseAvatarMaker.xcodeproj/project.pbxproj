@@ -49,6 +49,7 @@
 		895ED3FA25DF5035006EEA12 /* PickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED3F825DF5035006EEA12 /* PickerViewManager.swift */; };
 		895ED40225DF50BC006EEA12 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */; };
 		895ED40825DF51E0006EEA12 /* UIColor+rgba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED40725DF51E0006EEA12 /* UIColor+rgba.swift */; };
+		895ED40C25DF5855006EEA12 /* UIImage+overlayedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */; };
 		8965D9D4259CA6F7007FDE48 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */; };
 		8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */; };
 		896F63DE25994AE50001599C /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F63DD25994AE50001599C /* UIView+shake.swift */; };
@@ -145,6 +146,7 @@
 		895ED3F825DF5035006EEA12 /* PickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewManager.swift; sourceTree = "<group>"; };
 		895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		895ED40725DF51E0006EEA12 /* UIColor+rgba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgba.swift"; sourceTree = "<group>"; };
+		895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+overlayedColor.swift"; sourceTree = "<group>"; };
 		8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		896F63DD25994AE50001599C /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				895ED3EE25DF2FC9006EEA12 /* UIView+layerAnimation.swift */,
 				895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */,
 				895ED40725DF51E0006EEA12 /* UIColor+rgba.swift */,
+				895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				89F00AC12542E16200D482F6 /* UIStyleManager.swift in Sources */,
 				895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */,
 				895ED2FE25DD1C0E006EEA12 /* AvatarView.swift in Sources */,
+				895ED40C25DF5855006EEA12 /* UIImage+overlayedColor.swift in Sources */,
 				895ED35C25DD5062006EEA12 /* ImageAssetProtocol.swift in Sources */,
 				895ED3F925DF5035006EEA12 /* ColorPickerView.swift in Sources */,
 				895ED2F825DD1B33006EEA12 /* Border.swift in Sources */,

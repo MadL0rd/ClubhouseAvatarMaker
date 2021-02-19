@@ -36,7 +36,7 @@ final class EditorViewModel {
     var colors = [UIColor]()
     
     init() {
-        colors = (0...360).compactMap { $0 % 5 == 0 ? colorFromDegreesAngle(CGFloat($0)) : nil }
+        colors = (0...360).compactMap { $0 % 15 == 0 ? colorFromDegreesAngle(CGFloat($0)) : nil }
     }
     
     private func colorFromDegreesAngle(_ angle: CGFloat) -> UIColor {

@@ -133,7 +133,10 @@ final class EditorViewController: UIViewController {
         else { return }
         sender.tapAnimation()
         var resultPhoto = currentPhoto
-        if let borderImage = _view.avatar.border?.image {
+        if var borderImage = _view.avatar.border?.image {
+            if let tintColor = selectedBorderColor {
+                borderImage = borderImage.overlayed(by: tintColor)
+            }
             resultPhoto = currentPhoto.mergeWith(topImage: borderImage)
         }
         UIImageWriteToSavedPhotosAlbum(resultPhoto, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
