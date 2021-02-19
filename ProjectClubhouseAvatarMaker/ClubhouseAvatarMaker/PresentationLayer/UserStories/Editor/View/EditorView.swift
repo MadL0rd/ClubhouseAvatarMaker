@@ -16,6 +16,11 @@ final class EditorView: UIView {
     let aboutButton = ButtonWithTouchSize()
     let recropButton = ButtonWithTouchSize()
     let pickColorButton = ButtonWithTouchSize()
+    
+    let successMessageLabel = PaddingLabel(withInsets: 20, 20, 30, 30)
+    private var hideLabelRequestCount: Int = 0
+    let duration: TimeInterval = 0.3
+    let successLabelHiddenTransform = CGAffineTransform(translationX: 0, y: 80).scaledBy(x: 0.7, y: 0.7)
 
     let photosCollectionViewLayout = UICollectionViewFlowLayout()
     private(set) var photosCollectionView: UICollectionView!
@@ -82,6 +87,32 @@ final class EditorView: UIView {
             self.pickColorButton.alpha = visible ? 1 : 0
         }
     }
+    
+    func showSaveSuccessMessage() {
+        UIView.animate(withDuration: duration) { [ weak self ] in
+            self?.successMessageLabel.alpha = 1
+            self?.successMessageLabel.transform = .init(translationX: 0, y: 0)
+        }
+        if hideLabelRequestCount != 0 {
+            successMessageLabel.tapAnimation()
+        }
+        hideLabelRequestCount += 1
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration * 5) { [ weak self ] in
+            self?.hideSaveSuccessMessage()
+        }
+    }
+    
+    func hideSaveSuccessMessage() {
+        hideLabelRequestCount -= 1
+        if hideLabelRequestCount == 0 {
+            UIView.animate(withDuration: duration) { [ weak self ] in
+                guard let self = self
+                else { return }
+                self.successMessageLabel.alpha = 0
+                self.successMessageLabel.transform = self.successLabelHiddenTransform
+            }
+        }
+    }
 
     // MARK: - Private methods
     
@@ -95,6 +126,7 @@ final class EditorView: UIView {
         avatar.isUserInteractionEnabled = true
         
         setupButtons()
+        setupSuccessMessage()
         setupColorsCollection()
         setupPhotosCollection()
         setupBottomMenu()
@@ -126,6 +158,23 @@ final class EditorView: UIView {
         pickColorButton.transform = CGAffineTransform(translationX: 150, y: 0).rotated(by: .pi / 2)
         pickColorButton.alpha = 0
         UIStyleManager.shadow(pickColorButton)
+    }
+    
+    private func setupSuccessMessage() {
+        addSubview(successMessageLabel)
+        successMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        successMessageLabel.font = R.font.gilroyBold(size: 14)
+        successMessageLabel.textColor = R.color.tintColorDark()
+        successMessageLabel.backgroundColor = R.color.backgroundLight()
+        successMessageLabel.numberOfLines = 0
+        successMessageLabel.textAlignment = .center
+        let congratulationsText = NSLocalizedString("Congratulations!", comment: "")
+        let saveText = NSLocalizedString("New avatar saved to gallery", comment: "")
+        successMessageLabel.text = "🎉 \(congratulationsText) 🎉\n\(saveText)"
+        successMessageLabel.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner],
+                                         radius: 25)
+        successMessageLabel.alpha = 1
+        successMessageLabel.transform = successLabelHiddenTransform
     }
     
     private func setupColorsCollection() {
@@ -202,6 +251,10 @@ final class EditorView: UIView {
             avatar.centerXAnchor.constraint(equalTo: centerXAnchor),
             avatar.widthAnchor.constraint(equalToConstant: mainAvatarWidth),
             avatar.heightAnchor.constraint(equalToConstant: mainAvatarWidth),
+            
+            successMessageLabel.bottomAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 10),
+            successMessageLabel.centerXAnchor.constraint(equalTo: avatar.centerXAnchor),
+            successMessageLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.8),
             
             colorsCollectionView.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: sideMargin / 2),
             colorsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),

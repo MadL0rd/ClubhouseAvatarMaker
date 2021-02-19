@@ -295,8 +295,7 @@ extension EditorViewController {
             print("ERROR: \(error)")
         }
         else {
-            //        TODO: make new save animation
-            self.showAlert("Image saved", message: "The iamge is saved into your Photo Library.")
+            _view.showSaveSuccessMessage()
         }
     }
     
