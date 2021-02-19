@@ -15,21 +15,25 @@ final class EditorViewController: UIViewController {
     
     private let vibroGeneratorLight = UIImpactFeedbackGenerator(style: .light)
     
-    var lastPickedPhoto: UIImage?
-    var lastSelectedPhoto: UIImage? {
+    private var lastPickedPhoto: UIImage?
+    private var lastSelectedPhoto: UIImage? {
         didSet {
             _view.recropButton.isHidden = false
         }
     }
-    var currentPhoto = R.image.defaultPhoto() {
+    private var currentPhoto = R.image.defaultPhoto() {
         didSet {
             DispatchQueue.main.async { [ weak self ] in
                 self?._view.setNewPhoto(self?.currentPhoto)
             }
         }
     }
-    var selectedBorderColor = R.color.backgroundDark()
+    private var selectedBorderColor = R.color.backgroundDark()
     
+    private var showNewUserIcon = true
+    private var showMuteIcon = true
+    private var addEmoji = true
+
     private var _view: EditorView {
         return view as! EditorView
     }
@@ -67,6 +71,10 @@ final class EditorViewController: UIViewController {
         
         _view.saveButton.addTarget(self, action: #selector(saveCurrentImage(sender:)), for: .touchUpInside)
         _view.recropButton.addTarget(self, action: #selector(recropImage(sender:)), for: .touchUpInside)
+        
+        _view.newUserSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
+        _view.muteSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
+        _view.emojiSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
     }
     
     // MARK: - Private methods
@@ -105,9 +113,14 @@ final class EditorViewController: UIViewController {
     }
     
     @objc private func saveCurrentImage(sender: UIButton) {
+        guard let currentPhoto = currentPhoto
+        else { return }
         sender.tapAnimation()
-        let kekPhoto = currentPhoto!.mergeWith(topImage: _view.avatar.border!.image!)
-        UIImageWriteToSavedPhotosAlbum(kekPhoto, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        var resultPhoto = currentPhoto
+        if let borderImage = _view.avatar.border?.image {
+            resultPhoto = currentPhoto.mergeWith(topImage: borderImage)
+        }
+        UIImageWriteToSavedPhotosAlbum(resultPhoto, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     @objc private func recropImage(sender: UIButton) {
@@ -115,6 +128,23 @@ final class EditorViewController: UIViewController {
         else { return }
         sender.tapAnimation()
         cropSelectedImage(image)
+    }
+    
+    @objc private func switchButtonTapped(button: TwoStateButton) {
+        switch button {
+        case _view.muteSwitchButton:
+            showMuteIcon = !button.viewState
+        case _view.emojiSwitchButton:
+            addEmoji = !button.viewState
+        case _view.newUserSwitchButton:
+            showNewUserIcon = !button.viewState
+        default:
+            return
+        }
+        _view.photosCollectionView.reloadData()
+        button.tapAnimation()
+        button.toggle()
+        vibroGeneratorLight.impactOccurred()
     }
 }
 
@@ -132,6 +162,9 @@ extension EditorViewController: UICollectionViewDataSource {
             cell.avatar.setBorder(border, animated: false)
             cell.avatar.borderTintColor = selectedBorderColor
             cell.manageColorableIconVisibility(visible: border.colorable)
+            cell.nameLabel.text = border.title ?? PhotoCollectionViewCell.defaultName
+            cell.muteView.isHidden = !showMuteIcon
+            cell.newUserView.isHidden = !showNewUserIcon
         }
         return cell
     }

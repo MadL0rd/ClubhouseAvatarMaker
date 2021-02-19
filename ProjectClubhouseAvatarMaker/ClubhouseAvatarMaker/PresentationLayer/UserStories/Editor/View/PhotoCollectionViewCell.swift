@@ -10,6 +10,7 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "PhotoCollectionViewCell"
+    static let defaultName = NSLocalizedString("Speaker", comment: "")
     
     let avatar = AvatarView()
     let muteView = UIImageView(image: R.image.mute())
@@ -34,13 +35,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     func manageColorableIconVisibility(visible: Bool) {
         colorableIconImageView.isHidden = !visible
-        if visible {
-            nameLabel.transform = .init(translationX: 6, y: 0)
-            let angle = .pi / 6 * CGFloat.random(in: 0...1)
-            colorableIconImageView.transform = .init(rotationAngle: angle)
-        } else {
-            nameLabel.transform = CGAffineTransform(translationX: 0, y: 0)
-        }
+        nameLabel.transform = .init(translationX: visible ? 8 : 0, y: 0)
     }
 
     // MARK: - Private setup methods
@@ -58,7 +53,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         nameLabel.textColor = R.color.tintColorDark()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = R.font.gilroyBold(size: 13)
-        nameLabel.text = NSLocalizedString("Speaker", comment: "")
+        nameLabel.text = PhotoCollectionViewCell.defaultName
         
         makeConstraints()
     }
@@ -91,10 +86,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             newUserView.bottomAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 4),
             newUserView.leftAnchor.constraint(equalTo: avatar.leftAnchor, constant: 2),
             
-            colorableIconImageView.heightAnchor.constraint(equalToConstant: indicatorsWidth),
-            colorableIconImageView.widthAnchor.constraint(equalToConstant: indicatorsWidth),
-            colorableIconImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            colorableIconImageView.leftAnchor.constraint(equalTo: avatar.leftAnchor, constant: -5),
+            colorableIconImageView.heightAnchor.constraint(equalToConstant: 13),
+            colorableIconImageView.widthAnchor.constraint(equalToConstant: 13),
+            colorableIconImageView.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: -2),
+            colorableIconImageView.rightAnchor.constraint(equalTo: nameLabel.leftAnchor, constant: 3),
             
             nameLabel.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 13),
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)

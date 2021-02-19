@@ -18,12 +18,25 @@ final class EditorView: UIView {
     let photosCollectionViewLayout = UICollectionViewFlowLayout()
     private(set) var photosCollectionView: UICollectionView!
     
-    let photosCellSpacing: CGFloat = 12
+    let colorsCollectionViewLayout = UICollectionViewFlowLayout()
+    private(set) var colorsCollectionView: UICollectionView!
+    
+    let settingsView = UIView()
+    let settingsStack = UIStackView()
+    let newUserSwitchButton = TwoStateButton()
+    let muteSwitchButton = TwoStateButton()
+    let emojiSwitchButton = TwoStateButton()
+    let buttonSwitchSideSize: CGFloat = 60
+
     let sideMargin: CGFloat = 25
+    
+    let photosCellSpacing: CGFloat = 12
     let photoCellHeight: CGFloat = 113
     var photoCellWidth: CGFloat {
         return (UIConstants.screenBounds.width - (sideMargin + photosCellSpacing) * 2) / 3
     }
+    
+    let colorCellSideSize: CGFloat = 30
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +49,8 @@ final class EditorView: UIView {
         
         setupView()
     }
+    
+    // MARK: - Public methods
     
     func showAvatar() {
         UIView.animate(withDuration: 0.3) { [ weak self ] in
@@ -64,21 +79,14 @@ final class EditorView: UIView {
         avatar.setCornerRadiusByWidth(mainAvatarWidth)
         avatar.isUserInteractionEnabled = true
         
-        photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: photosCollectionViewLayout)
-        addSubview(photosCollectionView)
-        photosCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        photosCollectionView.backgroundColor = R.color.backgroundLight()
-        photosCollectionViewLayout.minimumLineSpacing = photosCellSpacing + 5
-        photosCollectionViewLayout.minimumInteritemSpacing = photosCellSpacing
-        photosCollectionViewLayout.scrollDirection = .vertical
-        photosCollectionViewLayout.itemSize = CGSize(width: photoCellWidth, height: photoCellHeight)
-        photosCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 30, right: 0)
-        photosCollectionView.contentInset = UIEdgeInsets(top: sideMargin * 1.7,
-                                                         left: sideMargin,
-                                                         bottom: sideMargin,
-                                                         right: sideMargin)
-        photosCollectionView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 60)
+        setupButtons()
+        setupPhotosCollection()
+        setupBottomMenu()
         
+        makeConstraints()
+    }
+    
+    private func setupButtons() {
         addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.setDefaultAreaPadding()
@@ -89,8 +97,76 @@ final class EditorView: UIView {
         recropButton.setDefaultAreaPadding()
         recropButton.setImage(R.image.cropIcon(), for: .normal)
         recropButton.isHidden = true
-
-        makeConstraints()
+    }
+    
+    private func setupColorsCollection() {
+        colorsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: colorsCollectionViewLayout)
+        addSubview(colorsCollectionView)
+        colorsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        colorsCollectionView.backgroundColor = R.color.backgroundLight()
+        colorsCollectionViewLayout.minimumLineSpacing = photosCellSpacing + 5
+        colorsCollectionViewLayout.minimumInteritemSpacing = photosCellSpacing
+        colorsCollectionViewLayout.scrollDirection = .vertical
+        colorsCollectionViewLayout.itemSize = CGSize(width: photoCellWidth, height: photoCellHeight)
+        colorsCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 100, right: 0)
+        colorsCollectionView.contentInset = UIEdgeInsets(top: sideMargin * 1.7,
+                                                         left: sideMargin,
+                                                         bottom: sideMargin + 90,
+                                                         right: sideMargin)
+        colorsCollectionView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 60)
+    }
+    
+    private func setupPhotosCollection() {
+        photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: photosCollectionViewLayout)
+        addSubview(photosCollectionView)
+        photosCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        photosCollectionView.backgroundColor = R.color.backgroundLight()
+        photosCollectionViewLayout.minimumLineSpacing = photosCellSpacing + 5
+        photosCollectionViewLayout.minimumInteritemSpacing = photosCellSpacing
+        photosCollectionViewLayout.scrollDirection = .vertical
+        photosCollectionViewLayout.itemSize = CGSize(width: photoCellWidth, height: photoCellHeight)
+        photosCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 100, right: 0)
+        photosCollectionView.contentInset = UIEdgeInsets(top: sideMargin * 1.7,
+                                                         left: sideMargin,
+                                                         bottom: sideMargin + 90,
+                                                         right: sideMargin)
+        photosCollectionView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 60)
+        
+    }
+    
+    private func setupBottomMenu() {
+        addSubview(settingsView)
+        settingsView.translatesAutoresizingMaskIntoConstraints = false
+        settingsView.backgroundColor = R.color.backgroundLight()
+        settingsView.layer.cornerRadius = 42
+        settingsView.layer.shadowColor = R.color.gray()?.cgColor
+        settingsView.layer.shadowOpacity = 0.6
+        settingsView.layer.shadowOffset = .zero
+        settingsView.layer.shadowRadius = 3
+        
+        settingsView.addSubview(settingsStack)
+        settingsStack.translatesAutoresizingMaskIntoConstraints = false
+        settingsStack.axis = .horizontal
+        settingsStack.spacing = 25
+        settingsStack.distribution = .equalCentering
+        
+        setupSwitchButton(image: R.image.newUser(), button: newUserSwitchButton)
+        setupSwitchButton(image: R.image.mute(), button: muteSwitchButton)
+        setupSwitchButton(image: nil, button: emojiSwitchButton)
+        emojiSwitchButton.setTitle("🔥", for: .normal)
+        emojiSwitchButton.titleLabel?.font = R.font.gilroyBold(size: 45)
+        emojiSwitchButton.textChanging = false
+    }
+    
+    private func setupSwitchButton(image: UIImage?, button: TwoStateButton) {
+        settingsStack.addArrangedSubview(button)
+        UIStyleManager.buttonShadow(button)
+        button.interactionAbilityChanging = false
+        button.setActive()
+        button.duration = 0.25
+        button.backgroundColor = R.color.backgroundLight()
+        button.setImage(image, for: .normal)
+        button.setImage(image, for: .highlighted)
     }
 
     private func makeConstraints() {
@@ -113,7 +189,25 @@ final class EditorView: UIView {
             recropButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
             recropButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideMargin),
             recropButton.widthAnchor.constraint(equalToConstant: 50),
-            recropButton.heightAnchor.constraint(equalToConstant: 50)
+            recropButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            settingsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 50),
+            settingsView.leftAnchor.constraint(equalTo: leftAnchor),
+            settingsView.rightAnchor.constraint(equalTo: rightAnchor),
+            settingsView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -90),
+            
+            settingsStack.topAnchor.constraint(equalTo: settingsView.topAnchor, constant: 15),
+            settingsStack.centerXAnchor.constraint(equalTo: settingsView.centerXAnchor),
+            settingsStack.widthAnchor.constraint(equalTo: settingsView.widthAnchor, constant: -UIConstants.screenBounds.width * 0.2),
+            
+            newUserSwitchButton.widthAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            newUserSwitchButton.heightAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            
+            muteSwitchButton.widthAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            muteSwitchButton.heightAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            
+            emojiSwitchButton.widthAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            emojiSwitchButton.heightAnchor.constraint(equalToConstant: buttonSwitchSideSize)
         ])
     }
 }

@@ -37,10 +37,14 @@ class AvatarView: UIView {
     func setBorder(_ border: Border, animated: Bool = true) {
         self.border = border
         let image = border.image?.withRenderingMode(border.colorable ? .alwaysTemplate : .alwaysOriginal)
-        UIView.transition(with: borderView,
-                          duration: 0.3,
-                          options: .transitionCrossDissolve) { [ weak self ] in
-            self?.borderView.image = image
+        if animated {
+            UIView.transition(with: borderView,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve) { [ weak self ] in
+                self?.borderView.image = image
+            }
+        } else {
+            borderView.image = image
         }
     }
     
@@ -62,6 +66,7 @@ class AvatarView: UIView {
         layer.borderColor = R.color.lightGray()?.cgColor
         layer.borderWidth = 1
         layer.masksToBounds = true
+        clipsToBounds = true
         
         borderTintColor = R.color.tintColorDark()
         

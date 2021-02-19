@@ -10,4 +10,5 @@ import UIKit
 struct Border {
     let image: UIImage?
     let colorable: Bool
+    let title: String?
 }

@@ -42,6 +42,8 @@
 		895ED35C25DD5062006EEA12 /* ImageAssetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED35325DD5061006EEA12 /* ImageAssetProtocol.swift */; };
 		895ED38425DD6D35006EEA12 /* Borders.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895ED38325DD6D35006EEA12 /* Borders.xcassets */; };
 		895ED38825DEEA4D006EEA12 /* UIImage+merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED38725DEEA4D006EEA12 /* UIImage+merge.swift */; };
+		895ED3EB25DF2F20006EEA12 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED3EA25DF2F20006EEA12 /* TwoStateButton.swift */; };
+		895ED3EF25DF2FC9006EEA12 /* UIView+layerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED3EE25DF2FC9006EEA12 /* UIView+layerAnimation.swift */; };
 		8965D9D4259CA6F7007FDE48 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */; };
 		8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */; };
 		896F63DE25994AE50001599C /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F63DD25994AE50001599C /* UIView+shake.swift */; };
@@ -131,6 +133,8 @@
 		895ED35325DD5061006EEA12 /* ImageAssetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAssetProtocol.swift; sourceTree = "<group>"; };
 		895ED38325DD6D35006EEA12 /* Borders.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Borders.xcassets; sourceTree = "<group>"; };
 		895ED38725DEEA4D006EEA12 /* UIImage+merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+merge.swift"; sourceTree = "<group>"; };
+		895ED3EA25DF2F20006EEA12 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
+		895ED3EE25DF2FC9006EEA12 /* UIView+layerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layerAnimation.swift"; sourceTree = "<group>"; };
 		8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		896F63DD25994AE50001599C /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 				8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */,
 				895ED34425DD3E54006EEA12 /* UIView+RoundedCorners.swift */,
 				895ED38725DEEA4D006EEA12 /* UIImage+merge.swift */,
+				895ED3EE25DF2FC9006EEA12 /* UIView+layerAnimation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 				89AD8E49255BAA7300660695 /* ArrowDownButton.swift */,
 				89AD8E69255D441000660695 /* AnnouncementViewController.swift */,
 				8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */,
+				895ED3EA25DF2F20006EEA12 /* TwoStateButton.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -778,6 +784,8 @@
 				895ED33A25DD319B006EEA12 /* LoadingViewController.swift in Sources */,
 				895ED35725DD5061006EEA12 /* DKAssetsManager.swift in Sources */,
 				895ED2F125DD19FC006EEA12 /* EditorView.swift in Sources */,
+				895ED3EB25DF2F20006EEA12 /* TwoStateButton.swift in Sources */,
+				895ED3EF25DF2FC9006EEA12 /* UIView+layerAnimation.swift in Sources */,
 				895ED2EE25DD19FC006EEA12 /* EditorCoordinator.swift in Sources */,
 				895ED33825DD319B006EEA12 /* LoadingCoordinatorProtocol.swift in Sources */,
 				895ED34525DD3E54006EEA12 /* UIView+RoundedCorners.swift in Sources */,
