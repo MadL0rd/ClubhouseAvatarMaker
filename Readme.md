@@ -1,6 +1,5 @@
 # ClubhouseAvatarMaker
-=============
-
+----
 ClubhouseAvatarMaker iOS client.
 
 ## Installation
