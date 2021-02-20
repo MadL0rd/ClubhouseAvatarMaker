@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		55464D5A255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55464D59255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift */; };
 		555D06AB2552FB23005E926B /* UIView+TapAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D06AA2552FB23005E926B /* UIView+TapAnimation.swift */; };
-		59387DC8B58678ABFCDCC2AF /* Pods_ClubhouseAvatarMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E569F1CF6E9709E35D8A0E2 /* Pods_ClubhouseAvatarMakerTests.framework */; };
-		8953347C25DFEFB20087C90E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C478B2B98E37F18BAC093DAF /* Info.plist */; };
+		5971D5A0C26A1DA07F69DC45 /* Pods_ClubhouseAvatarMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181AE00A56527B15EEF77B8C /* Pods_ClubhouseAvatarMakerTests.framework */; };
 		895C60812560737F0026742D /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 895C607E256071C60026742D /* Gilroy-Bold.ttf */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
@@ -67,10 +66,10 @@
 		895ED44225DF6BBB006EEA12 /* SubscriptionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43925DF6BBB006EEA12 /* SubscriptionInput.swift */; };
 		895ED44325DF6BBB006EEA12 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */; };
 		895ED44425DF6BBB006EEA12 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */; };
-		895ED45825DF8DF4006EEA12 /* EmojiContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED45725DF8DF4006EEA12 /* EmojiContainer.swift */; };
 		8965D9D4259CA6F7007FDE48 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */; };
 		8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */; };
 		896F63DE25994AE50001599C /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F63DD25994AE50001599C /* UIView+shake.swift */; };
+		89A15B1425E164570055948C /* EmojiContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B1325E164570055948C /* EmojiContainer.swift */; };
 		89A228F7253FB23500C75363 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */; };
 		89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */; };
 		89AD8E46255BA9C800660695 /* UITextField+placeholderPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */; };
@@ -97,6 +96,7 @@
 		89F00AC22542E16200D482F6 /* ButtonWithTouchSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F00A682542E16200D482F6 /* ButtonWithTouchSize.swift */; };
 		89F00BDF25449D7400D482F6 /* ModuleTransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F00BDE25449D7400D482F6 /* ModuleTransitionHandler.swift */; };
 		89F00C192544A02C00D482F6 /* UIViewController+ModuleTransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F00C182544A02C00D482F6 /* UIViewController+ModuleTransitionHandler.swift */; };
+		C36D8F4FA77B8D006AE5566C /* ClubhouseAvatarMakerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD759F9CD9B9E514B4B37AE /* ClubhouseAvatarMakerUnitTest.swift */; };
 		C8E8E8C4BB4C54647917C3C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2570060E24CFB9F4D9889256 /* LaunchScreen.storyboard */; };
 		DF1A54BB3CC6F77FD5C75172 /* Pods_ClubhouseAvatarMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC03FAC3E2653A0CFEC93FAC /* Pods_ClubhouseAvatarMaker.framework */; };
 /* End PBXBuildFile section */
@@ -113,14 +113,16 @@
 
 /* Begin PBXFileReference section */
 		0178F67D52AB8FF4AD0D9547 /* Pods-ClubhouseAvatarMaker.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMaker.adhoc.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMaker/Pods-ClubhouseAvatarMaker.adhoc.xcconfig"; sourceTree = "<group>"; };
-		077D94DC2AF65BE486940283 /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.debug.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		181AE00A56527B15EEF77B8C /* Pods_ClubhouseAvatarMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubhouseAvatarMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22AAFD8077F8A855F8057D82 /* Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig"; sourceTree = "<group>"; };
+		240AD6606BA5E08F0FCDD542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2570060E24CFB9F4D9889256 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DD759F9CD9B9E514B4B37AE /* ClubhouseAvatarMakerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubhouseAvatarMakerUnitTest.swift; sourceTree = "<group>"; };
 		55464D59255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollToBottom.swift"; sourceTree = "<group>"; };
 		555D06AA2552FB23005E926B /* UIView+TapAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TapAnimation.swift"; sourceTree = "<group>"; };
-		5E569F1CF6E9709E35D8A0E2 /* Pods_ClubhouseAvatarMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubhouseAvatarMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		656934B3B2239FDB899B1AE8 /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = .app; path = "/Users/antontekutov/Documents/Projects/ClubhouseAvatarMaker/ProjectClubhouseAvatarMaker/build/Debug-iphoneos/.app"; sourceTree = "<absolute>"; };
+		6438099CA5B29E430834CBCF /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.release.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.release.xcconfig"; sourceTree = "<group>"; };
+		656934B3B2239FDB899B1AE8 /* ClubhouseAvatarMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubhouseAvatarMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		678DC1594F1721FA4DC5EFE5 /* Pods-ClubhouseAvatarMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMaker.release.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMaker/Pods-ClubhouseAvatarMaker.release.xcconfig"; sourceTree = "<group>"; };
-		7E4D40564203A0E781559D5D /* Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		895C607E256071C60026742D /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
@@ -177,10 +179,11 @@
 		895ED43925DF6BBB006EEA12 /* SubscriptionInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionInput.swift; sourceTree = "<group>"; };
 		895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
-		895ED45725DF8DF4006EEA12 /* EmojiContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiContainer.swift; sourceTree = "<group>"; };
 		8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		896F63DD25994AE50001599C /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
+		89A15AAF25E0D2D50055948C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A15B1325E164570055948C /* EmojiContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiContainer.swift; sourceTree = "<group>"; };
 		89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovingUpManagerForUIControl.swift; sourceTree = "<group>"; };
 		89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+placeholderPadding.swift"; sourceTree = "<group>"; };
@@ -207,9 +210,8 @@
 		89F00A682542E16200D482F6 /* ButtonWithTouchSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithTouchSize.swift; sourceTree = "<group>"; };
 		89F00BDE25449D7400D482F6 /* ModuleTransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionHandler.swift; sourceTree = "<group>"; };
 		89F00C182544A02C00D482F6 /* UIViewController+ModuleTransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ModuleTransitionHandler.swift"; sourceTree = "<group>"; };
-		C478B2B98E37F18BAC093DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E1D5897A159FAA673FCE4E02 /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.release.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.release.xcconfig"; sourceTree = "<group>"; };
-		EEE75E08BB0BFE44AD9046BF /* .xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = .xctest; path = "/Users/antontekutov/Documents/Projects/ClubhouseAvatarMaker/ProjectClubhouseAvatarMaker/build/Debug-iphoneos/.xctest"; sourceTree = "<absolute>"; };
+		AA50F899D423B5FD91BAA4EB /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.debug.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EEE75E08BB0BFE44AD9046BF /* ClubhouseAvatarMakerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClubhouseAvatarMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A97D24E1314BC504A0C8C1 /* Pods-ClubhouseAvatarMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMaker.debug.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMaker/Pods-ClubhouseAvatarMaker.debug.xcconfig"; sourceTree = "<group>"; };
 		FC03FAC3E2653A0CFEC93FAC /* Pods_ClubhouseAvatarMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubhouseAvatarMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -227,30 +229,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59387DC8B58678ABFCDCC2AF /* Pods_ClubhouseAvatarMakerTests.framework in Frameworks */,
+				5971D5A0C26A1DA07F69DC45 /* Pods_ClubhouseAvatarMakerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14C2D716C612A8B8DF04419A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				240AD6606BA5E08F0FCDD542 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		2D811B011AE37375148A3EEC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				0178F67D52AB8FF4AD0D9547 /* Pods-ClubhouseAvatarMaker.adhoc.xcconfig */,
 				F1A97D24E1314BC504A0C8C1 /* Pods-ClubhouseAvatarMaker.debug.xcconfig */,
 				678DC1594F1721FA4DC5EFE5 /* Pods-ClubhouseAvatarMaker.release.xcconfig */,
-				7E4D40564203A0E781559D5D /* Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig */,
-				077D94DC2AF65BE486940283 /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */,
-				E1D5897A159FAA673FCE4E02 /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */,
+				22AAFD8077F8A855F8057D82 /* Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig */,
+				AA50F899D423B5FD91BAA4EB /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */,
+				6438099CA5B29E430834CBCF /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		54CB4447D3D119E3FA6C02E9 /* ClubhouseAvatarMakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DD759F9CD9B9E514B4B37AE /* ClubhouseAvatarMakerUnitTest.swift */,
+				14C2D716C612A8B8DF04419A /* SupportingFiles */,
+			);
+			path = ClubhouseAvatarMakerTests;
 			sourceTree = "<group>";
 		};
 		6B4884D602E5C43ABE519B8B = {
 			isa = PBXGroup;
 			children = (
 				7DE24187D33E7237A73F2FC5 /* ClubhouseAvatarMaker */,
+				54CB4447D3D119E3FA6C02E9 /* ClubhouseAvatarMakerTests */,
+				B1CB0A8201D37F8F7E3207CE /* Products */,
 				2D811B011AE37375148A3EEC /* Pods */,
 				D0B3612EACCC6D6A80AA8188 /* Frameworks */,
 			);
@@ -324,6 +345,7 @@
 				895ED34025DD381D006EEA12 /* PhotoCollectionViewCell.swift */,
 				895ED2FD25DD1C0E006EEA12 /* AvatarView.swift */,
 				895ED3F225DF46E5006EEA12 /* ColorCollectionViewCell.swift */,
+				89A15B1325E164570055948C /* EmojiContainer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -625,7 +647,6 @@
 				89AD8E69255D441000660695 /* AnnouncementViewController.swift */,
 				8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */,
 				895ED3EA25DF2F20006EEA12 /* TwoStateButton.swift */,
-				895ED45725DF8DF4006EEA12 /* EmojiContainer.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -662,16 +683,25 @@
 		AA79B48E92F24FB535E09EA5 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				C478B2B98E37F18BAC093DAF /* Info.plist */,
+				89A15AAF25E0D2D50055948C /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B1CB0A8201D37F8F7E3207CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				656934B3B2239FDB899B1AE8 /* ClubhouseAvatarMaker.app */,
+				EEE75E08BB0BFE44AD9046BF /* ClubhouseAvatarMakerTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D0B3612EACCC6D6A80AA8188 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FC03FAC3E2653A0CFEC93FAC /* Pods_ClubhouseAvatarMaker.framework */,
-				5E569F1CF6E9709E35D8A0E2 /* Pods_ClubhouseAvatarMakerTests.framework */,
+				181AE00A56527B15EEF77B8C /* Pods_ClubhouseAvatarMakerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -689,7 +719,7 @@
 				2525B7EE3A8AE1AD7AF73DB9 /* Sources */,
 				970B9A054DE2EFF9A5CA69CB /* Resources */,
 				7478DEDB8AECFAF87192499D /* Frameworks */,
-				938BCAABD7BD70FAAE25CF66 /* [CP] Embed Pods Frameworks */,
+				7CB6406A59E5F72093BF298D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -697,14 +727,14 @@
 			);
 			name = ClubhouseAvatarMaker;
 			productName = ClubhouseAvatarMaker;
-			productReference = 656934B3B2239FDB899B1AE8 /* .app */;
+			productReference = 656934B3B2239FDB899B1AE8 /* ClubhouseAvatarMaker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B598F813DA8C0EA645815ECB /* ClubhouseAvatarMakerTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3455D44075ADE187F82796E6 /* Build configuration list for PBXNativeTarget "ClubhouseAvatarMakerTests" */;
 			buildPhases = (
-				59E67231E0659BC55CEBAE1D /* [CP] Check Pods Manifest.lock */,
+				C13649971A047CEA1F35FD80 /* [CP] Check Pods Manifest.lock */,
 				8DD968C60AB43E79E0D680BE /* Sources */,
 				7F2980338B9D119CAB09B8C1 /* Frameworks */,
 			);
@@ -715,7 +745,7 @@
 			);
 			name = ClubhouseAvatarMakerTests;
 			productName = ClubhouseAvatarMakerTests;
-			productReference = EEE75E08BB0BFE44AD9046BF /* .xctest */;
+			productReference = EEE75E08BB0BFE44AD9046BF /* ClubhouseAvatarMakerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -724,7 +754,7 @@
 		80461649AC309017EED3B0DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					B598F813DA8C0EA645815ECB = {
 						ProvisioningStyle = Automatic;
@@ -741,7 +771,7 @@
 				Base,
 			);
 			mainGroup = 6B4884D602E5C43ABE519B8B;
-			productRefGroup = 6B4884D602E5C43ABE519B8B;
+			productRefGroup = B1CB0A8201D37F8F7E3207CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -762,7 +792,6 @@
 				89A228F7253FB23500C75363 /* Gilroy-Regular.ttf in Resources */,
 				895C60812560737F0026742D /* Gilroy-Bold.ttf in Resources */,
 				895ED38425DD6D35006EEA12 /* Borders.xcassets in Resources */,
-				8953347C25DFEFB20087C90E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,29 +836,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
-		59E67231E0659BC55CEBAE1D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ClubhouseAvatarMakerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		938BCAABD7BD70FAAE25CF66 /* [CP] Embed Pods Frameworks */ = {
+		7CB6406A59E5F72093BF298D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -862,6 +869,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ClubhouseAvatarMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C13649971A047CEA1F35FD80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClubhouseAvatarMakerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -950,7 +979,7 @@
 				895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */,
 				895ED42825DF6BB4006EEA12 /* AboutUsViewModel.swift in Sources */,
 				895ED42E25DF6BB4006EEA12 /* AboutUsViewController.swift in Sources */,
-				895ED45825DF8DF4006EEA12 /* EmojiContainer.swift in Sources */,
+				89A15B1425E164570055948C /* EmojiContainer.swift in Sources */,
 				895ED2FE25DD1C0E006EEA12 /* AvatarView.swift in Sources */,
 				895ED40C25DF5855006EEA12 /* UIImage+overlayedColor.swift in Sources */,
 				895ED35C25DD5062006EEA12 /* ImageAssetProtocol.swift in Sources */,
@@ -965,6 +994,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36D8F4FA77B8D006AE5566C /* ClubhouseAvatarMakerUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,10 +1073,9 @@
 		};
 		4643C841AD1F1D5B66992D53 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 077D94DC2AF65BE486940283 /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */;
+			baseConfigurationReference = AA50F899D423B5FD91BAA4EB /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ClubhouseAvatarMakerTests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1063,10 +1092,9 @@
 		};
 		5FCE8C5F2B7C86CE612A7DB1 /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E4D40564203A0E781559D5D /* Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig */;
+			baseConfigurationReference = 22AAFD8077F8A855F8057D82 /* Pods-ClubhouseAvatarMakerTests.adhoc.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ClubhouseAvatarMakerTests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1088,18 +1116,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LBLG7J3SF4;
+				DEVELOPMENT_TEAM = GL8YJ6J2X5;
 				INFOPLIST_FILE = ClubhouseAvatarMaker/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.kek.clubhouseavatarmaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = YES;
 				SWIFT_VERSION = 5.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1110,18 +1138,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LBLG7J3SF4;
+				DEVELOPMENT_TEAM = GL8YJ6J2X5;
 				INFOPLIST_FILE = ClubhouseAvatarMaker/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.kek.clubhouseavatarmaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = YES;
 				SWIFT_VERSION = 5.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = AdHoc;
 		};
@@ -1142,27 +1170,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LBLG7J3SF4;
+				DEVELOPMENT_TEAM = GL8YJ6J2X5;
 				INFOPLIST_FILE = ClubhouseAvatarMaker/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.kek.clubhouseavatarmaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = YES;
 				SWIFT_VERSION = 5.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		EF44C198353DFE2721CC4F81 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1D5897A159FAA673FCE4E02 /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */;
+			baseConfigurationReference = 6438099CA5B29E430834CBCF /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ClubhouseAvatarMakerTests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

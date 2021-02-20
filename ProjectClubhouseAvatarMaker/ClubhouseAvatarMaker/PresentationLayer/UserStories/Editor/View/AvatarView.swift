@@ -12,6 +12,7 @@ class AvatarView: UIView {
     let photo = UIImageView(image: R.image.defaultPhoto())
     let borderView = UIImageView()
     var border: Border?
+    let emojiView = EmojiContainer()
     
     var borderTintColor: UIColor? {
         get {
@@ -60,6 +61,10 @@ class AvatarView: UIView {
         }
     }
     
+    private func moveEmoji(newCenter: CGPoint) {
+        emojiView.center = newCenter
+    }
+    
     // MARK: - Private setup methods
     
     private func setupView() {
@@ -72,6 +77,10 @@ class AvatarView: UIView {
         
         addImageView(photo)
         addImageView(borderView)
+        
+        addSubview(emojiView)
+        emojiView.translatesAutoresizingMaskIntoConstraints = false
+        emojiView.label.text = "🔥"
 
         makeConstraints()
     }
@@ -83,6 +92,8 @@ class AvatarView: UIView {
     }
     
     private func makeConstraints() {
+        emojiView.horizontalConstraint = emojiView.leftAnchor.constraint(equalTo: leftAnchor, constant: -15)
+        emojiView.verticalConstraint = emojiView.topAnchor.constraint(equalTo: topAnchor, constant: 15)
         NSLayoutConstraint.activate([
             photo.centerYAnchor.constraint(equalTo: centerYAnchor),
             photo.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -92,7 +103,10 @@ class AvatarView: UIView {
             borderView.centerYAnchor.constraint(equalTo: centerYAnchor),
             borderView.centerXAnchor.constraint(equalTo: centerXAnchor),
             borderView.widthAnchor.constraint(equalTo: widthAnchor),
-            borderView.heightAnchor.constraint(equalTo: heightAnchor)
+            borderView.heightAnchor.constraint(equalTo: heightAnchor),
+            
+            emojiView.horizontalConstraint!,
+            emojiView.verticalConstraint!
         ])
     }
 }

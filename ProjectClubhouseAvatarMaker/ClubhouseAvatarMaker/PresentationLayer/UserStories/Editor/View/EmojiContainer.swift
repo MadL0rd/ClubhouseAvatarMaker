@@ -8,13 +8,30 @@
 import UIKit
 import ISEmojiView
 
+protocol EmojiContainerDelegate: class {
+    func locationDidChanged(emojiContainer: EmojiContainer)
+    func emojiDidChanged(emojiContainer: EmojiContainer, emoji: String)
+}
+
 class EmojiContainer: UIView {
     
     private let textView = UITextView()
     private var width: NSLayoutConstraint!
     private var labelCenterY: NSLayoutConstraint!
     private var labelCenterX: NSLayoutConstraint!
+    var horizontalConstraint: NSLayoutConstraint?
+    var verticalConstraint: NSLayoutConstraint?
     let label = UILabel()
+    var emoji: String? {
+        get {
+            return label.text
+        }
+        set {
+            label.text = newValue
+        }
+    }
+    
+    weak var delegate: EmojiContainerDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,28 +50,31 @@ class EmojiContainer: UIView {
         else { return nil }
         
         let sideSize: CGFloat = 2000
+        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: sideSize, height: sideSize))
+        backgroundView.backgroundColor = .clear
+        
         let multiplier = frame.width / superview.frame.width
         let emojiSideSize = sideSize * multiplier
-        let backgroundView = UIView(frame: CGRect(x: frame.minX / superview.frame.width * sideSize,
-                                                  y: frame.minY / superview.frame.height * sideSize,
-                                                  width: emojiSideSize,
-                                                  height: emojiSideSize))
-        backgroundView.layer.cornerRadius = emojiSideSize / 2
-        backgroundView.backgroundColor = backgroundColor
-        backgroundView.layer.borderWidth = 2
-        backgroundView.layer.borderColor = R.color.gray()?.cgColor
-        backgroundView.clipsToBounds = true
+        let emojiBackgroundView = UIView(frame: CGRect(x: frame.minX / superview.frame.width * sideSize,
+                                                       y: frame.minY / superview.frame.height * sideSize,
+                                                       width: emojiSideSize,
+                                                       height: emojiSideSize))
+        backgroundView.addSubview(emojiBackgroundView)
+        emojiBackgroundView.layer.cornerRadius = emojiSideSize / 2
+        emojiBackgroundView.backgroundColor = backgroundColor
+        emojiBackgroundView.layer.borderWidth = 10
+        emojiBackgroundView.layer.borderColor = R.color.gray()?.cgColor
+        emojiBackgroundView.clipsToBounds = true
         
         let emoji = label.text
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: emojiSideSize, height: emojiSideSize))
         label.text = emoji
         label.textAlignment = .center
         label.font = R.font.gilroyBold(size: emojiSideSize * 0.7)
-        backgroundView.addSubview(label)
-        label.center = backgroundView.center
-        label.frame.origin.y += sideSize * 0.05
+        emojiBackgroundView.addSubview(label)
+        label.center = CGPoint(x: emojiSideSize / 2, y: emojiSideSize * 0.55)
 
-        UIGraphicsBeginImageContext(CGSize(width: sideSize, height: sideSize))
+        UIGraphicsBeginImageContext(backgroundView.frame.size)
         backgroundView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -67,6 +87,16 @@ class EmojiContainer: UIView {
         width.constant = side
         labelCenterY.constant = side * 0.05
         label.font = R.font.gilroyBold(size: side * 0.7)
+    }
+    
+    func applyMoveModificator(topLeftPoint: CGPoint) {
+        if horizontalConstraint != nil,
+           verticalConstraint != nil {
+            horizontalConstraint?.constant = topLeftPoint.x - width.constant / 2
+            verticalConstraint?.constant = topLeftPoint.y - width.constant / 2
+        } else {
+            center = topLeftPoint
+        }
     }
     
     // MARK: - UI elements actions
@@ -84,18 +114,19 @@ class EmojiContainer: UIView {
             let multiplyer = maxRadius / touchRadius
             let x = touchRelativePoint.x * multiplyer
             let y = touchRelativePoint.y * multiplyer
-            center = CGPoint(x: x + superviewCenter.x, y: y + superviewCenter.y)
+            applyMoveModificator(topLeftPoint: CGPoint(x: x + superviewCenter.x, y: y + superviewCenter.y))
         } else {
             let x = touchRelativePoint.x
             let y = touchRelativePoint.y
-            center = CGPoint(x: x + superviewCenter.x, y: y + superviewCenter.y)
+            applyMoveModificator(topLeftPoint: CGPoint(x: x + superviewCenter.x, y: y + superviewCenter.y))
         }
+        delegate?.locationDidChanged(emojiContainer: self)
     }
     
     @objc private func handleTap() {
         textView.becomeFirstResponder()
     }
-        
+            
     // MARK: - Private setup methods
     
     private func setupView() {
@@ -148,6 +179,7 @@ extension EmojiContainer: EmojiViewDelegate {
     
     func emojiViewDidSelectEmoji(_ emoji: String, emojiView: EmojiView) {
         label.text = emoji
+        delegate?.emojiDidChanged(emojiContainer: self, emoji: emoji)
         textView.resignFirstResponder()
     }
     

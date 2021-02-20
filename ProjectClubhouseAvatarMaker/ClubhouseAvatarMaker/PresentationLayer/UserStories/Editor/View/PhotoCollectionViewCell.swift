@@ -11,15 +11,20 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "PhotoCollectionViewCell"
     static let defaultName = NSLocalizedString("Speaker", comment: "")
+    static let avatarWidth: CGFloat = 77
+    static let indicatorsWidth: CGFloat = 27
     
     let avatar = AvatarView()
     let muteView = UIImageView(image: R.image.mute())
     let newUserView = UIImageView(image: R.image.newUser())
     let colorableIconImageView = UIImageView(image: R.image.colorableIcon())
     let nameLabel = UILabel()
-    
-    let avatarWidth: CGFloat = 77
-    let indicatorsWidth: CGFloat = 27
+    var avatarWidth: CGFloat {
+        return PhotoCollectionViewCell.avatarWidth
+    }
+    var indicatorsWidth: CGFloat {
+        return PhotoCollectionViewCell.indicatorsWidth
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +49,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(avatar)
         avatar.translatesAutoresizingMaskIntoConstraints = false
         avatar.setCornerRadiusByWidth(avatarWidth)
+        avatar.emojiView.setSize(avatarSideSize: avatarWidth)
+        avatar.emojiView.layer.borderWidth = 0
+        avatar.emojiView.isUserInteractionEnabled = false
         addIndicatorImageView(muteView)
         addIndicatorImageView(newUserView)
         addIndicatorImageView(colorableIconImageView)

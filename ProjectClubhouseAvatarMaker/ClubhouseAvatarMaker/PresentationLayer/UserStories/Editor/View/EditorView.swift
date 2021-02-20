@@ -11,7 +11,7 @@ final class EditorView: UIView {
     
     let avatar = AvatarView()
     let mainAvatarWidth = UIConstants.screenBounds.width * 0.7
-    let emojiView = EmojiContainer()
+    let topButtonsCenter = UIConstants.screenBounds.width * 0.3 / 4
     
     let saveButton = ButtonWithTouchSize()
     let aboutButton = ButtonWithTouchSize()
@@ -81,7 +81,7 @@ final class EditorView: UIView {
         UIView.animate(withDuration: 0.3) { [ weak self ] in
             guard let self = self
             else { return }
-            self.emojiView.alpha = visible ? 1 : 0
+            self.avatar.emojiView.alpha = visible ? 1 : 0
         }
     }
     
@@ -133,11 +133,7 @@ final class EditorView: UIView {
         avatar.alpha = 0
         avatar.setCornerRadiusByWidth(mainAvatarWidth)
         avatar.isUserInteractionEnabled = true
-        
-        avatar.addSubview(emojiView)
-        emojiView.translatesAutoresizingMaskIntoConstraints = false
-        emojiView.label.text = "♠"
-        emojiView.setSize(avatarSideSize: mainAvatarWidth)
+        avatar.emojiView.setSize(avatarSideSize: mainAvatarWidth)
         
         setupButtons()
         setupSuccessMessage()
@@ -153,28 +149,31 @@ final class EditorView: UIView {
         addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.setDefaultAreaPadding()
-        saveButton.setImage(R.image.saveButtonTest(), for: .normal)
-        saveButton.setImage(R.image.saveButtonTest(), for: .focused)
+        saveButton.setImage(R.image.saveButton(), for: .normal)
+        saveButton.setImage(R.image.saveButton(), for: .highlighted)
 
         addSubview(aboutButton)
         aboutButton.translatesAutoresizingMaskIntoConstraints = false
         aboutButton.setDefaultAreaPadding()
         aboutButton.setImage(R.image.aboutButton(), for: .normal)
-        
+        aboutButton.setImage(R.image.aboutButton(), for: .highlighted)
+
         addSubview(recropButton)
         recropButton.translatesAutoresizingMaskIntoConstraints = false
         recropButton.setDefaultAreaPadding()
         recropButton.setImage(R.image.cropIcon(), for: .normal)
+        recropButton.setImage(R.image.cropIcon(), for: .highlighted)
         recropButton.isHidden = true
+        UIStyleManager.shadow(recropButton)
+        recropButton.layer.shadowRadius = 3
         
         addSubview(pickColorButton)
         pickColorButton.translatesAutoresizingMaskIntoConstraints = false
         pickColorButton.setDefaultAreaPadding()
-        pickColorButton.setImage(R.image.colorableIcon(), for: .normal)
-        pickColorButton.setImage(R.image.colorableIcon(), for: .focused)
+        pickColorButton.setImage(R.image.colorableIconButton(), for: .normal)
+        pickColorButton.setImage(R.image.colorableIconButton(), for: .highlighted)
         pickColorButton.transform = CGAffineTransform(translationX: 150, y: 0).rotated(by: .pi / 2)
         pickColorButton.alpha = 0
-        UIStyleManager.shadow(pickColorButton)
     }
     
     private func setupSuccessMessage() {
@@ -269,9 +268,6 @@ final class EditorView: UIView {
             avatar.widthAnchor.constraint(equalToConstant: mainAvatarWidth),
             avatar.heightAnchor.constraint(equalToConstant: mainAvatarWidth),
             
-            emojiView.leftAnchor.constraint(equalTo: avatar.leftAnchor, constant: 15),
-            emojiView.topAnchor.constraint(equalTo: avatar.topAnchor, constant: 15),
-
             successMessageLabel.bottomAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 10),
             successMessageLabel.centerXAnchor.constraint(equalTo: avatar.centerXAnchor),
             successMessageLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.8),
@@ -286,25 +282,25 @@ final class EditorView: UIView {
             photosCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
             photosCollectionView.widthAnchor.constraint(equalTo: widthAnchor),
             
-            saveButton.topAnchor.constraint(equalTo: avatar.topAnchor),
-            saveButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideMargin),
-            saveButton.widthAnchor.constraint(equalToConstant: 50),
-            saveButton.heightAnchor.constraint(equalToConstant: 50),
+            saveButton.topAnchor.constraint(equalTo: avatar.topAnchor, constant: 5),
+            saveButton.centerXAnchor.constraint(equalTo: rightAnchor, constant: -topButtonsCenter),
+            saveButton.widthAnchor.constraint(equalToConstant: 20),
+            saveButton.heightAnchor.constraint(equalToConstant: 20),
             
-            aboutButton.topAnchor.constraint(equalTo: avatar.topAnchor),
-            aboutButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideMargin),
-            aboutButton.widthAnchor.constraint(equalToConstant: 50),
-            aboutButton.heightAnchor.constraint(equalToConstant: 50),
+            aboutButton.topAnchor.constraint(equalTo: avatar.topAnchor, constant: 5),
+            aboutButton.centerXAnchor.constraint(equalTo: leftAnchor, constant: topButtonsCenter),
+            aboutButton.widthAnchor.constraint(equalToConstant: 20),
+            aboutButton.heightAnchor.constraint(equalToConstant: 20),
             
-            recropButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
-            recropButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideMargin),
-            recropButton.widthAnchor.constraint(equalToConstant: 50),
-            recropButton.heightAnchor.constraint(equalToConstant: 50),
+            recropButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor, constant: -5),
+            recropButton.leftAnchor.constraint(equalTo: aboutButton.leftAnchor),
+            recropButton.widthAnchor.constraint(equalToConstant: 36),
+            recropButton.heightAnchor.constraint(equalToConstant: 36),
             
-            pickColorButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
-            pickColorButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideMargin),
-            pickColorButton.widthAnchor.constraint(equalToConstant: 50),
-            pickColorButton.heightAnchor.constraint(equalToConstant: 50)
+            pickColorButton.bottomAnchor.constraint(equalTo: avatar.bottomAnchor, constant: -5),
+            pickColorButton.rightAnchor.constraint(equalTo: saveButton.rightAnchor),
+            pickColorButton.widthAnchor.constraint(equalToConstant: 36),
+            pickColorButton.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
     

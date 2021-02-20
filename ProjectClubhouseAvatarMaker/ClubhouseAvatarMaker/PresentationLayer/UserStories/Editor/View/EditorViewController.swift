@@ -41,6 +41,7 @@ final class EditorViewController: UIViewController {
             _view.manageEmojiViewVisibility(visible: addEmoji)
         }
     }
+    private var cellsEmojiCenter: CGPoint?
 
     private var _view: EditorView {
         return view as! EditorView
@@ -68,6 +69,12 @@ final class EditorViewController: UIViewController {
     
     private func configureSelf() {
         _view.showAvatar()
+        _view.avatar.emojiView.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [ weak self ] in
+            guard let self = self
+            else { return }
+            self.locationDidChanged(emojiContainer: self._view.avatar.emojiView)
+        }
         
         _view.photosCollectionView.dataSource = self
         _view.photosCollectionView.delegate = self
@@ -161,8 +168,8 @@ final class EditorViewController: UIViewController {
         }
         
         if addEmoji,
-           let emojiImage = _view.emojiView.makeImage() {
-            resultPhoto = currentPhoto.mergeWith(topImage: emojiImage)
+           let emojiImage = _view.avatar.emojiView.makeImage() {
+            resultPhoto = resultPhoto.mergeWith(topImage: emojiImage)
         }
         UIImageWriteToSavedPhotosAlbum(resultPhoto, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
@@ -229,6 +236,13 @@ extension EditorViewController: UICollectionViewDataSource {
             photoCell.avatar.photo.image = currentPhoto
             if let border = viewModel.borders[exist: indexPath.row] {
                 photoCell.avatar.setBorder(border, animated: false)
+                photoCell.avatar.emojiView.isHidden = !addEmoji
+                if addEmoji {
+                    photoCell.avatar.emojiView.emoji = _view.avatar.emojiView.emoji
+                    if let emojiCenter = cellsEmojiCenter {
+                        photoCell.avatar.emojiView.applyMoveModificator(topLeftPoint: emojiCenter)
+                    }
+                }
                 photoCell.avatar.borderTintColor = selectedBorderColor
                 photoCell.manageColorableIconVisibility(visible: border.colorable)
                 photoCell.nameLabel.text = border.title ?? PhotoCollectionViewCell.defaultName
@@ -312,5 +326,21 @@ extension EditorViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: - EmojiContainerDelegate
+
+extension EditorViewController: EmojiContainerDelegate {
+    
+    func locationDidChanged(emojiContainer: EmojiContainer) {
+        let cellX = emojiContainer.center.x / _view.avatar.frame.width * PhotoCollectionViewCell.avatarWidth
+        let cellY = emojiContainer.center.y / _view.avatar.frame.height * PhotoCollectionViewCell.avatarWidth
+        cellsEmojiCenter = CGPoint(x: cellX, y: cellY)
+        _view.photosCollectionView.reloadData()
+    }
+    
+    func emojiDidChanged(emojiContainer: EmojiContainer, emoji: String) {
+        _view.photosCollectionView.reloadData()
     }
 }
