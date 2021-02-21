@@ -70,6 +70,8 @@
 		8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */; };
 		896F63DE25994AE50001599C /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F63DD25994AE50001599C /* UIView+shake.swift */; };
 		89A15B1425E164570055948C /* EmojiContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B1325E164570055948C /* EmojiContainer.swift */; };
+		89A15B3525E309570055948C /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B3425E309570055948C /* CopyButton.swift */; };
+		89A15B4925E30E320055948C /* CopyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B4825E30E320055948C /* CopyLabelView.swift */; };
 		89A228F7253FB23500C75363 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */; };
 		89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */; };
 		89AD8E46255BA9C800660695 /* UITextField+placeholderPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */; };
@@ -184,6 +186,8 @@
 		896F63DD25994AE50001599C /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
 		89A15AAF25E0D2D50055948C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A15B1325E164570055948C /* EmojiContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiContainer.swift; sourceTree = "<group>"; };
+		89A15B3425E309570055948C /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
+		89A15B4825E30E320055948C /* CopyLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabelView.swift; sourceTree = "<group>"; };
 		89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovingUpManagerForUIControl.swift; sourceTree = "<group>"; };
 		89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+placeholderPadding.swift"; sourceTree = "<group>"; };
@@ -647,6 +651,8 @@
 				89AD8E69255D441000660695 /* AnnouncementViewController.swift */,
 				8965D9D3259CA6F7007FDE48 /* PaddingLabel.swift */,
 				895ED3EA25DF2F20006EEA12 /* TwoStateButton.swift */,
+				89A15B3425E309570055948C /* CopyButton.swift */,
+				89A15B4825E30E320055948C /* CopyLabelView.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -950,6 +956,7 @@
 				895ED40825DF51E0006EEA12 /* UIColor+rgba.swift in Sources */,
 				895ED35425DD5061006EEA12 /* AssetsManager.swift in Sources */,
 				895ED3F325DF46E5006EEA12 /* ColorCollectionViewCell.swift in Sources */,
+				89A15B3525E309570055948C /* CopyButton.swift in Sources */,
 				895ED43F25DF6BBB006EEA12 /* SubscriptionOutput.swift in Sources */,
 				895ED43D25DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift in Sources */,
 				89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */,
@@ -965,6 +972,7 @@
 				896F63DE25994AE50001599C /* UIView+shake.swift in Sources */,
 				89F00A9D2542E16200D482F6 /* UIConstants.swift in Sources */,
 				895ED33B25DD319B006EEA12 /* LoadingInput.swift in Sources */,
+				89A15B4925E30E320055948C /* CopyLabelView.swift in Sources */,
 				895ED35A25DD5062006EEA12 /* AssetsManagerTypealiases.swift in Sources */,
 				895ED33725DD319B006EEA12 /* LoadingCoordinator.swift in Sources */,
 				8965D9D4259CA6F7007FDE48 /* PaddingLabel.swift in Sources */,
@@ -1116,7 +1124,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GL8YJ6J2X5;
+				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = ClubhouseAvatarMaker/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1138,7 +1146,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GL8YJ6J2X5;
+				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = ClubhouseAvatarMaker/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1170,7 +1178,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GL8YJ6J2X5;
+				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = ClubhouseAvatarMaker/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

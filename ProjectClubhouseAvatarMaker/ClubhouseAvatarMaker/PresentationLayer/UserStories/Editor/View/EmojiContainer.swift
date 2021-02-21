@@ -97,6 +97,9 @@ class EmojiContainer: UIView {
         } else {
             center = topLeftPoint
         }
+        UIView.animate(withDuration: 0.1) { [ weak self ] in
+            self?.layoutIfNeeded()
+        }
     }
     
     // MARK: - UI elements actions

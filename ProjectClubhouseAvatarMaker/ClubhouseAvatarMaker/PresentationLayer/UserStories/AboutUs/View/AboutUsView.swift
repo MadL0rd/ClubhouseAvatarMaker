@@ -9,8 +9,22 @@ import UIKit
 
 final class AboutUsView: UIView {
     
+    let stack = UIStackView()
     let titleLabel = UILabel()
+    let folowLabel = UILabel()
+    let devLabel = CopyLabelView()
+    let designerLabel = CopyLabelView()
+    let textLabel = UILabel()
+    let emailLabel = CopyLabelView()
+    
+    let mainText = NSLocalizedString("""
+We are Developer and Designer
+from Cherry Dev Agency
 
+If you want to make your idea a reality, write to us:
+""",
+                                     comment: "")
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -28,19 +42,48 @@ final class AboutUsView: UIView {
     private func setupView() {
         backgroundColor = R.color.main()
         
-        addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = R.font.gilroyBold(size: 20)
+        addSubview(stack)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 40
+        
+        stack.addArrangedSubview(titleLabel)
+        titleLabel.font = R.font.gilroyBold(size: 32)
         titleLabel.text = NSLocalizedString("About us", comment: "")
         titleLabel.textColor = R.color.tintColorDark()
+        
+        stack.addArrangedSubview(folowLabel)
+        folowLabel.font = R.font.gilroyRegular(size: 16)
+        folowLabel.text = NSLocalizedString("Folow us in clubhouse:", comment: "")
+        folowLabel.textColor = R.color.tintColorDark()
+        
+        stack.addArrangedSubview(devLabel)
+        devLabel.setText(labelText: "👱🏼‍♂️  @madlord", copyText: "@madlord")
+        
+        stack.addArrangedSubview(designerLabel)
+        designerLabel.setText(labelText: "👩🏻  @o.kad", copyText: "@o.kad")
+        
+        stack.addArrangedSubview(textLabel)
+        textLabel.font = R.font.gilroyRegular(size: 16)
+        textLabel.numberOfLines = 0
+        let attributedString = NSMutableAttributedString(string: mainText)
+        let range: NSRange = attributedString.mutableString.range(of: "Cherry Dev", options: .caseInsensitive)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.gilroyBold(size: 16)!, range: range)
+        textLabel.attributedText = attributedString
 
+        stack.addArrangedSubview(emailLabel)
+        emailLabel.setText(labelText: "kadochnikova@bk.ru", copyText: "kadochnikova@bk.ru")
+        
         makeConstraints()
     }
 
     private func makeConstraints() {
+        stack.setCustomSpacing(16, after: devLabel)
+        stack.setCustomSpacing(16, after: folowLabel)
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: topAnchor, constant: UIConstants.navigationBarCenterY),
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            stack.topAnchor.constraint(equalTo: topAnchor, constant: UIConstants.navigationBarHeight + 30),
+            stack.leftAnchor.constraint(equalTo: leftAnchor, constant: 24),
+            stack.rightAnchor.constraint(equalTo: rightAnchor, constant: -24)
         ])
     }
 }

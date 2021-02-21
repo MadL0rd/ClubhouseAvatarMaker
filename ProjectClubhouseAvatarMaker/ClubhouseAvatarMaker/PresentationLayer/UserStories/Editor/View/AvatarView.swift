@@ -92,7 +92,7 @@ class AvatarView: UIView {
     }
     
     private func makeConstraints() {
-        emojiView.horizontalConstraint = emojiView.leftAnchor.constraint(equalTo: leftAnchor, constant: -15)
+        emojiView.horizontalConstraint = emojiView.leftAnchor.constraint(equalTo: leftAnchor, constant: 15)
         emojiView.verticalConstraint = emojiView.topAnchor.constraint(equalTo: topAnchor, constant: 15)
         NSLayoutConstraint.activate([
             photo.centerYAnchor.constraint(equalTo: centerYAnchor),
