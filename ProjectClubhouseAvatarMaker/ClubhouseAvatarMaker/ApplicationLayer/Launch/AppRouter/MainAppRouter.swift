@@ -13,7 +13,7 @@ class MainAppRouter: AppRouter {
     
     private func openModule(_ controller: UIViewController) {
         createWindowIfNeeded()
-        window.backgroundColor = UIColor.white
+        window.backgroundColor = R.color.backgroundDark()
         window.rootViewController = controller
         makeKeyAndVisibleIfNeeded()
     }
