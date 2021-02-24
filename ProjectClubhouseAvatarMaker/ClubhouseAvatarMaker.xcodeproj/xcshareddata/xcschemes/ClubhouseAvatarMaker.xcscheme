@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "30D3FDACB7D17A0BF5E8ADCF"
-               BuildableName = ".app"
+               BuildableName = "ClubhouseAvatarMaker.app"
                BlueprintName = "ClubhouseAvatarMaker"
                ReferencedContainer = "container:ClubhouseAvatarMaker.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B598F813DA8C0EA645815ECB"
-               BuildableName = ".xctest"
+               BuildableName = "ClubhouseAvatarMaker.xctest"
                BlueprintName = "ClubhouseAvatarMakerTests"
                ReferencedContainer = "container:ClubhouseAvatarMaker.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "30D3FDACB7D17A0BF5E8ADCF"
-            BuildableName = ".app"
+            BuildableName = "ClubhouseAvatarMaker.app"
             BlueprintName = "ClubhouseAvatarMaker"
             ReferencedContainer = "container:ClubhouseAvatarMaker.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "30D3FDACB7D17A0BF5E8ADCF"
-            BuildableName = ".app"
+            BuildableName = "ClubhouseAvatarMaker.app"
             BlueprintName = "ClubhouseAvatarMaker"
             ReferencedContainer = "container:ClubhouseAvatarMaker.xcodeproj">
          </BuildableReference>

@@ -72,7 +72,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         
         imageView.layer.shadowColor = R.color.gray()?.cgColor
-        imageView.layer.shadowOpacity = 0.6
+        imageView.layer.shadowOpacity = 0.35
         imageView.layer.shadowOffset = CGSize(width: 0, height: 1)
         imageView.layer.shadowRadius = 1
     }

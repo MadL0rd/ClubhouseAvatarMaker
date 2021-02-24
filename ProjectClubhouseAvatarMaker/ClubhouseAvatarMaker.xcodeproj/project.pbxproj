@@ -219,7 +219,7 @@
 		89F00BDE25449D7400D482F6 /* ModuleTransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionHandler.swift; sourceTree = "<group>"; };
 		89F00C182544A02C00D482F6 /* UIViewController+ModuleTransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ModuleTransitionHandler.swift"; sourceTree = "<group>"; };
 		AA50F899D423B5FD91BAA4EB /* Pods-ClubhouseAvatarMakerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.debug.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EEE75E08BB0BFE44AD9046BF /* ClubhouseAvatarMakerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClubhouseAvatarMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE75E08BB0BFE44AD9046BF /* ClubhouseAvatarMakerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = ClubhouseAvatarMakerTests.xctest; path = ClubhouseAvatarMaker.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A97D24E1314BC504A0C8C1 /* Pods-ClubhouseAvatarMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMaker.debug.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMaker/Pods-ClubhouseAvatarMaker.debug.xcconfig"; sourceTree = "<group>"; };
 		FC03FAC3E2653A0CFEC93FAC /* Pods_ClubhouseAvatarMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubhouseAvatarMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1079,7 +1079,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ClubhouseAvatarMaker;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1138,6 +1138,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1160,6 +1161,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1175,6 +1177,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = ClubhouseAvatarMaker;
 				SDKROOT = iphoneos;
 			};
 			name = AdHoc;
@@ -1192,6 +1195,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1226,6 +1230,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = ClubhouseAvatarMaker;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};

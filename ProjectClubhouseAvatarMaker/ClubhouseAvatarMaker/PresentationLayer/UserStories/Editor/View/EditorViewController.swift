@@ -75,7 +75,7 @@ final class EditorViewController: UIViewController {
             else { return }
             self.locationDidChanged(emojiContainer: self._view.avatar.emojiView)
         }
-        
+
         _view.photosCollectionView.dataSource = self
         _view.photosCollectionView.delegate = self
         _view.photosCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
@@ -123,15 +123,13 @@ final class EditorViewController: UIViewController {
     @objc private func selectNewPhoto() {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
-        let vc = SubscriptionCoordinator.createModule()
-        present(vc, animated: true)
-//        guard viewModel.authorizationStatusIsOK else {
-//            showErrorAlert(with: NSLocalizedString("To pick photo you should provide this app access to gallery", comment: "")) { [ weak self ] in
-//                self?.viewModel.openSettings()
-//            }
-//            return
-//        }
-//        viewModel.pickNewPhotoFromAssets(changePhoto(asset:))
+        guard viewModel.authorizationStatusIsOK else {
+            showErrorAlert(with: NSLocalizedString("To pick photo you should provide this app access to gallery", comment: "")) { [ weak self ] in
+                self?.viewModel.openSettings()
+            }
+            return
+        }
+        viewModel.pickNewPhotoFromAssets(changePhoto(asset:))
     }
     
     private func changePhoto(asset: ImageAssetProtocol) {

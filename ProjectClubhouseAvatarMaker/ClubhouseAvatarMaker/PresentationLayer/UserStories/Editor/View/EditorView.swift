@@ -47,6 +47,13 @@ final class EditorView: UIView {
     let colorCellSideSize: CGFloat = ColorCollectionViewCell.colorCellSideSize
     let colorCellSpacing: CGFloat = 6
     
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        DispatchQueue.main.async { [ weak self ] in
+            self?.endEditing(true)
+        }
+        return super.point(inside: point, with: event)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 

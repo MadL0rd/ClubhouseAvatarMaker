@@ -27,6 +27,10 @@ final class SubscriptionViewController: UIViewController {
         super.viewDidAppear(animated)
         _view.yearButton.flash()
     }
+    
+    deinit {
+        timer?.invalidate()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

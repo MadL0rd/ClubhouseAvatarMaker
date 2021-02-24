@@ -10,6 +10,8 @@ target 'ClubhouseAvatarMaker' do
   pod 'DKImagePickerController'
   pod 'CropViewController'
   pod 'ISEmojiView', :path => '../ISEmojiViewPod'
+  
+  pod 'SwiftyStoreKit'
 
 #  Exclude DEPLOYMENT_TARGET warnings
   post_install do |installer|
