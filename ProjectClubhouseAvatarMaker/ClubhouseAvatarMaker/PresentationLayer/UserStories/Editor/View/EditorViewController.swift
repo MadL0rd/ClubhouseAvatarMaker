@@ -181,6 +181,7 @@ final class EditorViewController: UIViewController {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
         
+        //        TODO: editing test
 //        self.pickNewPhoto()
         viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
             guard let self = self
