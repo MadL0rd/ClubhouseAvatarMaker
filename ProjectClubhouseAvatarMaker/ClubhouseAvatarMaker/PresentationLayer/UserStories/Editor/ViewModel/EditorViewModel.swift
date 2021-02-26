@@ -25,23 +25,33 @@ final class EditorViewModel {
         Border(colorable: false, image: UIImage(), title: NSLocalizedString("Empty", comment: "")),
         Border(colorable: false, image: R.image.border1()),
         Border(colorable: false, image: R.image.border2()),
+        
         Border(colorable: false, image: R.image.border3()),
-        Border(colorable: true, image: R.image.colorableBorder4()),
+        Border(colorable: true, image: R.image.colorableBorder3()),
         Border(colorable: false, image: R.image.border4()),
+        
         Border(colorable: false, image: R.image.border5()),
         Border(colorable: true, image: R.image.colorableBorder2()),
         Border(colorable: false, image: R.image.border6()),
+        
         Border(colorable: true, image: R.image.colorableBorder1()),
-        Border(colorable: true, image: R.image.colorableBorder3()),
         Border(colorable: false, image: R.image.border7()),
         Border(colorable: false, image: R.image.border8()),
+        
+        Border(colorable: true, image: R.image.colorableBorderLight(), title: "Light"),
+        Border(colorable: true, image: R.image.colorableBorderMedium(), title: "Medium"),
+        Border(colorable: true, image: R.image.colorableBorderThick(), title: "Thick"),
+
         Border(colorable: false, image: R.image.border9()),
         Border(colorable: false, image: R.image.border10()),
         Border(colorable: false, image: R.image.border11()),
+        
         Border(colorable: false, image: R.image.border12()),
         Border(colorable: false, image: R.image.border13()),
         Border(colorable: false, image: R.image.border14(), title: "JoJo"),
+        
         Border(colorable: false, image: R.image.border15()),
+        Border(colorable: false, image: R.image.border16()),
         Border(colorable: false, image: R.image.catBorder(), title: "* chpok *")
     ]
     var colors = [UIColor]()
