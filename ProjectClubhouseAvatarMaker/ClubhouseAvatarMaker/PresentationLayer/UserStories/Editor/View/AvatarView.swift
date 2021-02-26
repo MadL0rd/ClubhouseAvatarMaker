@@ -11,7 +11,7 @@ class AvatarView: UIView {
     
     let photo = UIImageView(image: R.image.defaultPhoto())
     let borderView = UIImageView()
-    var border: Border?
+    var border: BorderProtocol?
     let emojiView = EmojiContainer()
     
     var borderTintColor: UIColor? {
@@ -35,17 +35,18 @@ class AvatarView: UIView {
     
     // MARK: - Public methods
     
-    func setBorder(_ border: Border, animated: Bool = true) {
+    func setBorder(_ border: BorderProtocol, animated: Bool = true) {
         self.border = border
-        let image = border.image?.withRenderingMode(border.colorable ? .alwaysTemplate : .alwaysOriginal)
         if animated {
             UIView.transition(with: borderView,
                               duration: 0.3,
                               options: .transitionCrossDissolve) { [ weak self ] in
-                self?.borderView.image = image
+                guard let self = self
+                else { return }
+                border.setToImageView(self.borderView)
             }
         } else {
-            borderView.image = image
+            border.setToImageView(self.borderView)
         }
     }
     

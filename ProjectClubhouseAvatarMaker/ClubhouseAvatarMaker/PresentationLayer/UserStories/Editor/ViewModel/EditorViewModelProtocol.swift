@@ -10,13 +10,16 @@ import UIKit
 protocol EditorViewModelProtocol: class {
     
     var defaults: UserDefaultsEditorManagerProtocol! { get }
-    var borders: [Border] { get }
+    var borders: [BorderProtocol] { get }
     var colors: [UIColor] { get }
     var authorizationStatusIsOK: Bool { get }
+    var canLoadNextPage: Bool { get }
     
     func pickNewPhotoFromAssets(_ completionHandler: @escaping (ImageAssetProtocol) -> Void)
     func openSettings()
     func checkSubscriptionsStatus(force: Bool, _ completionHandler: @escaping(SubscriptionVerification) -> Void)
+    
+    func loadNextPage(completion: @escaping() -> Void)
 }
 
 extension EditorViewModelProtocol {

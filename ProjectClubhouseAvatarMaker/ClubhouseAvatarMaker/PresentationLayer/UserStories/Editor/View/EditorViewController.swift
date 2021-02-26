@@ -7,6 +7,7 @@
 
 import UIKit
 import CropViewController
+import CCBottomRefreshControl
 
 final class EditorViewController: UIViewController {
     
@@ -99,6 +100,13 @@ final class EditorViewController: UIViewController {
         _view.photosCollectionView.delegate = self
         _view.photosCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         
+        let bottomRefreshController = UIRefreshControl()
+        bottomRefreshController.tintColor = R.color.main()
+        bottomRefreshController.triggerVerticalOffset = 50
+        bottomRefreshController.addTarget(self, action: #selector(loadNextPage), for: .valueChanged)
+
+        _view.photosCollectionView.bottomRefreshControl = bottomRefreshController
+        
         _view.colorsCollectionView.dataSource = self
         _view.colorsCollectionView.delegate = self
         _view.colorsCollectionView.register(ColorCollectionViewCell.self, forCellWithReuseIdentifier: ColorCollectionViewCell.identifier)
@@ -173,6 +181,7 @@ final class EditorViewController: UIViewController {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
         
+        self.pickNewPhoto()
         viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
             guard let self = self
             else { return }
@@ -222,7 +231,7 @@ final class EditorViewController: UIViewController {
         }
         var resultPhoto = currentPhoto
         if let border = _view.avatar.border,
-           var borderImage = border.image {
+           var borderImage = _view.avatar.borderView.image {
             if border.colorable,
                let tintColor = selectedBorderColor {
                 borderImage = borderImage.overlayed(by: tintColor)
@@ -277,6 +286,16 @@ final class EditorViewController: UIViewController {
         vibroGeneratorLight.impactOccurred()
         showAlertWithColorPicker(startColor: selectedBorderColor) { [ weak self ] color in
             self?.selectedBorderColor = color
+        }
+    }
+    
+    @objc private func loadNextPage() {
+        viewModel.loadNextPage { [ weak self ] in
+            self?._view.photosCollectionView.bottomRefreshControl?.endRefreshing()
+            if self?.viewModel.canLoadNextPage == false {
+                self?._view.photosCollectionView.bottomRefreshControl = nil
+            }
+            self?._view.photosCollectionView.reloadData()
         }
     }
 }

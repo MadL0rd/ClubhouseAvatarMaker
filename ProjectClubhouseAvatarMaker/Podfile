@@ -11,6 +11,9 @@ target 'ClubhouseAvatarMaker' do
   pod 'CropViewController'
   pod 'ISEmojiView', :path => '../ISEmojiViewPod'
   pod 'JGProgressHUD'
+  pod 'Alamofire'
+  pod 'SDWebImage'
+  pod 'CCBottomRefreshControl'
   
   pod 'SwiftyStoreKit'
 

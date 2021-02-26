@@ -24,6 +24,7 @@ final class EditorCoordinator {
         viewModel.assetsManager = AssetsManager.shared
         viewModel.purchaseManager = PurchaseManager.shared
         viewModel.defaults = UserDefaultsEditorManager()
+        viewModel.remoteBordersService = RemoteBordersService.shared
 
         if let configuration = configuration {
             configuration(viewModel)

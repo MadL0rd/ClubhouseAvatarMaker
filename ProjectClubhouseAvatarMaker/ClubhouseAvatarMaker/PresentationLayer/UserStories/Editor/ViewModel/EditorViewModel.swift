@@ -13,33 +13,36 @@ final class EditorViewModel {
 	var output: EditorOutput?
     var assetsManager: AssetsManagerProtocol!
     var purchaseManager: PurchaseManagerProtocol!
+    var remoteBordersService: RemoteBordersServiceProtocol!
     
     private var subscriptionIsActive: SubscriptionVerification?
+    private var pageCurrentNumber = 1
+    var canLoadNextPage = true
     
     var defaults: UserDefaultsEditorManagerProtocol!
 
-    var borders = [
-        Border(image: UIImage(), colorable: false, title: NSLocalizedString("Empty", comment: "")),
-        Border(image: R.image.border15(), colorable: false, title: nil),
-        Border(image: R.image.border1(), colorable: false, title: nil),
-        Border(image: R.image.border2(), colorable: false, title: nil),
-        Border(image: R.image.border3(), colorable: false, title: nil),
-        Border(image: R.image.border4(), colorable: false, title: nil),
-        Border(image: R.image.border5(), colorable: false, title: nil),
-        Border(image: R.image.border6(), colorable: false, title: nil),
-        Border(image: R.image.colorableBorder1(), colorable: true, title: nil),
-        Border(image: R.image.colorableBorder2(), colorable: true, title: nil),
-        Border(image: R.image.colorableBorder3(), colorable: true, title: nil),
-        Border(image: R.image.colorableBorder4(), colorable: true, title: nil),
-        Border(image: R.image.border7(), colorable: false, title: nil),
-        Border(image: R.image.border8(), colorable: false, title: nil),
-        Border(image: R.image.border9(), colorable: false, title: nil),
-        Border(image: R.image.border10(), colorable: false, title: nil),
-        Border(image: R.image.border11(), colorable: false, title: nil),
-        Border(image: R.image.border12(), colorable: false, title: nil),
-        Border(image: R.image.border13(), colorable: false, title: nil),
-        Border(image: R.image.border14(), colorable: false, title: "JoJo"),
-        Border(image: R.image.catBorder(), colorable: false, title: "* chpok *")
+    var borders: [BorderProtocol] = [
+        Border(colorable: false, image: UIImage(), title: NSLocalizedString("Empty", comment: "")),
+        Border(colorable: false, image: R.image.border15()),
+        Border(colorable: false, image: R.image.border1()),
+        Border(colorable: false, image: R.image.border2()),
+        Border(colorable: false, image: R.image.border3()),
+        Border(colorable: false, image: R.image.border4()),
+        Border(colorable: false, image: R.image.border5()),
+        Border(colorable: false, image: R.image.border6()),
+        Border(colorable: true, image: R.image.colorableBorder1()),
+        Border(colorable: true, image: R.image.colorableBorder2()),
+        Border(colorable: true, image: R.image.colorableBorder3()),
+        Border(colorable: true, image: R.image.colorableBorder4()),
+        Border(colorable: false, image: R.image.border7()),
+        Border(colorable: false, image: R.image.border8()),
+        Border(colorable: false, image: R.image.border9()),
+        Border(colorable: false, image: R.image.border10()),
+        Border(colorable: false, image: R.image.border11()),
+        Border(colorable: false, image: R.image.border12()),
+        Border(colorable: false, image: R.image.border13()),
+        Border(colorable: false, image: R.image.border14(), title: "JoJo"),
+        Border(colorable: false, image: R.image.catBorder(), title: "* chpok *")
     ]
     var colors = [UIColor]()
     
@@ -147,6 +150,27 @@ extension EditorViewModel: EditorViewModelProtocol {
                 self.subscriptionIsActive = nil
                 completionHandler(.notPurchased)
             }
+        }
+    }
+    
+    // MARK: - Remote borders
+    
+    func loadNextPage(completion: @escaping() -> Void) {
+        guard canLoadNextPage
+        else {
+            completion()
+            return
+        }
+        remoteBordersService.getBorders(pageNumber: pageCurrentNumber) { [ weak self ] result in
+            switch result {
+            case .success(let pageInfo):
+                self?.borders.append(contentsOf: pageInfo.results)
+                self?.canLoadNextPage = pageInfo.next != nil
+                self?.pageCurrentNumber += 1
+            case .failure(let error):
+                print(error)
+            }
+            completion()
         }
     }
 }
