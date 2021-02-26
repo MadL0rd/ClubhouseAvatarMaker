@@ -25,6 +25,14 @@ struct RemoteBorder: BorderProtocol, Codable {
         guard let url = URL(string: imageUrl)
         else { return }
         imageView.setDefaultLoadingInicator()
-        imageView.sd_setImage(with: url)
+        imageView.sd_setImage(with: url) { (image, error, _, _) in
+            if (error != nil) {
+                imageView.image = nil
+            } else {
+                if colorable {
+                    imageView.image = image?.withRenderingMode(.alwaysTemplate)
+                }
+            }
+        }
     }
 }

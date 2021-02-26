@@ -66,29 +66,33 @@ extension SubscriptionViewModel: SubscriptionViewModelProtocol {
         }
     }
     
-    func purchaseSubscription(_ productId: SubscriptionsId, successCallback: @escaping() -> Void) {
+    func purchaseSubscription(_ productId: SubscriptionsId, callback: @escaping (Bool) -> Void) {
         purchaseManager.purchaseSubscription(productId) { result in
             switch result {
             case .success(let isActive):
                 if isActive == .active {
-                    successCallback()
+                    callback(true)
+                    return
                 }
             case .failure(let error):
                 print(error)
             }
+            callback(false)
         }
     }
     
-    func purchaseSubscription(_ product: SKProduct, successCallback: @escaping() -> Void) {
+    func purchaseSubscription(_ product: SKProduct, callback: @escaping(Bool) -> Void) {
         purchaseManager.purchaseSubscription(product) { result in
             switch result {
             case .success(let isActive):
                 if isActive == .active {
-                    successCallback()
+                    callback(true)
+                    return
                 }
             case .failure(let error):
                 print(error)
             }
+            callback(false)
         }
     }
     

@@ -42,8 +42,8 @@ final class SubscriptionViewController: UIViewController {
         modalPresentationStyle = .formSheet
         
         _view.closeButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        _view.yearButton.addTarget(self, action: #selector(yearButtonDidTapped(sender:)), for: .touchUpInside)
-        _view.weekButton.addTarget(self, action: #selector(weekButtonDidTapped(sender:)), for: .touchUpInside)
+        _view.yearButton.addTarget(self, action: #selector(subscriptionButtonDidTapped(sender:)), for: .touchUpInside)
+        _view.weekButton.addTarget(self, action: #selector(subscriptionButtonDidTapped(sender:)), for: .touchUpInside)
         
         _view.restoreButton.addTarget(self, action: #selector(linkButtonDidTapped(sender:)), for: .touchUpInside)
         _view.termsButton.addTarget(self, action: #selector(linkButtonDidTapped(sender:)), for: .touchUpInside)
@@ -70,21 +70,29 @@ final class SubscriptionViewController: UIViewController {
         coordinator.dismiss()
     }
     
-    @objc private func yearButtonDidTapped(sender: UIButton) {
-        vibroGeneratorLight.impactOccurred()
-        sender.tapAnimation()
-        viewModel.purchaseSubscription(.yearly) { [ weak self ] in
-            self?.viewModel.output?.subscriptionStatusDidChanged()
-            self?.coordinator.dismiss()
+    @objc private func subscriptionButtonDidTapped(sender: UIButton) {
+        var subscriptionType = SubscriptionsId.yearly
+        if sender == _view.weekButton {
+            subscriptionType = .weekly
         }
-    }
-    
-    @objc private func weekButtonDidTapped(sender: UIButton) {
+        
         vibroGeneratorLight.impactOccurred()
         sender.tapAnimation()
-        viewModel.purchaseSubscription(.weekly) { [ weak self ] in
-            self?.viewModel.output?.subscriptionStatusDidChanged()
-            self?.coordinator.dismiss()
+        
+        let loadingHUD = AlertManager.getLoadingHUD(on: _view)
+        loadingHUD.show(in: _view)
+        
+        viewModel.purchaseSubscription(subscriptionType) { [ weak self ] success in
+            guard let self = self
+            else { return }
+            loadingHUD.dismiss()
+            if success {
+                AlertManager.showSuccessHUD(on: self.view)
+                self.viewModel.output?.subscriptionStatusDidChanged()
+                self.coordinator.dismiss()
+            } else {
+                AlertManager.showErrorHUD(on: self.view)
+            }
         }
     }
     
