@@ -8,5 +8,5 @@
 protocol EditorCoordinatorProtocol: class {
     
     func openAboutUs()
-    func openSubscribtion()
+    func openSubscribtion(output: SubscriptionOutput)
 }

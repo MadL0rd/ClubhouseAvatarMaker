@@ -174,11 +174,13 @@ final class EditorViewController: UIViewController {
         vibroGeneratorLight.impactOccurred()
         
         viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
+            guard let self = self
+            else { return }
             switch isActive {
             case .active:
-                self?.pickNewPhoto()
+                self.pickNewPhoto()
             case .notPurchased:
-                self?.coordinator.openSubscribtion()
+                self.coordinator.openSubscribtion(output: self)
             }
         }
     }

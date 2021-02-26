@@ -20,6 +20,7 @@ final class EditorViewModel {
 
     var borders = [
         Border(image: UIImage(), colorable: false, title: NSLocalizedString("Empty", comment: "")),
+        Border(image: R.image.border15(), colorable: false, title: nil),
         Border(image: R.image.border1(), colorable: false, title: nil),
         Border(image: R.image.border2(), colorable: false, title: nil),
         Border(image: R.image.border3(), colorable: false, title: nil),
@@ -142,8 +143,9 @@ extension EditorViewModel: EditorViewModelProtocol {
                 completionHandler(isActive)
                 
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
                 self.subscriptionIsActive = nil
+                completionHandler(.notPurchased)
             }
         }
     }

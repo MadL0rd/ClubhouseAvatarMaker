@@ -28,7 +28,14 @@ extension SubscriptionViewModel: CustomizableSubscriptionViewModel {
 
 // MARK: - Interface for view
 extension SubscriptionViewModel: SubscriptionViewModelProtocol {
-
+    
+    var termsOfUsageUrl: URL? {
+        return URL(string: "https://www.google.com/search?q=terms+of+usage")
+    }
+    var privacyPolicyUrl: URL? {
+        return URL(string: "https://www.google.com/search?q=privacy+policy")
+    }
+    
     func loadYearlySubscriptionPricelabel(_ completion: @escaping(String) -> Void) {
         purchaseManager.getSubscribtionInfo(.yearly) { [ weak self ] product in
             guard let self = self

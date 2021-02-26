@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 final class SubscriptionViewController: UIViewController {
 
@@ -44,6 +45,10 @@ final class SubscriptionViewController: UIViewController {
         _view.yearButton.addTarget(self, action: #selector(yearButtonDidTapped(sender:)), for: .touchUpInside)
         _view.weekButton.addTarget(self, action: #selector(weekButtonDidTapped(sender:)), for: .touchUpInside)
         
+        _view.restoreButton.addTarget(self, action: #selector(linkButtonDidTapped(sender:)), for: .touchUpInside)
+        _view.termsButton.addTarget(self, action: #selector(linkButtonDidTapped(sender:)), for: .touchUpInside)
+        _view.privacyButton.addTarget(self, action: #selector(linkButtonDidTapped(sender:)), for: .touchUpInside)
+        
         viewModel.loadYearlySubscriptionPricelabel { [ weak self ] text in
             guard let self = self
             else { return }
@@ -69,6 +74,7 @@ final class SubscriptionViewController: UIViewController {
         vibroGeneratorLight.impactOccurred()
         sender.tapAnimation()
         viewModel.purchaseSubscription(.yearly) { [ weak self ] in
+            self?.viewModel.output?.subscriptionStatusDidChanged()
             self?.coordinator.dismiss()
         }
     }
@@ -77,6 +83,7 @@ final class SubscriptionViewController: UIViewController {
         vibroGeneratorLight.impactOccurred()
         sender.tapAnimation()
         viewModel.purchaseSubscription(.weekly) { [ weak self ] in
+            self?.viewModel.output?.subscriptionStatusDidChanged()
             self?.coordinator.dismiss()
         }
     }
@@ -97,5 +104,49 @@ final class SubscriptionViewController: UIViewController {
     
     @objc func attentionScaleAnimation() {
         _view.yearButton.attentionScaleAnimation()
+    }
+    
+    @objc private func linkButtonDidTapped(sender: UIButton) {
+        sender.tapAnimation()
+        vibroGeneratorLight.impactOccurred()
+        
+        switch sender {
+        case _view.termsButton:
+            guard let url = viewModel.termsOfUsageUrl
+            else { return }
+            UIApplication.shared.open(url)
+        
+        case _view.privacyButton:
+            guard let url = viewModel.privacyPolicyUrl
+            else { return }
+            UIApplication.shared.open(url)
+            
+        case _view.restoreButton:
+            let loadingHUD = AlertManager.getLoadingHUD(on: _view)
+            loadingHUD.show(in: _view)
+            viewModel.restorePurchases { [ weak self ] result in
+                guard let self = self
+                else { return }
+                loadingHUD.dismiss()
+                switch result {
+                case .failed:
+                    AlertManager.showErrorHUD(on: self.view, withText: result.localized)
+                    
+                case .success:
+                    AlertManager.showSuccessHUD(on: self.view, withText: result.localized)
+                    self.viewModel.output?.subscriptionStatusDidChanged()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        self.coordinator.dismiss()
+                    }
+                    
+                case .nothingToRestore:
+                    AlertManager.showErrorHUD(on: self.view, withText: result.localized)
+                    
+                }
+            }
+            
+        default:
+            return
+        }
     }
 }

@@ -41,7 +41,7 @@ extension EditorCoordinator: EditorCoordinatorProtocol {
         transition.showInRootNavigationController(vc)
     }
     
-    func openSubscribtion() {
+    func openSubscribtion(output: SubscriptionOutput) {
         let vc = SubscriptionCoordinator.createModule()
         transition.present(vc)
     }
