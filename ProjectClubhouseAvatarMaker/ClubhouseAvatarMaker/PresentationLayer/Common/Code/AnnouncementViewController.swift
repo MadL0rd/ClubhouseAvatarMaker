@@ -17,7 +17,7 @@ class AnnouncementViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
-        label.font = R.font.gilroyBold(size: 24)
+        label.font = R.font.sfuiTextBold(size: 24)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.text = NSLocalizedString("Будет добавлено в следующих версиях", comment: "") 

@@ -15,4 +15,12 @@ protocol EditorViewModelProtocol: class {
     
     func pickNewPhotoFromAssets(_ completionHandler: @escaping (ImageAssetProtocol) -> Void)
     func openSettings()
+    func checkSubscriptionsStatus(force: Bool, _ completionHandler: @escaping(SubscriptionVerification) -> Void)
+}
+
+extension EditorViewModelProtocol {
+    func checkSubscriptionsStatus(_ completionHandler: @escaping(SubscriptionVerification) -> Void) {
+        checkSubscriptionsStatus(force: false, completionHandler)
+    }
+
 }

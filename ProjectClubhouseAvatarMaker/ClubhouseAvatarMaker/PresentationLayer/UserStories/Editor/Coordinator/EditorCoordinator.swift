@@ -22,6 +22,7 @@ final class EditorCoordinator {
         coordinator.transition = view
         
         viewModel.assetsManager = AssetsManager.shared
+        viewModel.purchaseManager = PurchaseManager.shared
 
         if let configuration = configuration {
             configuration(viewModel)

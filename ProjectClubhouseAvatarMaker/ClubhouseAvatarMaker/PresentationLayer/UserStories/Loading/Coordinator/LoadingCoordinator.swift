@@ -35,6 +35,6 @@ extension LoadingCoordinator: LoadingCoordinatorProtocol {
     
     func showEditor() {
         let vc = EditorCoordinator.createModule()
-        transition.presentInNewRootNavigationStack(controller: vc, animated: false, completionHandler: nil)
+        transition.presentInNewRootNavigationStack(controller: vc, animated: true, completionHandler: nil)
     }
 }

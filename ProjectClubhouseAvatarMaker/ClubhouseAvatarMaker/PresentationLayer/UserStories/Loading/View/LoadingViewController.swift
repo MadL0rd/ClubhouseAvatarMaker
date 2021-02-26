@@ -29,8 +29,11 @@ final class LoadingViewController: UIViewController {
     private func configureSelf() {
         viewModel.startConfiguration()
         
-        _view.hideLogo()
-        DispatchQueue.main.asyncAfter(deadline: .now() + _view.hideLogoDuration) { [ weak self ] in
+        DispatchQueue.main.async { [ weak self ] in
+            self?._view.changeLogo()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + _view.changeLogoDuration * 0.7) { [ weak self ] in
             self?.coordinator.showEditor()
         }
     }

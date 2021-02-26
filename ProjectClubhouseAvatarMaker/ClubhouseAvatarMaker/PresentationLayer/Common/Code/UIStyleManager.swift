@@ -41,7 +41,7 @@ class UIStyleManager {
         button.interactionAbilityChanging = true
         
         button.setTitleColor(R.color.tintColorDark(), for: .normal)
-        button.titleLabel?.font = R.font.gilroyBold(size: 13)
+        button.titleLabel?.font = R.font.sfuiTextBold(size: 13)
         
         button.layer.cornerRadius = 9
     }
@@ -83,13 +83,13 @@ class UIStyleManager {
     
     static func textFieldDefault(textField: UITextField, placeholderText: String) {
         textDefaultInput(textField)
-        textField.font = R.font.gilroyBold(size: 14)
+        textField.font = R.font.sfuiTextBold(size: 14)
         textField.setLeftPaddingPoints(24)
         textField.setRightPaddingPoints(24)
 
         let attributes = [
             NSAttributedString.Key.foregroundColor: R.color.gray()!,
-            NSAttributedString.Key.font: R.font.gilroyRegular(size: 14)!
+            NSAttributedString.Key.font: R.font.sfuiTextLight(size: 14)!
         ]
         textField.attributedPlaceholder = NSAttributedString(string: placeholderText,
                                                              attributes: attributes)

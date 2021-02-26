@@ -60,7 +60,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         addSubview(nameLabel)
         nameLabel.textColor = R.color.tintColorDark()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = R.font.gilroyBold(size: 13)
+        nameLabel.font = R.font.sfuiTextBold(size: 13)
         nameLabel.text = PhotoCollectionViewCell.defaultName
         
         makeConstraints()

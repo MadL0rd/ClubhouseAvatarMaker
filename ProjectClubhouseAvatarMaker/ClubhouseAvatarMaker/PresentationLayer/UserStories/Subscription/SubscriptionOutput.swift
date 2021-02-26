@@ -7,4 +7,5 @@
 
 protocol SubscriptionOutput: class {
     
+    func subscriptionStatusDidChanged()
 }

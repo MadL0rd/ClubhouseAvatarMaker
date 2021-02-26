@@ -50,20 +50,14 @@ extension UIViewController: ModuleTransitionHandler {
             return
         }
         
-        let rootVC = UINavigationController()
+        let rootVC = UINavigationController(rootViewController: controller)
         UIStyleManager.navigationControllerTransparent(rootVC)
-        let vc = controller
-        rootVC.show(vc, sender: nil)
         
         if animated {
-            UIView.transition(with: keyWindow,
-                              duration: 0.3,
-                              options: .transitionCrossDissolve) {
-                keyWindow.rootViewController = rootVC
-            }
-        } else {
-            keyWindow.rootViewController = rootVC
+            UIView.transition(with: keyWindow, duration: 0.5, options: .transitionCrossDissolve) {}
         }
+        
+        keyWindow.rootViewController = rootVC
         completionHandler?(true)
     }
     

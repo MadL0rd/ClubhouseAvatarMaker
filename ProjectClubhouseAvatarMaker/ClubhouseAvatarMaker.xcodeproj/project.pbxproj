@@ -10,7 +10,15 @@
 		55464D5A255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55464D59255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift */; };
 		555D06AB2552FB23005E926B /* UIView+TapAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D06AA2552FB23005E926B /* UIView+TapAnimation.swift */; };
 		5971D5A0C26A1DA07F69DC45 /* Pods_ClubhouseAvatarMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181AE00A56527B15EEF77B8C /* Pods_ClubhouseAvatarMakerTests.framework */; };
-		895C60812560737F0026742D /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 895C607E256071C60026742D /* Gilroy-Bold.ttf */; };
+		8953995625E81C7300D9B828 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8953995525E81C7300D9B828 /* StoreKit.framework */; };
+		8953995B25E81E9B00D9B828 /* PurchaseManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953995A25E81E9B00D9B828 /* PurchaseManagerProtocol.swift */; };
+		8953996325E8207700D9B828 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953996225E8207700D9B828 /* PurchaseManager.swift */; };
+		8953997A25E825B900D9B828 /* SubscriptionsId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953997825E825B900D9B828 /* SubscriptionsId.swift */; };
+		8953998225E829CA00D9B828 /* PurchaseManagerTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953998125E829CA00D9B828 /* PurchaseManagerTypealiases.swift */; };
+		8953998625E8338500D9B828 /* SKProduct+localizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953998525E8338500D9B828 /* SKProduct+localizedPrice.swift */; };
+		895399A125E8716500D9B828 /* launchScreenImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 895399A025E8716400D9B828 /* launchScreenImage.png */; };
+		895399FD25E886A200D9B828 /* SFText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 895399F825E8867800D9B828 /* SFText-Light.ttf */; };
+		89539A0025E886A400D9B828 /* SFText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 895399F725E8867800D9B828 /* SFText-Bold.ttf */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
 		895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */; };
@@ -74,7 +82,6 @@
 		89A15B4925E30E320055948C /* CopyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B4825E30E320055948C /* CopyLabelView.swift */; };
 		89A15B6725E31FDF0055948C /* UIView+flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B6625E31FDF0055948C /* UIView+flash.swift */; };
 		89A15B6B25E32FEC0055948C /* UIView+attentionScaleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B6A25E32FEC0055948C /* UIView+attentionScaleAnimation.swift */; };
-		89A228F7253FB23500C75363 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */; };
 		89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */; };
 		89AD8E46255BA9C800660695 /* UITextField+placeholderPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */; };
 		89AD8E4A255BAA7300660695 /* ArrowDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD8E49255BAA7300660695 /* ArrowDownButton.swift */; };
@@ -127,7 +134,16 @@
 		6438099CA5B29E430834CBCF /* Pods-ClubhouseAvatarMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMakerTests.release.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMakerTests/Pods-ClubhouseAvatarMakerTests.release.xcconfig"; sourceTree = "<group>"; };
 		656934B3B2239FDB899B1AE8 /* ClubhouseAvatarMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubhouseAvatarMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		678DC1594F1721FA4DC5EFE5 /* Pods-ClubhouseAvatarMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubhouseAvatarMaker.release.xcconfig"; path = "Target Support Files/Pods-ClubhouseAvatarMaker/Pods-ClubhouseAvatarMaker.release.xcconfig"; sourceTree = "<group>"; };
-		895C607E256071C60026742D /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
+		8953995525E81C7300D9B828 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8953995A25E81E9B00D9B828 /* PurchaseManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerProtocol.swift; sourceTree = "<group>"; };
+		8953996225E8207700D9B828 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		8953996C25E823E200D9B828 /* ClubhouseAvatarMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClubhouseAvatarMaker.entitlements; sourceTree = "<group>"; };
+		8953997825E825B900D9B828 /* SubscriptionsId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsId.swift; sourceTree = "<group>"; };
+		8953998125E829CA00D9B828 /* PurchaseManagerTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseManagerTypealiases.swift; sourceTree = "<group>"; };
+		8953998525E8338500D9B828 /* SKProduct+localizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+localizedPrice.swift"; sourceTree = "<group>"; };
+		895399A025E8716400D9B828 /* launchScreenImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreenImage.png; sourceTree = "<group>"; };
+		895399F725E8867800D9B828 /* SFText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Bold.ttf"; sourceTree = "<group>"; };
+		895399F825E8867800D9B828 /* SFText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Light.ttf"; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -192,7 +208,6 @@
 		89A15B4825E30E320055948C /* CopyLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabelView.swift; sourceTree = "<group>"; };
 		89A15B6625E31FDF0055948C /* UIView+flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+flash.swift"; sourceTree = "<group>"; };
 		89A15B6A25E32FEC0055948C /* UIView+attentionScaleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+attentionScaleAnimation.swift"; sourceTree = "<group>"; };
-		89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		89AD8E1A255B764C00660695 /* ScrollMovingUpManagerForUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovingUpManagerForUIControl.swift; sourceTree = "<group>"; };
 		89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+placeholderPadding.swift"; sourceTree = "<group>"; };
 		89AD8E49255BAA7300660695 /* ArrowDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowDownButton.swift; sourceTree = "<group>"; };
@@ -230,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1A54BB3CC6F77FD5C75172 /* Pods_ClubhouseAvatarMaker.framework in Frameworks */,
+				8953995625E81C7300D9B828 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +314,7 @@
 				89F00A332542E16200D482F6 /* Extensions */,
 				83F30FBA998ECC429BAFB13D /* Resources */,
 				AA79B48E92F24FB535E09EA5 /* SupportingFiles */,
+				8953996C25E823E200D9B828 /* ClubhouseAvatarMaker.entitlements */,
 			);
 			path = ClubhouseAvatarMaker;
 			sourceTree = "<group>";
@@ -310,9 +327,37 @@
 				89DD277125DCFB2C00AD2868 /* Colors.xcassets */,
 				89DD277025DCFB2C00AD2868 /* Images.xcassets */,
 				895ED38325DD6D35006EEA12 /* Borders.xcassets */,
+				895399A025E8716400D9B828 /* launchScreenImage.png */,
 				89DD264A25DC9F0000AD2868 /* R.generated.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8953995925E81E8100D9B828 /* PurchaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				8953997E25E829B800D9B828 /* Utils */,
+				8953996F25E8257900D9B828 /* Entities */,
+				8953995A25E81E9B00D9B828 /* PurchaseManagerProtocol.swift */,
+				8953996225E8207700D9B828 /* PurchaseManager.swift */,
+			);
+			path = PurchaseManager;
+			sourceTree = "<group>";
+		};
+		8953996F25E8257900D9B828 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8953997825E825B900D9B828 /* SubscriptionsId.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8953997E25E829B800D9B828 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8953998125E829CA00D9B828 /* PurchaseManagerTypealiases.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		895ED2DF25DD19FC006EEA12 /* Editor */ = {
@@ -391,8 +436,8 @@
 		895ED33025DD319A006EEA12 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				895ED33125DD319A006EEA12 /* LoadingView.swift */,
 				895ED33225DD319B006EEA12 /* LoadingViewController.swift */,
+				895ED33125DD319A006EEA12 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,8 +572,8 @@
 		89A228D9253FB23500C75363 /* Gilroy */ = {
 			isa = PBXGroup;
 			children = (
-				895C607E256071C60026742D /* Gilroy-Bold.ttf */,
-				89A228E3253FB23500C75363 /* Gilroy-Regular.ttf */,
+				895399F725E8867800D9B828 /* SFText-Bold.ttf */,
+				895399F825E8867800D9B828 /* SFText-Light.ttf */,
 			);
 			path = Gilroy;
 			sourceTree = "<group>";
@@ -561,6 +606,7 @@
 				895ED40725DF51E0006EEA12 /* UIColor+rgba.swift */,
 				895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */,
 				89A15B6625E31FDF0055948C /* UIView+flash.swift */,
+				8953998525E8338500D9B828 /* SKProduct+localizedPrice.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -568,6 +614,7 @@
 		89F00A3A2542E16200D482F6 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8953995925E81E8100D9B828 /* PurchaseManager */,
 				895ED34825DD5061006EEA12 /* AssetsManager */,
 			);
 			path = BusinessLogicLayer;
@@ -712,6 +759,7 @@
 		D0B3612EACCC6D6A80AA8188 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8953995525E81C7300D9B828 /* StoreKit.framework */,
 				FC03FAC3E2653A0CFEC93FAC /* Pods_ClubhouseAvatarMaker.framework */,
 				181AE00A56527B15EEF77B8C /* Pods_ClubhouseAvatarMakerTests.framework */,
 			);
@@ -798,11 +846,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895399A125E8716500D9B828 /* launchScreenImage.png in Resources */,
+				895399FD25E886A200D9B828 /* SFText-Light.ttf in Resources */,
 				89DD277325DCFB2C00AD2868 /* Colors.xcassets in Resources */,
 				C8E8E8C4BB4C54647917C3C7 /* LaunchScreen.storyboard in Resources */,
+				89539A0025E886A400D9B828 /* SFText-Bold.ttf in Resources */,
 				89DD277225DCFB2C00AD2868 /* Images.xcassets in Resources */,
-				89A228F7253FB23500C75363 /* Gilroy-Regular.ttf in Resources */,
-				895C60812560737F0026742D /* Gilroy-Bold.ttf in Resources */,
 				895ED38425DD6D35006EEA12 /* Borders.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -932,6 +981,7 @@
 				89AD8EA8255D71F000660695 /* UIViewController+addChildViewControllerToView.swift in Sources */,
 				89F00AB02542E16200D482F6 /* AppRouter.swift in Sources */,
 				895ED33925DD319B006EEA12 /* LoadingView.swift in Sources */,
+				8953998625E8338500D9B828 /* SKProduct+localizedPrice.swift in Sources */,
 				89F00AB22542E16200D482F6 /* ApplicationAssembly.swift in Sources */,
 				895ED2F025DD19FC006EEA12 /* EditorInput.swift in Sources */,
 				89DD264B25DC9F0000AD2868 /* R.generated.swift in Sources */,
@@ -940,11 +990,13 @@
 				895ED35725DD5061006EEA12 /* DKAssetsManager.swift in Sources */,
 				895ED2F125DD19FC006EEA12 /* EditorView.swift in Sources */,
 				895ED3EB25DF2F20006EEA12 /* TwoStateButton.swift in Sources */,
+				8953995B25E81E9B00D9B828 /* PurchaseManagerProtocol.swift in Sources */,
 				895ED3EF25DF2FC9006EEA12 /* UIView+layerAnimation.swift in Sources */,
 				89A15B6725E31FDF0055948C /* UIView+flash.swift in Sources */,
 				895ED2EE25DD19FC006EEA12 /* EditorCoordinator.swift in Sources */,
 				895ED33825DD319B006EEA12 /* LoadingCoordinatorProtocol.swift in Sources */,
 				895ED34525DD3E54006EEA12 /* UIView+RoundedCorners.swift in Sources */,
+				8953998225E829CA00D9B828 /* PurchaseManagerTypealiases.swift in Sources */,
 				895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */,
 				895ED33525DD319B006EEA12 /* LoadingViewModel.swift in Sources */,
 				895ED38825DEEA4D006EEA12 /* UIImage+merge.swift in Sources */,
@@ -961,6 +1013,7 @@
 				895ED44225DF6BBB006EEA12 /* SubscriptionInput.swift in Sources */,
 				89CD71F825521BE00017C0DA /* ContentFittingTableView.swift in Sources */,
 				895ED40825DF51E0006EEA12 /* UIColor+rgba.swift in Sources */,
+				8953997A25E825B900D9B828 /* SubscriptionsId.swift in Sources */,
 				895ED35425DD5061006EEA12 /* AssetsManager.swift in Sources */,
 				895ED3F325DF46E5006EEA12 /* ColorCollectionViewCell.swift in Sources */,
 				89A15B3525E309570055948C /* CopyButton.swift in Sources */,
@@ -979,6 +1032,7 @@
 				896F63DE25994AE50001599C /* UIView+shake.swift in Sources */,
 				89F00A9D2542E16200D482F6 /* UIConstants.swift in Sources */,
 				895ED33B25DD319B006EEA12 /* LoadingInput.swift in Sources */,
+				8953996325E8207700D9B828 /* PurchaseManager.swift in Sources */,
 				89A15B4925E30E320055948C /* CopyLabelView.swift in Sources */,
 				895ED35A25DD5062006EEA12 /* AssetsManagerTypealiases.swift in Sources */,
 				895ED33725DD319B006EEA12 /* LoadingCoordinator.swift in Sources */,
@@ -1130,6 +1184,7 @@
 			baseConfigurationReference = F1A97D24E1314BC504A0C8C1 /* Pods-ClubhouseAvatarMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClubhouseAvatarMaker/ClubhouseAvatarMaker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
@@ -1153,6 +1208,7 @@
 			baseConfigurationReference = 0178F67D52AB8FF4AD0D9547 /* Pods-ClubhouseAvatarMaker.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClubhouseAvatarMaker/ClubhouseAvatarMaker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
@@ -1187,6 +1243,7 @@
 			baseConfigurationReference = 678DC1594F1721FA4DC5EFE5 /* Pods-ClubhouseAvatarMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClubhouseAvatarMaker/ClubhouseAvatarMaker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;

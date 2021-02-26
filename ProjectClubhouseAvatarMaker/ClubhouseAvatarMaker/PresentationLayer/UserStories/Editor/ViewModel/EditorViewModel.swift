@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import SwiftyStoreKit
 
 final class EditorViewModel {
-	var output: EditorOutput?
     
+	var output: EditorOutput?
     var assetsManager: AssetsManagerProtocol!
+    var purchaseManager: PurchaseManagerProtocol!
+
+    private var subscriptionIsActive: SubscriptionVerification?
     
     var borders = [
         Border(image: UIImage(), colorable: false, title: NSLocalizedString("Empty", comment: "")),
@@ -119,6 +123,27 @@ extension EditorViewModel: EditorViewModelProtocol {
     
     func openSettings() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+    }
+    
+    func checkSubscriptionsStatus(force: Bool, _ completionHandler: @escaping(SubscriptionVerification) -> Void) {
+        if let isActive = subscriptionIsActive,
+           !force {
+            completionHandler(isActive)
+            return
+        }
+        purchaseManager.checkActiveSubscriptions { [ weak self ] result in
+            guard let self = self
+            else { return }
+            switch result {
+            case .success(let isActive):
+                self.subscriptionIsActive = isActive
+                completionHandler(isActive)
+                
+            case .failure(let error):
+                print(error)
+                self.subscriptionIsActive = nil
+            }
+        }
     }
 }
 

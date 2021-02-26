@@ -17,16 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yWw-4E-FVH">
-                                <rect key="frame" x="62" y="-652" width="290" height="2000"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchScreenImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="yWw-4E-FVH">
+                                <rect key="frame" x="0.0" y="25" width="414" height="812"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="main"/>
                         <constraints>
                             <constraint firstItem="yWw-4E-FVH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1WU-n0-Ngj"/>
-                            <constraint firstItem="yWw-4E-FVH" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.7" id="WcX-oM-aC6"/>
-                            <constraint firstItem="yWw-4E-FVH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="poX-Uj-wRa"/>
+                            <constraint firstItem="yWw-4E-FVH" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="WcX-oM-aC6"/>
+                            <constraint firstItem="yWw-4E-FVH" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="cbd-Ve-B5d"/>
+                            <constraint firstItem="yWw-4E-FVH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="poX-Uj-wRa"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,9 +37,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchLogo" width="2000" height="2000"/>
+        <image name="launchScreenImage.png" width="375" height="812"/>
         <namedColor name="main">
-            <color red="0.44705882352941179" green="0.22745098039215686" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94099998474121094" green="0.92900002002716064" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

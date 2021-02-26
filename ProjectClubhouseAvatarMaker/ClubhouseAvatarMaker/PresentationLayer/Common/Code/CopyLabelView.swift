@@ -49,7 +49,7 @@ class CopyLabelView: UIView {
     private func setupView() {
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = R.font.gilroyRegular(size: 16)
+        label.font = R.font.sfuiTextLight(size: 16)
         label.textColor = R.color.tintColorDark()
         
         addSubview(copyButton)

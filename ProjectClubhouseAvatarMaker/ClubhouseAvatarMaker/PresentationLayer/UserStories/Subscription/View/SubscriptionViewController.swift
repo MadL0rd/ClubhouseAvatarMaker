@@ -25,7 +25,6 @@ final class SubscriptionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        _view.yearButton.flash()
     }
     
     deinit {
@@ -41,6 +40,49 @@ final class SubscriptionViewController: UIViewController {
     private func configureSelf() {
         modalPresentationStyle = .formSheet
         
+        _view.closeButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        _view.yearButton.addTarget(self, action: #selector(yearButtonDidTapped(sender:)), for: .touchUpInside)
+        _view.weekButton.addTarget(self, action: #selector(weekButtonDidTapped(sender:)), for: .touchUpInside)
+        
+        viewModel.loadYearlySubscriptionPricelabel { [ weak self ] text in
+            guard let self = self
+            else { return }
+            self._view.showPurchaseButtonWithText(button: self._view.yearButton, text: text)
+            self.startAttentionAnimation()
+        }
+        
+        viewModel.loadWeeklySubscriptionPricelabel { [ weak self ] text in
+            guard let self = self
+            else { return }
+            self._view.showPurchaseButtonWithText(button: self._view.weekButton, text: text)
+        }
+    }
+    
+    // MARK: - UI elements actions
+    
+    @objc private func backButtonTapped(sender: UIButton) {
+        vibroGeneratorLight.impactOccurred()
+        coordinator.dismiss()
+    }
+    
+    @objc private func yearButtonDidTapped(sender: UIButton) {
+        vibroGeneratorLight.impactOccurred()
+        sender.tapAnimation()
+        viewModel.purchaseSubscription(.yearly) { [ weak self ] in
+            self?.coordinator.dismiss()
+        }
+    }
+    
+    @objc private func weekButtonDidTapped(sender: UIButton) {
+        vibroGeneratorLight.impactOccurred()
+        sender.tapAnimation()
+        viewModel.purchaseSubscription(.weekly) { [ weak self ] in
+            self?.coordinator.dismiss()
+        }
+    }
+    
+    private func startAttentionAnimation() {
+        _view.yearButton.flash()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) { [ weak self ] in
             guard let self = self
             else { return }
@@ -51,29 +93,9 @@ final class SubscriptionViewController: UIViewController {
                                               userInfo: nil,
                                               repeats: true)
         }
-        _view.closeButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        _view.yearButton.addTarget(self, action: #selector(yearButtonDidTapped(sender:)), for: .touchUpInside)
-        _view.weekButton.addTarget(self, action: #selector(weekButtonDidTapped(sender:)), for: .touchUpInside)
-    }
-    
-    // MARK: - UI elements actions
-    
-    @objc private func backButtonTapped(sender: UIButton) {
-        vibroGeneratorLight.impactOccurred()
-        coordinator.dismiss()
     }
     
     @objc func attentionScaleAnimation() {
         _view.yearButton.attentionScaleAnimation()
-    }
-    
-    @objc private func yearButtonDidTapped(sender: UIButton) {
-        vibroGeneratorLight.impactOccurred()
-        sender.tapAnimation()
-    }
-    
-    @objc private func weekButtonDidTapped(sender: UIButton) {
-        vibroGeneratorLight.impactOccurred()
-        sender.tapAnimation()
     }
 }

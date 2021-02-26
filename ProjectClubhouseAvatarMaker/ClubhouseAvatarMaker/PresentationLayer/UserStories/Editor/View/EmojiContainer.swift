@@ -70,7 +70,7 @@ class EmojiContainer: UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: emojiSideSize, height: emojiSideSize))
         label.text = emoji
         label.textAlignment = .center
-        label.font = R.font.gilroyBold(size: emojiSideSize * 0.7)
+        label.font = R.font.sfuiTextBold(size: emojiSideSize * 0.7)
         emojiBackgroundView.addSubview(label)
         label.center = CGPoint(x: emojiSideSize / 2, y: emojiSideSize * 0.55)
 
@@ -86,7 +86,7 @@ class EmojiContainer: UIView {
         layer.cornerRadius = side / 2
         width.constant = side
         labelCenterY.constant = side * 0.05
-        label.font = R.font.gilroyBold(size: side * 0.7)
+        label.font = R.font.sfuiTextBold(size: side * 0.7)
     }
     
     func applyMoveModificator(topLeftPoint: CGPoint) {

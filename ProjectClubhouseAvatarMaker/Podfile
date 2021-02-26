@@ -10,6 +10,7 @@ target 'ClubhouseAvatarMaker' do
   pod 'DKImagePickerController'
   pod 'CropViewController'
   pod 'ISEmojiView', :path => '../ISEmojiViewPod'
+  pod 'JGProgressHUD'
   
   pod 'SwiftyStoreKit'
 

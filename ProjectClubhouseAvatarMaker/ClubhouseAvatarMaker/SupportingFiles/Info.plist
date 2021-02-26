@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ClubhouseAvatarMaker</string>
+	<string>Avatar maker</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,10 +34,8 @@
 	<string>To pick photos you need to provide access to gallery </string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Gilroy-Regular.ttf</string>
-		<string>Gilroy-Light.ttf</string>
-		<string>Gilroy-Semibold.ttf</string>
-		<string>Gilroy-Bold.ttf</string>
+		<string>SFText-Bold.ttf</string>
+		<string>SFText-Light.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

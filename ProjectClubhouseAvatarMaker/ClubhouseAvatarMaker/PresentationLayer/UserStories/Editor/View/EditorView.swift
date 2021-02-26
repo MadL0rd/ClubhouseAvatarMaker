@@ -186,7 +186,7 @@ final class EditorView: UIView {
     private func setupSuccessMessage() {
         addSubview(successMessageLabel)
         successMessageLabel.translatesAutoresizingMaskIntoConstraints = false
-        successMessageLabel.font = R.font.gilroyBold(size: 14)
+        successMessageLabel.font = R.font.sfuiTextBold(size: 14)
         successMessageLabel.textColor = R.color.tintColorDark()
         successMessageLabel.backgroundColor = R.color.backgroundLight()
         successMessageLabel.numberOfLines = 0
@@ -253,7 +253,7 @@ final class EditorView: UIView {
         setupSwitchButton(image: R.image.mute(), button: muteSwitchButton)
         setupSwitchButton(image: nil, button: emojiSwitchButton)
         emojiSwitchButton.setTitle("🔥", for: .normal)
-        emojiSwitchButton.titleLabel?.font = R.font.gilroyBold(size: 45)
+        emojiSwitchButton.titleLabel?.font = R.font.sfuiTextBold(size: 45)
         emojiSwitchButton.textChanging = false
     }
     

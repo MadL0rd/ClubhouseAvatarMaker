@@ -10,7 +10,7 @@ import UIKit
 final class LoadingView: UIView {
     
     let logo = UIImageView()
-    let hideLogoDuration: TimeInterval = 0.5
+    let changeLogoDuration: TimeInterval = 0.8
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,14 +26,11 @@ final class LoadingView: UIView {
     
     // MARK: - Public methods
     
-    func hideLogo() {
-        UIView.transition(with: logo,
-                          duration: hideLogoDuration) { [ weak self ] in
-            guard let logo = self?.logo
-            else { return }
-            logo.alpha = 0
-            logo.transform = CGAffineTransform(translationX: 0, y: -20)
-                .scaledBy(x: 1.1, y: 1.1)
+    func changeLogo() {
+        UIView.transition(with: self,
+                          duration: changeLogoDuration,
+                          options: .transitionCrossDissolve) { [ weak self ] in
+            self?.logo.image = R.image.loadingImage()
         }
     }
 
@@ -45,17 +42,18 @@ final class LoadingView: UIView {
         
         addSubview(logo)
         logo.translatesAutoresizingMaskIntoConstraints = false
-        logo.contentMode = .scaleAspectFit
-        logo.image = R.image.launchLogo()
+        logo.contentMode = .scaleAspectFill
+        logo.image = R.image.launchImage()
         
         makeConstraints()
     }
 
     private func makeConstraints() {
         NSLayoutConstraint.activate([
-            logo.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
+            logo.centerYAnchor.constraint(equalTo: centerYAnchor),
             logo.centerXAnchor.constraint(equalTo: centerXAnchor),
-            logo.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7)
+            logo.widthAnchor.constraint(equalTo: widthAnchor),
+            logo.heightAnchor.constraint(equalTo: heightAnchor)
         ])
     }
 }

@@ -48,12 +48,12 @@ If you want to make your idea a reality, write to us:
         stack.spacing = 40
         
         stack.addArrangedSubview(titleLabel)
-        titleLabel.font = R.font.gilroyBold(size: 32)
+        titleLabel.font = R.font.sfuiTextBold(size: 32)
         titleLabel.text = NSLocalizedString("About us", comment: "")
         titleLabel.textColor = R.color.tintColorDark()
         
         stack.addArrangedSubview(folowLabel)
-        folowLabel.font = R.font.gilroyRegular(size: 16)
+        folowLabel.font = R.font.sfuiTextLight(size: 16)
         folowLabel.text = NSLocalizedString("Folow us in clubhouse:", comment: "")
         folowLabel.textColor = R.color.tintColorDark()
         
@@ -64,11 +64,11 @@ If you want to make your idea a reality, write to us:
         designerLabel.setText(labelText: "👩🏻  @o.kad", copyText: "@o.kad")
         
         stack.addArrangedSubview(textLabel)
-        textLabel.font = R.font.gilroyRegular(size: 16)
+        textLabel.font = R.font.sfuiTextLight(size: 16)
         textLabel.numberOfLines = 0
         let attributedString = NSMutableAttributedString(string: mainText)
         let range: NSRange = attributedString.mutableString.range(of: "Cherry Dev", options: .caseInsensitive)
-        attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.gilroyBold(size: 16)!, range: range)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.sfuiTextBold(size: 16)!, range: range)
         textLabel.attributedText = attributedString
 
         stack.addArrangedSubview(emailLabel)

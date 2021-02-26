@@ -15,8 +15,7 @@ final class EditorViewController: UIViewController {
     
     private let vibroGeneratorLight = UIImpactFeedbackGenerator(style: .light)
     
-    private var lastPickedPhoto: UIImage?
-    private var lastSelectedPhoto: UIImage? {
+    private var cropViewController: CropViewController? {
         didSet {
             _view.recropButton.isHidden = false
         }
@@ -75,6 +74,8 @@ final class EditorViewController: UIViewController {
             else { return }
             self.locationDidChanged(emojiContainer: self._view.avatar.emojiView)
         }
+        
+        viewModel.checkSubscriptionsStatus(force: true, { _ in })
 
         _view.photosCollectionView.dataSource = self
         _view.photosCollectionView.delegate = self
@@ -84,7 +85,7 @@ final class EditorViewController: UIViewController {
         _view.colorsCollectionView.delegate = self
         _view.colorsCollectionView.register(ColorCollectionViewCell.self, forCellWithReuseIdentifier: ColorCollectionViewCell.identifier)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(selectNewPhoto))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(avatarDidTapped))
         _view.avatar.addGestureRecognizer(tap)
         _view.avatar.borderTintColor = selectedBorderColor
         
@@ -107,6 +108,7 @@ final class EditorViewController: UIViewController {
         cropController.aspectRatioLockEnabled = true
         cropController.toolbar.clampButtonHidden = true
         cropController.toolbar.resetButtonHidden = true
+        cropController.toolbar.tintColor = R.color.tintColorLight()
         cropController.modalPresentationStyle = .fullScreen
         present(cropController, animated: true, completion: nil)
     }
@@ -120,10 +122,24 @@ final class EditorViewController: UIViewController {
     
     // MARK: - UI elements actions
     
-    @objc private func selectNewPhoto() {
+    @objc private func avatarDidTapped() {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
-        guard viewModel.authorizationStatusIsOK else {
+        
+        self.coordinator.openSubscribtion()
+        viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
+            switch isActive {
+            case .active:
+                self?.pickNewPhoto()
+            case .notPurchased: break
+//                self?.coordinator.openSubscribtion()
+            }
+        }
+    }
+    
+    private func pickNewPhoto() {
+        guard viewModel.authorizationStatusIsOK
+        else {
             showErrorAlert(with: NSLocalizedString("To pick photo you should provide this app access to gallery", comment: "")) { [ weak self ] in
                 self?.viewModel.openSettings()
             }
@@ -136,7 +152,6 @@ final class EditorViewController: UIViewController {
         asset.loadOriginalImage { [ weak self ] result in
             switch result {
             case let .success(image):
-                self?.lastPickedPhoto = image
                 DispatchQueue.main.async {
                     self?.cropSelectedImage(image)
                 }
@@ -180,10 +195,11 @@ final class EditorViewController: UIViewController {
     }
     
     @objc private func recropImage(sender: UIButton) {
-        guard let image = lastSelectedPhoto
+        guard let cropController = cropViewController
         else { return }
         sender.tapAnimation()
-        cropSelectedImage(image)
+        present(cropController, animated: true, completion: nil)
+        
         vibroGeneratorLight.impactOccurred()
     }
     
@@ -300,10 +316,7 @@ extension EditorViewController: CropViewControllerDelegate {
     
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         cropViewController.dismiss(animated: true, completion: nil)
-        if lastPickedPhoto != nil {
-            lastSelectedPhoto = lastPickedPhoto
-            lastPickedPhoto = nil
-        }
+        self.cropViewController = cropViewController
         currentPhoto = image
     }
 }
@@ -342,5 +355,14 @@ extension EditorViewController: EmojiContainerDelegate {
     
     func emojiDidChanged(emojiContainer: EmojiContainer, emoji: String) {
         _view.photosCollectionView.reloadData()
+    }
+}
+
+// MARK: - SubscriptionOutput
+
+extension EditorViewController: SubscriptionOutput {
+    
+    func subscriptionStatusDidChanged() {
+        viewModel.checkSubscriptionsStatus(force: true, { _ in })
     }
 }

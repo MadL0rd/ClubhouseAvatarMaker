@@ -39,7 +39,7 @@ class ArrowDownButton: UIButton {
         
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = R.font.gilroyBold(size: 14)
+        label.font = R.font.sfuiTextBold(size: 14)
         label.textColor = R.color.tintColorDark()
         label.numberOfLines = 0
         
