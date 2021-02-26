@@ -30,10 +30,10 @@ extension SubscriptionViewModel: CustomizableSubscriptionViewModel {
 extension SubscriptionViewModel: SubscriptionViewModelProtocol {
     
     var termsOfUsageUrl: URL? {
-        return URL(string: "https://www.google.com/search?q=terms+of+usage")
+        return URL(string: "http://80.78.247.50/static/TermsConditions.html")
     }
     var privacyPolicyUrl: URL? {
-        return URL(string: "https://www.google.com/search?q=privacy+policy")
+        return URL(string: "http://80.78.247.50/static/PrivacyPolicy.html")
     }
     
     func loadYearlySubscriptionPricelabel(_ completion: @escaping(String) -> Void) {
