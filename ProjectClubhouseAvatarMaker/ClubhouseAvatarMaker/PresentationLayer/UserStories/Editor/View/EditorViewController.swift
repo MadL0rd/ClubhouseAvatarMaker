@@ -27,17 +27,35 @@ final class EditorViewController: UIViewController {
             }
         }
     }
-    private var selectedBorderColor = R.color.backgroundDark() {
+    private var selectedBorderColor: UIColor? {
         didSet {
+            viewModel.defaults.selectedBorderColor = selectedBorderColor
             enableNewBorderColor()
         }
     }
     
-    private var showNewUserIcon = true
-    private var showMuteIcon = true
-    private var addEmoji = true {
-        didSet {
-            _view.manageEmojiViewVisibility(visible: addEmoji)
+    private var showNewUserIcon: Bool {
+        get {
+            viewModel.defaults.showNewUserIcon
+        }
+        set {
+            viewModel.defaults.showNewUserIcon = newValue
+        }
+    }
+    private var showMuteIcon: Bool {
+        get {
+            viewModel.defaults.showMuteIcon
+        }
+        set {
+            viewModel.defaults.showMuteIcon = newValue
+        }
+    }
+    private var addEmoji: Bool {
+        get {
+            viewModel.defaults.addEmoji
+        }
+        set {
+            viewModel.defaults.addEmoji = newValue
         }
     }
     private var cellsEmojiCenter: CGPoint?
@@ -97,6 +115,33 @@ final class EditorViewController: UIViewController {
         _view.newUserSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         _view.muteSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         _view.emojiSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
+        
+        loadDefaults()
+    }
+    
+    private func loadDefaults() {
+        _view.avatar.emojiView.emoji = viewModel.defaults.emoji
+        emojiDidChanged(emojiContainer: _view.avatar.emojiView, emoji: viewModel.defaults.emoji)
+        
+        if viewModel.defaults.avatarEmojiCenterX != 0,
+           viewModel.defaults.avatarEmojiCenterY != 0 {
+            let point = CGPoint(x: CGFloat(viewModel.defaults.avatarEmojiCenterX),
+                                y: CGFloat(viewModel.defaults.avatarEmojiCenterY))
+            _view.avatar.emojiView.applyMoveModificator(topLeftPoint: point)
+        }
+        
+        if !showMuteIcon {
+            _view.muteSwitchButton.setBlocked(animated: false)
+        }
+        if !addEmoji {
+            _view.emojiSwitchButton.setBlocked(animated: false)
+            _view.manageEmojiViewVisibility(visible: false)
+        }
+        if !showNewUserIcon {
+            _view.newUserSwitchButton.setBlocked(animated: false)
+        }
+        
+        selectedBorderColor = viewModel.defaults.selectedBorderColor
     }
     
     // MARK: - Private methods
@@ -114,7 +159,9 @@ final class EditorViewController: UIViewController {
     }
     
     private func enableNewBorderColor() {
-        UIView.animate(withDuration: 0.3) { [ weak self ] in
+        UIView.transition(with: _view.avatar.borderView,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve) { [ weak self ] in
             self?._view.avatar.borderTintColor = self?.selectedBorderColor
         }
         _view.photosCollectionView.reloadData()
@@ -126,13 +173,12 @@ final class EditorViewController: UIViewController {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
         
-        self.coordinator.openSubscribtion()
         viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
             switch isActive {
             case .active:
                 self?.pickNewPhoto()
-            case .notPurchased: break
-//                self?.coordinator.openSubscribtion()
+            case .notPurchased:
+                self?.coordinator.openSubscribtion()
             }
         }
     }
@@ -207,10 +253,14 @@ final class EditorViewController: UIViewController {
         switch button {
         case _view.muteSwitchButton:
             showMuteIcon = !button.viewState
+            
         case _view.emojiSwitchButton:
             addEmoji = !button.viewState
+            _view.manageEmojiViewVisibility(visible: addEmoji)
+
         case _view.newUserSwitchButton:
             showNewUserIcon = !button.viewState
+            
         default:
             return
         }
@@ -347,6 +397,9 @@ extension EditorViewController {
 extension EditorViewController: EmojiContainerDelegate {
     
     func locationDidChanged(emojiContainer: EmojiContainer) {
+        viewModel.defaults.avatarEmojiCenterX = Float(emojiContainer.center.x)
+        viewModel.defaults.avatarEmojiCenterY = Float(emojiContainer.center.y)
+
         let cellX = emojiContainer.center.x / _view.avatar.frame.width * PhotoCollectionViewCell.avatarWidth
         let cellY = emojiContainer.center.y / _view.avatar.frame.height * PhotoCollectionViewCell.avatarWidth
         cellsEmojiCenter = CGPoint(x: cellX, y: cellY)
@@ -354,7 +407,9 @@ extension EditorViewController: EmojiContainerDelegate {
     }
     
     func emojiDidChanged(emojiContainer: EmojiContainer, emoji: String) {
+        viewModel.defaults.emoji = emoji
         _view.photosCollectionView.reloadData()
+        _view.emojiSwitchButton.setTitle(emoji, for: .normal)
     }
 }
 

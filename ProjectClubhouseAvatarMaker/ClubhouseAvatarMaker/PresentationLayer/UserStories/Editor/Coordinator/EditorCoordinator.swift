@@ -23,6 +23,7 @@ final class EditorCoordinator {
         
         viewModel.assetsManager = AssetsManager.shared
         viewModel.purchaseManager = PurchaseManager.shared
+        viewModel.defaults = UserDefaultsEditorManager()
 
         if let configuration = configuration {
             configuration(viewModel)

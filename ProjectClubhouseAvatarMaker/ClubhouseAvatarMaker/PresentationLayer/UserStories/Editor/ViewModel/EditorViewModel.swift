@@ -13,9 +13,11 @@ final class EditorViewModel {
 	var output: EditorOutput?
     var assetsManager: AssetsManagerProtocol!
     var purchaseManager: PurchaseManagerProtocol!
-
+    
     private var subscriptionIsActive: SubscriptionVerification?
     
+    var defaults: UserDefaultsEditorManagerProtocol!
+
     var borders = [
         Border(image: UIImage(), colorable: false, title: NSLocalizedString("Empty", comment: "")),
         Border(image: R.image.border1(), colorable: false, title: nil),

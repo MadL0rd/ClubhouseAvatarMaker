@@ -61,10 +61,6 @@ class AvatarView: UIView {
         }
     }
     
-    private func moveEmoji(newCenter: CGPoint) {
-        emojiView.center = newCenter
-    }
-    
     // MARK: - Private setup methods
     
     private func setupView() {

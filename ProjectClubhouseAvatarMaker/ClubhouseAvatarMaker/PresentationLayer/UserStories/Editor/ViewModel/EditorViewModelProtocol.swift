@@ -9,6 +9,7 @@ import UIKit
 
 protocol EditorViewModelProtocol: class {
     
+    var defaults: UserDefaultsEditorManagerProtocol! { get }
     var borders: [Border] { get }
     var colors: [UIColor] { get }
     var authorizationStatusIsOK: Bool { get }

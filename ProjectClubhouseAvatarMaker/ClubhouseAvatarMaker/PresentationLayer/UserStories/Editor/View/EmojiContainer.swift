@@ -72,7 +72,7 @@ class EmojiContainer: UIView {
         label.textAlignment = .center
         label.font = R.font.sfuiTextBold(size: emojiSideSize * 0.7)
         emojiBackgroundView.addSubview(label)
-        label.center = CGPoint(x: emojiSideSize / 2, y: emojiSideSize * 0.55)
+        label.center = CGPoint(x: emojiSideSize / 2, y: emojiSideSize * 0.5)
 
         UIGraphicsBeginImageContext(backgroundView.frame.size)
         backgroundView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -85,7 +85,7 @@ class EmojiContainer: UIView {
         let side = avatarSideSize * 0.35
         layer.cornerRadius = side / 2
         width.constant = side
-        labelCenterY.constant = side * 0.05
+        labelCenterY.constant = 0
         label.font = R.font.sfuiTextBold(size: side * 0.7)
     }
     
