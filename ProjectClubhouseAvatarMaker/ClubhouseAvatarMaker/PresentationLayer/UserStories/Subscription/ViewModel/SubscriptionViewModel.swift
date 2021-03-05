@@ -42,11 +42,11 @@ extension SubscriptionViewModel: SubscriptionViewModelProtocol {
             else { return }
             self.yearProduct = product
             var text = "\(product.localizedPrice) / \(self.yearText)"
-            if #available(iOS 12.2, *) {
-                if let discount = product.discounts.first {
-                    text = "\(discount.localizedSubscriptionPeriod) \(discount.localizedPrice) \(self.thenText) \(text)"
-                }
-            }
+//            if #available(iOS 12.2, *) {
+//                if let discount = product.discounts.first {
+//                    text = "\(discount.localizedSubscriptionPeriod) \(discount.localizedPrice) \(self.thenText) \(text)"
+//                }
+//            }
             completion(text)
         }
     }
@@ -57,11 +57,11 @@ extension SubscriptionViewModel: SubscriptionViewModelProtocol {
             else { return }
             self.weekProduct = product
             var text = "\(product.localizedPrice) / \(self.weekText)"
-            if #available(iOS 12.2, *) {
-                if let discount = product.discounts.first {
-                    text = "\(discount.localizedSubscriptionPeriod) \(discount.localizedPrice) \(self.thenText) \(text)"
-                }
-            }
+//            if #available(iOS 12.2, *) {
+//                if let discount = product.discounts.first {
+//                    text = "\(discount.localizedSubscriptionPeriod) \(discount.localizedPrice) \(self.thenText) \(text)"
+//                }
+//            }
             completion(text)
         }
     }
