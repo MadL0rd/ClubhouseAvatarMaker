@@ -11,7 +11,19 @@ import StoreKit
 class PurchaseManager: PurchaseManagerProtocol {
     
     static let shared: PurchaseManagerProtocol = PurchaseManager()
-        
+
+    var termsOfUsageUrl: URL? {
+        return URL(string: "http://80.78.247.50/static/TermsConditions.html")
+    }
+    var privacyPolicyUrl: URL? {
+        return URL(string: "http://80.78.247.50/static/PrivacyPolicy.html")
+    }
+    var supportUrl: URL? {
+        return URL(string: "https://vk.com/clubhouseborderedavatar")
+    }
+    
+    var subscriptionIsActive: SubscriptionVerification?
+    
     func completeTransactions() {
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
@@ -33,8 +45,14 @@ class PurchaseManager: PurchaseManagerProtocol {
     }
     
     func checkActiveSubscriptions(_ callback: @escaping CheckActiveSubscriptionsCompletion) {
+        guard subscriptionIsActive != .active
+        else {
+            callback(.success(.active))
+            return
+        }
+        
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
-        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+        SwiftyStoreKit.verifyReceipt(using: appleValidator) { [ weak self ] result in
             switch result {
             case .success(let receipt):
                 let productIds = Set(SubscriptionsId.allCases.map { $0.rawValue })
@@ -42,14 +60,17 @@ class PurchaseManager: PurchaseManagerProtocol {
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
                     print("\(productIds) are valid until \(expiryDate)\n\(items)\n")
+                    self?.subscriptionIsActive = .active
                     callback(.success(.active))
 
                 case .expired(let expiryDate, let items):
                     print("\(productIds) are expired since \(expiryDate)\n\(items)\n")
+                    self?.subscriptionIsActive = .notPurchased
                     callback(.success(.notPurchased))
                     
                 case .notPurchased:
                     print("The user has never purchased \(productIds)")
+                    self?.subscriptionIsActive = nil
                     callback(.success(.notPurchased))
                 }
             case .error(let error):
@@ -97,5 +118,9 @@ class PurchaseManager: PurchaseManagerProtocol {
             }
             return callback(.nothingToRestore)
         }
+    }
+    
+    func rateApp() {
+        SKStoreReviewController.requestReview()
     }
 }

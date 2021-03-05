@@ -10,10 +10,16 @@ import StoreKit
 
 protocol PurchaseManagerProtocol: class {
     
+    var termsOfUsageUrl: URL? { get }
+    var privacyPolicyUrl: URL? { get }
+    var supportUrl: URL? { get }
+    var subscriptionIsActive: SubscriptionVerification? { get }
+
     func completeTransactions()
     func checkActiveSubscriptions(_ callback: @escaping CheckActiveSubscriptionsCompletion)
     func getSubscribtionInfo(_ productId: SubscriptionsId, callback: @escaping GetSubscribtionInfoCompletion)
     func purchaseSubscription(_ productId: SubscriptionsId, callback: @escaping CheckActiveSubscriptionsCompletion)
     func purchaseSubscription(_ productId: SKProduct, callback: @escaping CheckActiveSubscriptionsCompletion)
     func restorePurchases(_ callback: @escaping RestorePurchasesCompletion)
+    func rateApp()
 }

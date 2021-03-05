@@ -30,6 +30,15 @@
 		89539A9425E8CAF400D9B828 /* RemoteBordersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539A9325E8CAF400D9B828 /* RemoteBordersService.swift */; };
 		89539A9C25E8CBAF00D9B828 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539A9B25E8CBAF00D9B828 /* Routes.swift */; };
 		89539AA025E8CD4100D9B828 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539A9F25E8CD4100D9B828 /* DataParser.swift */; };
+		89539B1C25F1909F00D9B828 /* MenuViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1225F1909F00D9B828 /* MenuViewModelProtocol.swift */; };
+		89539B1D25F1909F00D9B828 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1325F1909F00D9B828 /* MenuViewModel.swift */; };
+		89539B1E25F1909F00D9B828 /* MenuCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1525F1909F00D9B828 /* MenuCoordinatorProtocol.swift */; };
+		89539B1F25F1909F00D9B828 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1625F1909F00D9B828 /* MenuCoordinator.swift */; };
+		89539B2025F1909F00D9B828 /* MenuInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1725F1909F00D9B828 /* MenuInput.swift */; };
+		89539B2125F1909F00D9B828 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1925F1909F00D9B828 /* MenuView.swift */; };
+		89539B2225F1909F00D9B828 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1A25F1909F00D9B828 /* MenuViewController.swift */; };
+		89539B2325F1909F00D9B828 /* MenuOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B1B25F1909F00D9B828 /* MenuOutput.swift */; };
+		89539B4125F1964800D9B828 /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539B4025F1964800D9B828 /* HorizontalLine.swift */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
 		895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */; };
@@ -165,6 +174,15 @@
 		89539A9325E8CAF400D9B828 /* RemoteBordersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBordersService.swift; sourceTree = "<group>"; };
 		89539A9B25E8CBAF00D9B828 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		89539A9F25E8CD4100D9B828 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		89539B1225F1909F00D9B828 /* MenuViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModelProtocol.swift; sourceTree = "<group>"; };
+		89539B1325F1909F00D9B828 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		89539B1525F1909F00D9B828 /* MenuCoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		89539B1625F1909F00D9B828 /* MenuCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
+		89539B1725F1909F00D9B828 /* MenuInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInput.swift; sourceTree = "<group>"; };
+		89539B1925F1909F00D9B828 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		89539B1A25F1909F00D9B828 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		89539B1B25F1909F00D9B828 /* MenuOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOutput.swift; sourceTree = "<group>"; };
+		89539B4025F1964800D9B828 /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -405,6 +423,45 @@
 				89539A9F25E8CD4100D9B828 /* DataParser.swift */,
 			);
 			path = RemoteBordersService;
+			sourceTree = "<group>";
+		};
+		89539B1025F1909F00D9B828 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				89539B1725F1909F00D9B828 /* MenuInput.swift */,
+				89539B1B25F1909F00D9B828 /* MenuOutput.swift */,
+				89539B1125F1909F00D9B828 /* ViewModel */,
+				89539B1425F1909F00D9B828 /* Coordinator */,
+				89539B1825F1909F00D9B828 /* View */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		89539B1125F1909F00D9B828 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89539B1225F1909F00D9B828 /* MenuViewModelProtocol.swift */,
+				89539B1325F1909F00D9B828 /* MenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		89539B1425F1909F00D9B828 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				89539B1525F1909F00D9B828 /* MenuCoordinatorProtocol.swift */,
+				89539B1625F1909F00D9B828 /* MenuCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		89539B1825F1909F00D9B828 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89539B1A25F1909F00D9B828 /* MenuViewController.swift */,
+				89539B1925F1909F00D9B828 /* MenuView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		895ED2DF25DD19FC006EEA12 /* Editor */ = {
@@ -760,6 +817,7 @@
 				895ED3EA25DF2F20006EEA12 /* TwoStateButton.swift */,
 				89A15B3425E309570055948C /* CopyButton.swift */,
 				89A15B4825E30E320055948C /* CopyLabelView.swift */,
+				89539B4025F1964800D9B828 /* HorizontalLine.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -778,6 +836,7 @@
 			children = (
 				895ED32825DD319A006EEA12 /* Loading */,
 				895ED2DF25DD19FC006EEA12 /* Editor */,
+				89539B1025F1909F00D9B828 /* Menu */,
 				895ED41B25DF6BB4006EEA12 /* AboutUs */,
 				895ED43125DF6BBB006EEA12 /* Subscription */,
 			);
@@ -1023,6 +1082,7 @@
 				895ED42925DF6BB4006EEA12 /* AboutUsCoordinator.swift in Sources */,
 				8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */,
 				89F00AB32542E16200D482F6 /* AppDelegate.swift in Sources */,
+				89539B1C25F1909F00D9B828 /* MenuViewModelProtocol.swift in Sources */,
 				895ED35625DD5061006EEA12 /* PHAssetsManager.swift in Sources */,
 				895ED35B25DD5062006EEA12 /* PHPickerResult+ImageAssetProtocol.swift in Sources */,
 				895ED42725DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift in Sources */,
@@ -1034,18 +1094,22 @@
 				895ED43E25DF6BBB006EEA12 /* SubscriptionViewModel.swift in Sources */,
 				895ED33425DD319B006EEA12 /* LoadingViewModelProtocol.swift in Sources */,
 				89539A7725E8C59E00D9B828 /* RemoteBorder.swift in Sources */,
+				89539B4125F1964800D9B828 /* HorizontalLine.swift in Sources */,
 				89AD8EA8255D71F000660695 /* UIViewController+addChildViewControllerToView.swift in Sources */,
 				89F00AB02542E16200D482F6 /* AppRouter.swift in Sources */,
 				89539A2F25E89F5900D9B828 /* UserDefaultsEditorManagerProtocol.swift in Sources */,
+				89539B2325F1909F00D9B828 /* MenuOutput.swift in Sources */,
 				895ED33925DD319B006EEA12 /* LoadingView.swift in Sources */,
 				8953998625E8338500D9B828 /* SKProduct+localizedPrice.swift in Sources */,
 				89F00AB22542E16200D482F6 /* ApplicationAssembly.swift in Sources */,
 				895ED2F025DD19FC006EEA12 /* EditorInput.swift in Sources */,
+				89539B1D25F1909F00D9B828 /* MenuViewModel.swift in Sources */,
 				89539A7325E8C3C500D9B828 /* BorderProtocol.swift in Sources */,
 				89DD264B25DC9F0000AD2868 /* R.generated.swift in Sources */,
 				89F00AB42542E16200D482F6 /* SceneDelegate.swift in Sources */,
 				895ED33A25DD319B006EEA12 /* LoadingViewController.swift in Sources */,
 				895ED35725DD5061006EEA12 /* DKAssetsManager.swift in Sources */,
+				89539B1E25F1909F00D9B828 /* MenuCoordinatorProtocol.swift in Sources */,
 				895ED2F125DD19FC006EEA12 /* EditorView.swift in Sources */,
 				895ED3EB25DF2F20006EEA12 /* TwoStateButton.swift in Sources */,
 				8953995B25E81E9B00D9B828 /* PurchaseManagerProtocol.swift in Sources */,
@@ -1057,6 +1121,7 @@
 				895ED34525DD3E54006EEA12 /* UIView+RoundedCorners.swift in Sources */,
 				8953998225E829CA00D9B828 /* PurchaseManagerTypealiases.swift in Sources */,
 				89539A9025E8C62E00D9B828 /* UIImageView+setDefaultLoadingInicator.swift in Sources */,
+				89539B2225F1909F00D9B828 /* MenuViewController.swift in Sources */,
 				895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */,
 				895ED33525DD319B006EEA12 /* LoadingViewModel.swift in Sources */,
 				895ED38825DEEA4D006EEA12 /* UIImage+merge.swift in Sources */,
@@ -1065,6 +1130,7 @@
 				89F00AA42542E16200D482F6 /* Array+safeIndex.swift in Sources */,
 				895ED44425DF6BBB006EEA12 /* SubscriptionViewController.swift in Sources */,
 				895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */,
+				89539B2125F1909F00D9B828 /* MenuView.swift in Sources */,
 				895ED35925DD5062006EEA12 /* PHAsset+ImageAssetProtocol.swift in Sources */,
 				89539A9C25E8CBAF00D9B828 /* Routes.swift in Sources */,
 				555D06AB2552FB23005E926B /* UIView+TapAnimation.swift in Sources */,
@@ -1077,12 +1143,14 @@
 				8953997A25E825B900D9B828 /* SubscriptionsId.swift in Sources */,
 				895ED35425DD5061006EEA12 /* AssetsManager.swift in Sources */,
 				895ED3F325DF46E5006EEA12 /* ColorCollectionViewCell.swift in Sources */,
+				89539B1F25F1909F00D9B828 /* MenuCoordinator.swift in Sources */,
 				89A15B3525E309570055948C /* CopyButton.swift in Sources */,
 				895ED43F25DF6BBB006EEA12 /* SubscriptionOutput.swift in Sources */,
 				895ED43D25DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift in Sources */,
 				89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */,
 				895ED42D25DF6BB4006EEA12 /* AboutUsView.swift in Sources */,
 				895ED3FA25DF5035006EEA12 /* PickerViewManager.swift in Sources */,
+				89539B2025F1909F00D9B828 /* MenuInput.swift in Sources */,
 				89CD71AA254E1BE50017C0DA /* TouchClearUIComponents.swift in Sources */,
 				895ED35825DD5062006EEA12 /* AssetsManagerErrors.swift in Sources */,
 				89539A9425E8CAF400D9B828 /* RemoteBordersService.swift in Sources */,
@@ -1257,7 +1325,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1281,7 +1349,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1316,7 +1384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antontekutov.clubavamaker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;

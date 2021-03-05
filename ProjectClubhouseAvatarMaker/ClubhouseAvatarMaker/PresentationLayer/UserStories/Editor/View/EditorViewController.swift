@@ -249,7 +249,7 @@ final class EditorViewController: UIViewController {
     
     @objc private func openAboutUsPage(sender: UIButton) {
         sender.tapAnimation()
-        coordinator.openAboutUs()
+        coordinator.openMenu()
     }
     
     @objc private func recropImage(sender: UIButton) {
