@@ -21,43 +21,15 @@ final class EditorViewModel {
     
     var defaults: UserDefaultsEditorManagerProtocol!
 
-    var borders: [BorderProtocol] = [
-        Border(colorable: false, image: UIImage(), title: NSLocalizedString("Empty", comment: "")),
-        Border(colorable: false, image: R.image.border1()),
-        Border(colorable: false, image: R.image.border2()),
-        
-        Border(colorable: false, image: R.image.border3()),
-        Border(colorable: true, image: R.image.colorableBorder3()),
-        Border(colorable: false, image: R.image.border4()),
-        
-        Border(colorable: false, image: R.image.border5()),
-        Border(colorable: true, image: R.image.colorableBorder2()),
-        Border(colorable: false, image: R.image.border6()),
-        
-        Border(colorable: true, image: R.image.colorableBorder1()),
-        Border(colorable: false, image: R.image.border7()),
-        Border(colorable: false, image: R.image.border8()),
-        
-        Border(colorable: true, image: R.image.colorableBorderLight(), title: "Light"),
-        Border(colorable: true, image: R.image.colorableBorderMedium(), title: "Medium"),
-        Border(colorable: true, image: R.image.colorableBorderThick(), title: "Thick"),
-
-        Border(colorable: false, image: R.image.border9()),
-        Border(colorable: false, image: R.image.border10()),
-        Border(colorable: false, image: R.image.border11()),
-        
-        Border(colorable: false, image: R.image.border12()),
-        Border(colorable: false, image: R.image.border13()),
-        Border(colorable: false, image: R.image.border14(), title: "JoJo"),
-        
-        Border(colorable: false, image: R.image.border15()),
-        Border(colorable: false, image: R.image.border16()),
-        Border(colorable: false, image: R.image.catBorder(), title: "* chpok *")
-    ]
+    var bordersGroups = [BordersGroupProtocol]()
+    
     var colors = [UIColor]()
     
     init() {
         colors = (0...360).compactMap { $0 % 15 == 0 ? colorFromDegreesAngle(CGFloat($0)) : nil }
+        
+        appendLocalBorders()
+        bordersGroups.append(BordersGroupRemote(title: NSLocalizedString("Remote", comment: ""), remotesBorders: []))
     }
     
     private func colorFromDegreesAngle(_ angle: CGFloat) -> UIColor {
@@ -108,6 +80,42 @@ final class EditorViewModel {
                        green: CGFloat(green),
                        blue: CGFloat(blue),
                        alpha: 1)
+    }
+    private func appendLocalBorders() {
+        let localBorders: [BorderProtocol] = [
+            Border(colorable: false, image: UIImage(), title: NSLocalizedString("Empty", comment: "")),
+            Border(colorable: false, image: R.image.border1()),
+            Border(colorable: false, image: R.image.border2()),
+            
+            Border(colorable: false, image: R.image.border3()),
+            Border(colorable: true, image: R.image.colorableBorder3()),
+            Border(colorable: false, image: R.image.border4()),
+            
+            Border(colorable: true, image: R.image.colorableBorderLight(), title: "Light"),
+            Border(colorable: true, image: R.image.colorableBorderMedium(), title: "Medium"),
+            Border(colorable: true, image: R.image.colorableBorderThick(), title: "Thick"),
+            
+            Border(colorable: false, image: R.image.border5()),
+            Border(colorable: true, image: R.image.colorableBorder2()),
+            Border(colorable: false, image: R.image.border6()),
+            
+            Border(colorable: true, image: R.image.colorableBorder1()),
+            Border(colorable: false, image: R.image.border7()),
+            Border(colorable: false, image: R.image.border8()),
+
+            Border(colorable: false, image: R.image.border9()),
+            Border(colorable: false, image: R.image.border10()),
+            Border(colorable: false, image: R.image.border11()),
+            
+            Border(colorable: false, image: R.image.border12()),
+            Border(colorable: false, image: R.image.border13()),
+            Border(colorable: false, image: R.image.border14(), title: "JoJo"),
+            
+            Border(colorable: false, image: R.image.border15()),
+            Border(colorable: false, image: R.image.border16()),
+            Border(colorable: false, image: R.image.catBorder(), title: "* chpok *")
+        ]
+        bordersGroups.append(BordersGroupLocal(title: NSLocalizedString("Local", comment: ""), borders: localBorders))
     }
     
 }
@@ -172,16 +180,23 @@ extension EditorViewModel: EditorViewModelProtocol {
             return
         }
         remoteBordersService.getBorders(pageNumber: pageCurrentNumber) { [ weak self ] result in
+            guard let self = self
+            else { return }
+            
             switch result {
             case .success(let pageInfo):
-                self?.borders.append(contentsOf: pageInfo.results)
-                self?.canLoadNextPage = pageInfo.next != nil
-                self?.pageCurrentNumber += 1
+                self.bordersGroups[self.bordersGroups.count - 1].appendBorders(pageInfo.results)
+                self.canLoadNextPage = pageInfo.next != nil
+                self.pageCurrentNumber += 1
             case .failure(let error):
                 print(error)
             }
             completion()
         }
+    }
+    
+    func loadBrandedBorders(completion: @escaping() -> Void) {
+        
     }
 }
 

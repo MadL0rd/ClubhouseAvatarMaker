@@ -10,7 +10,7 @@ import UIKit
 protocol EditorViewModelProtocol: class {
     
     var defaults: UserDefaultsEditorManagerProtocol! { get }
-    var borders: [BorderProtocol] { get }
+    var bordersGroups: [BordersGroupProtocol] { get }
     var colors: [UIColor] { get }
     var authorizationStatusIsOK: Bool { get }
     var canLoadNextPage: Bool { get }
@@ -19,6 +19,7 @@ protocol EditorViewModelProtocol: class {
     func openSettings()
     func checkSubscriptionsStatus(force: Bool, _ completionHandler: @escaping(SubscriptionVerification) -> Void)
     
+    func loadBrandedBorders(completion: @escaping() -> Void)
     func loadNextPage(completion: @escaping() -> Void)
 }
 

@@ -34,7 +34,7 @@ final class LoadingViewController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + _view.changeLogoDuration * 0.7) { [ weak self ] in
-            self?.coordinator.showEditor()
+//            self?.coordinator.showEditor()
         }
     }
 }

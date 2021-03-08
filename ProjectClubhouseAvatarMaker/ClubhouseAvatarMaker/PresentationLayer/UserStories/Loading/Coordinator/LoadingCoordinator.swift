@@ -19,6 +19,8 @@ final class LoadingCoordinator: DefaultCoordinator {
 
         coordinator.transition = view
         
+        viewModel.remoteBordersService = RemoteBordersService.shared
+        
         if let configuration = configuration {
             configuration(viewModel)
         }

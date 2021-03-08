@@ -41,8 +41,7 @@ final class SecretCodesView: UIView {
             closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
             closeButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 25),
             closeButton.widthAnchor.constraint(equalToConstant: 20),
-            closeButton.heightAnchor.constraint(equalToConstant: 20),
-            
+            closeButton.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }

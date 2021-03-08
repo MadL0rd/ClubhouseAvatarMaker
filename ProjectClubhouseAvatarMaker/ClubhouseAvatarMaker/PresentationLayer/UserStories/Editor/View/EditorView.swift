@@ -35,6 +35,7 @@ final class EditorView: UIView {
     let muteSwitchButton = TwoStateButton()
     let emojiSwitchButton = TwoStateButton()
     let buttonSwitchSideSize: CGFloat = 60
+    let screenSizeMultiplier: CGFloat = min(1, (UIConstants.screenBounds.height / 900))
 
     let sideMargin: CGFloat = 25
     
@@ -224,10 +225,10 @@ final class EditorView: UIView {
         photosCollectionViewLayout.minimumInteritemSpacing = photosCellSpacing
         photosCollectionViewLayout.scrollDirection = .vertical
         photosCollectionViewLayout.itemSize = CGSize(width: photoCellWidth, height: photoCellHeight)
-        photosCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 100, right: 0)
-        photosCollectionView.contentInset = UIEdgeInsets(top: sideMargin * 1.7,
+        photosCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 100 * screenSizeMultiplier, right: 0)
+        photosCollectionView.contentInset = UIEdgeInsets(top: sideMargin,
                                                          left: sideMargin,
-                                                         bottom: sideMargin + 90,
+                                                         bottom: sideMargin + 58 * screenSizeMultiplier,
                                                          right: sideMargin)
         photosCollectionView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 60)
         
@@ -253,7 +254,7 @@ final class EditorView: UIView {
         setupSwitchButton(image: R.image.mute(), button: muteSwitchButton)
         setupSwitchButton(image: nil, button: emojiSwitchButton)
         emojiSwitchButton.setTitle("🔥", for: .normal)
-        emojiSwitchButton.titleLabel?.font = R.font.sfuiTextBold(size: 45)
+        emojiSwitchButton.titleLabel?.font = R.font.sfuiTextBold(size: 45 * screenSizeMultiplier)
         emojiSwitchButton.textChanging = false
     }
     
@@ -263,6 +264,7 @@ final class EditorView: UIView {
         button.interactionAbilityChanging = false
         button.setActive()
         button.duration = 0.25
+        button.layer.cornerRadius = 20 * screenSizeMultiplier
         button.backgroundColor = R.color.backgroundLight()
         button.setImage(image, for: .normal)
         button.setImage(image, for: .highlighted)
@@ -286,7 +288,7 @@ final class EditorView: UIView {
             
             photosCollectionView.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: sideMargin),
             photosCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            photosCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            photosCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             photosCollectionView.widthAnchor.constraint(equalTo: widthAnchor),
             
             saveButton.topAnchor.constraint(equalTo: avatar.topAnchor, constant: 5),
@@ -312,24 +314,25 @@ final class EditorView: UIView {
     }
     
     private func makeSettingsConstraints() {
+        let buttonSideSize = buttonSwitchSideSize * screenSizeMultiplier
         NSLayoutConstraint.activate([
             settingsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 50),
             settingsView.leftAnchor.constraint(equalTo: leftAnchor),
             settingsView.rightAnchor.constraint(equalTo: rightAnchor),
-            settingsView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -90),
+            settingsView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -90 * screenSizeMultiplier),
             
-            settingsStack.topAnchor.constraint(equalTo: settingsView.topAnchor, constant: 15),
+            settingsStack.topAnchor.constraint(equalTo: settingsView.topAnchor, constant: 15 * screenSizeMultiplier),
             settingsStack.centerXAnchor.constraint(equalTo: settingsView.centerXAnchor),
             settingsStack.widthAnchor.constraint(equalTo: settingsView.widthAnchor, constant: -UIConstants.screenBounds.width * 0.2),
             
-            newUserSwitchButton.widthAnchor.constraint(equalToConstant: buttonSwitchSideSize),
-            newUserSwitchButton.heightAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            newUserSwitchButton.widthAnchor.constraint(equalToConstant: buttonSideSize),
+            newUserSwitchButton.heightAnchor.constraint(equalToConstant: buttonSideSize),
             
-            muteSwitchButton.widthAnchor.constraint(equalToConstant: buttonSwitchSideSize),
-            muteSwitchButton.heightAnchor.constraint(equalToConstant: buttonSwitchSideSize),
+            muteSwitchButton.widthAnchor.constraint(equalToConstant: buttonSideSize),
+            muteSwitchButton.heightAnchor.constraint(equalToConstant: buttonSideSize),
             
-            emojiSwitchButton.widthAnchor.constraint(equalToConstant: buttonSwitchSideSize),
-            emojiSwitchButton.heightAnchor.constraint(equalToConstant: buttonSwitchSideSize)
+            emojiSwitchButton.widthAnchor.constraint(equalToConstant: buttonSideSize),
+            emojiSwitchButton.heightAnchor.constraint(equalToConstant: buttonSideSize)
         ])
     }
 }

@@ -99,6 +99,9 @@ final class EditorViewController: UIViewController {
         _view.photosCollectionView.dataSource = self
         _view.photosCollectionView.delegate = self
         _view.photosCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+        _view.photosCollectionView.register(CollectionHeaderView.self,
+                                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                            withReuseIdentifier: CollectionHeaderView.identifier)
         
         let bottomRefreshController = UIRefreshControl()
         bottomRefreshController.tintColor = R.color.main()
@@ -125,6 +128,10 @@ final class EditorViewController: UIViewController {
         _view.emojiSwitchButton.addTarget(self, action: #selector(switchButtonTapped(button:)), for: .touchUpInside)
         
         loadDefaults()
+        
+        viewModel.loadBrandedBorders { [ weak self ] in
+            self?._view.photosCollectionView.reloadData()
+        }
     }
     
     private func loadDefaults() {
@@ -182,18 +189,18 @@ final class EditorViewController: UIViewController {
         vibroGeneratorLight.impactOccurred()
         
         //        TODO: editing test
-//        self.pickNewPhoto()
-        viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
-            guard let self = self
-            else { return }
-            switch isActive {
-            case .active:
-                self.pickNewPhoto()
-            case .notPurchased:
-                self.coordinator.openModuleWithOutput(.subscription(output: self),
-                                                      openingMode: .present)
-            }
-        }
+        self.pickNewPhoto()
+//        viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
+//            guard let self = self
+//            else { return }
+//            switch isActive {
+//            case .active:
+//                self.pickNewPhoto()
+//            case .notPurchased:
+//                self.coordinator.openModuleWithOutput(.subscription(output: self),
+//                                                      openingMode: .present)
+//            }
+//        }
     }
     
     private func pickNewPhoto() {
@@ -305,16 +312,27 @@ final class EditorViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 
 extension EditorViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        switch collectionView {
+        case _view.photosCollectionView:
+            return viewModel.bordersGroups.count
+        case _view.colorsCollectionView:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case _view.photosCollectionView:
-            return viewModel.borders.count
+            return viewModel.bordersGroups[exist: section]?.borders.count ?? 0
         case _view.colorsCollectionView:
             return viewModel.colors.count
         default:
             return 0
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -323,7 +341,7 @@ extension EditorViewController: UICollectionViewDataSource {
         case _view.photosCollectionView:
             let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
             photoCell.avatar.photo.image = currentPhoto
-            if let border = viewModel.borders[exist: indexPath.row] {
+            if let border = viewModel.bordersGroups[exist: indexPath.section]?.borders[exist: indexPath.row] {
                 photoCell.avatar.setBorder(border, animated: false)
                 photoCell.avatar.emojiView.isHidden = !addEmoji
                 if addEmoji {
@@ -350,6 +368,28 @@ extension EditorViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension EditorViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard collectionView == _view.photosCollectionView,
+              let title = viewModel.bordersGroups[exist: section]?.title,
+              title != ""
+        else { return .zero }
+        return CGSize(width: collectionView.frame.width, height: 80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                     withReuseIdentifier: CollectionHeaderView.identifier,
+                                                                     for: indexPath) as! CollectionHeaderView
+        header.label.text = viewModel.bordersGroups[exist: indexPath.section]?.title
+        
+        return header
     }
 }
 
@@ -363,7 +403,7 @@ extension EditorViewController: UICollectionViewDelegate {
             guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
             else { return }
             cell.tapAnimation()
-            if let border = viewModel.borders[exist: indexPath.row] {
+            if let border = viewModel.bordersGroups[exist: indexPath.section]?.borders[exist: indexPath.row] {
                 _view.avatar.setBorder(border)
                 _view.manageColorsCollectionViewVisibility(visible: border.colorable)
                 vibroGeneratorLight.impactOccurred()

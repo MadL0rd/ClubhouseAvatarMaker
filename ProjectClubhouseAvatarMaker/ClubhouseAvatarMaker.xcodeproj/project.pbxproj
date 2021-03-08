@@ -57,6 +57,17 @@
 		89539BB625F5ABC600D9B828 /* SecretCodesOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539BAE25F5ABC600D9B828 /* SecretCodesOutput.swift */; };
 		89539BBB25F5ACCA00D9B828 /* DefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539BBA25F5ACCA00D9B828 /* DefaultCoordinator.swift */; };
 		89539BE025F5C3C500D9B828 /* UserStoriesModulesAccounting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539BDF25F5C3C500D9B828 /* UserStoriesModulesAccounting.swift */; };
+		89539BE425F66E9C00D9B828 /* BordersGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539BE325F66E9C00D9B828 /* BordersGroup.swift */; };
+		89539BE825F676A600D9B828 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539BE725F676A500D9B828 /* CollectionHeaderView.swift */; };
+		89539C0625F68D2A00D9B828 /* SettingsStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C0125F68D2A00D9B828 /* SettingsStoring.swift */; };
+		89539C0725F68D2A00D9B828 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C0225F68D2A00D9B828 /* SecureStorage.swift */; };
+		89539C0825F68D2A00D9B828 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C0325F68D2A00D9B828 /* UserDefaultsStorage.swift */; };
+		89539C0925F68D2A00D9B828 /* StorageItemKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C0425F68D2A00D9B828 /* StorageItemKey.swift */; };
+		89539C0A25F68D2A00D9B828 /* KeychainStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C0525F68D2A00D9B828 /* KeychainStorageError.swift */; };
+		89539C1525F6BF4600D9B828 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C1425F6BF4600D9B828 /* Settings.swift */; };
+		89539C1925F6C13400D9B828 /* SecretCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C1825F6C13400D9B828 /* SecretCode.swift */; };
+		89539C2125F6E52100D9B828 /* CompletionTypealiasesDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C2025F6E52100D9B828 /* CompletionTypealiasesDefault.swift */; };
+		89539C2925F6EF4800D9B828 /* Bundle+info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C2825F6EF4800D9B828 /* Bundle+info.swift */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
 		895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */; };
@@ -219,6 +230,17 @@
 		89539BAE25F5ABC600D9B828 /* SecretCodesOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretCodesOutput.swift; sourceTree = "<group>"; };
 		89539BBA25F5ACCA00D9B828 /* DefaultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoordinator.swift; sourceTree = "<group>"; };
 		89539BDF25F5C3C500D9B828 /* UserStoriesModulesAccounting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStoriesModulesAccounting.swift; sourceTree = SOURCE_ROOT; };
+		89539BE325F66E9C00D9B828 /* BordersGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BordersGroup.swift; sourceTree = "<group>"; };
+		89539BE725F676A500D9B828 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
+		89539C0125F68D2A00D9B828 /* SettingsStoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStoring.swift; sourceTree = "<group>"; };
+		89539C0225F68D2A00D9B828 /* SecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
+		89539C0325F68D2A00D9B828 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		89539C0425F68D2A00D9B828 /* StorageItemKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageItemKey.swift; sourceTree = "<group>"; };
+		89539C0525F68D2A00D9B828 /* KeychainStorageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStorageError.swift; sourceTree = "<group>"; };
+		89539C1425F6BF4600D9B828 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		89539C1825F6C13400D9B828 /* SecretCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretCode.swift; sourceTree = "<group>"; };
+		89539C2025F6E52100D9B828 /* CompletionTypealiasesDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionTypealiasesDefault.swift; sourceTree = "<group>"; };
+		89539C2825F6EF4800D9B828 /* Bundle+info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+info.swift"; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -550,6 +572,7 @@
 		89539B7A25F5670300D9B828 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				89539C2025F6E52100D9B828 /* CompletionTypealiasesDefault.swift */,
 				89539B7B25F5673400D9B828 /* DataRequestExecutable.swift */,
 				89539B7C25F5673400D9B828 /* NetworkErrors.swift */,
 			);
@@ -604,6 +627,26 @@
 			path = ModuleBaseClasses;
 			sourceTree = "<group>";
 		};
+		89539C0025F68D2A00D9B828 /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				89539C0425F68D2A00D9B828 /* StorageItemKey.swift */,
+				89539C0125F68D2A00D9B828 /* SettingsStoring.swift */,
+				89539C0225F68D2A00D9B828 /* SecureStorage.swift */,
+				89539C0325F68D2A00D9B828 /* UserDefaultsStorage.swift */,
+				89539C0525F68D2A00D9B828 /* KeychainStorageError.swift */,
+			);
+			name = StorageService;
+			path = ClubhouseAvatarMaker/BusinessLogicLayer/StorageService;
+			sourceTree = SOURCE_ROOT;
+		};
+		89539C1125F692CF00D9B828 /* SettingsService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SettingsService;
+			sourceTree = "<group>";
+		};
 		895ED2DF25DD19FC006EEA12 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,8 +663,8 @@
 			isa = PBXGroup;
 			children = (
 				89539A2C25E89F5900D9B828 /* UserDefaultsEditorManager */,
-				895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */,
 				895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */,
+				895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -629,8 +672,8 @@
 		895ED2E425DD19FC006EEA12 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				895ED2E525DD19FC006EEA12 /* EditorCoordinator.swift */,
 				895ED2E625DD19FC006EEA12 /* EditorCoordinatorProtocol.swift */,
+				895ED2E525DD19FC006EEA12 /* EditorCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -644,6 +687,7 @@
 				895ED2FD25DD1C0E006EEA12 /* AvatarView.swift */,
 				895ED3F225DF46E5006EEA12 /* ColorCollectionViewCell.swift */,
 				89A15B1325E164570055948C /* EmojiContainer.swift */,
+				89539BE725F676A500D9B828 /* CollectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,8 +697,8 @@
 			children = (
 				895ED32C25DD319A006EEA12 /* LoadingOutput.swift */,
 				895ED33325DD319B006EEA12 /* LoadingInput.swift */,
-				895ED32925DD319A006EEA12 /* ViewModel */,
 				895ED32D25DD319A006EEA12 /* Coordinator */,
+				895ED32925DD319A006EEA12 /* ViewModel */,
 				895ED33025DD319A006EEA12 /* View */,
 			);
 			path = Loading;
@@ -672,8 +716,8 @@
 		895ED32D25DD319A006EEA12 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				895ED32E25DD319A006EEA12 /* LoadingCoordinator.swift */,
 				895ED32F25DD319A006EEA12 /* LoadingCoordinatorProtocol.swift */,
+				895ED32E25DD319A006EEA12 /* LoadingCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -854,6 +898,7 @@
 				8953998525E8338500D9B828 /* SKProduct+localizedPrice.swift */,
 				89539A1425E89E6700D9B828 /* UserDefaults+color.swift */,
 				89539A8F25E8C62E00D9B828 /* UIImageView+setDefaultLoadingInicator.swift */,
+				89539C2825F6EF4800D9B828 /* Bundle+info.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -861,6 +906,8 @@
 		89F00A3A2542E16200D482F6 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				89539C1125F692CF00D9B828 /* SettingsService */,
+				89539C0025F68D2A00D9B828 /* StorageService */,
 				89539A6725E8B98400D9B828 /* RemoteBordersService */,
 				8953995925E81E8100D9B828 /* PurchaseManager */,
 				895ED34825DD5061006EEA12 /* AssetsManager */,
@@ -915,9 +962,12 @@
 		89F00A542542E16200D482F6 /* ModelsLayer */ = {
 			isa = PBXGroup;
 			children = (
-				895ED2F725DD1B33006EEA12 /* Border.swift */,
 				89539A7225E8C3C500D9B828 /* BorderProtocol.swift */,
+				895ED2F725DD1B33006EEA12 /* Border.swift */,
 				89539A7625E8C59E00D9B828 /* RemoteBorder.swift */,
+				89539BE325F66E9C00D9B828 /* BordersGroup.swift */,
+				89539C1425F6BF4600D9B828 /* Settings.swift */,
+				89539C1825F6C13400D9B828 /* SecretCode.swift */,
 			);
 			path = ModelsLayer;
 			sourceTree = "<group>";
@@ -1248,6 +1298,7 @@
 				89539B1C25F1909F00D9B828 /* MenuViewModelProtocol.swift in Sources */,
 				895ED35625DD5061006EEA12 /* PHAssetsManager.swift in Sources */,
 				89539B6025F563FD00D9B828 /* BordersRequestBuilder.swift in Sources */,
+				89539C0825F68D2A00D9B828 /* UserDefaultsStorage.swift in Sources */,
 				895ED35B25DD5062006EEA12 /* PHPickerResult+ImageAssetProtocol.swift in Sources */,
 				895ED42725DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift in Sources */,
 				89AD8E6A255D441000660695 /* AnnouncementViewController.swift in Sources */,
@@ -1255,6 +1306,7 @@
 				895ED42A25DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift in Sources */,
 				89539B7E25F5673400D9B828 /* NetworkErrors.swift in Sources */,
 				89539A3625E8A07900D9B828 /* UIColor+rgba.swift in Sources */,
+				89539C0A25F68D2A00D9B828 /* KeychainStorageError.swift in Sources */,
 				895ED42B25DF6BB4006EEA12 /* AboutUsOutput.swift in Sources */,
 				895ED43E25DF6BBB006EEA12 /* SubscriptionViewModel.swift in Sources */,
 				895ED33425DD319B006EEA12 /* LoadingViewModelProtocol.swift in Sources */,
@@ -1284,12 +1336,15 @@
 				8953995B25E81E9B00D9B828 /* PurchaseManagerProtocol.swift in Sources */,
 				89539BB225F5ABC600D9B828 /* SecretCodesCoordinator.swift in Sources */,
 				895ED3EF25DF2FC9006EEA12 /* UIView+layerAnimation.swift in Sources */,
+				89539BE825F676A600D9B828 /* CollectionHeaderView.swift in Sources */,
 				89A15B6725E31FDF0055948C /* UIView+flash.swift in Sources */,
 				895ED2EE25DD19FC006EEA12 /* EditorCoordinator.swift in Sources */,
 				895ED33825DD319B006EEA12 /* LoadingCoordinatorProtocol.swift in Sources */,
 				89539BB025F5ABC600D9B828 /* SecretCodesViewModelProtocol.swift in Sources */,
+				89539C2125F6E52100D9B828 /* CompletionTypealiasesDefault.swift in Sources */,
 				89539A3B25E8AFB800D9B828 /* AlertManager.swift in Sources */,
 				895ED34525DD3E54006EEA12 /* UIView+RoundedCorners.swift in Sources */,
+				89539C0925F68D2A00D9B828 /* StorageItemKey.swift in Sources */,
 				8953998225E829CA00D9B828 /* PurchaseManagerTypealiases.swift in Sources */,
 				89539A9025E8C62E00D9B828 /* UIImageView+setDefaultLoadingInicator.swift in Sources */,
 				89539B2225F1909F00D9B828 /* MenuViewController.swift in Sources */,
@@ -1306,16 +1361,19 @@
 				895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */,
 				89539B2125F1909F00D9B828 /* MenuView.swift in Sources */,
 				895ED35925DD5062006EEA12 /* PHAsset+ImageAssetProtocol.swift in Sources */,
+				89539C0625F68D2A00D9B828 /* SettingsStoring.swift in Sources */,
 				89539B7725F566F000D9B828 /* DataParser.swift in Sources */,
 				555D06AB2552FB23005E926B /* UIView+TapAnimation.swift in Sources */,
 				89F00AC02542E16200D482F6 /* SegmentedControl.swift in Sources */,
 				895ED44325DF6BBB006EEA12 /* SubscriptionView.swift in Sources */,
+				89539C0725F68D2A00D9B828 /* SecureStorage.swift in Sources */,
 				89539B5025F5629400D9B828 /* Routes.swift in Sources */,
 				89F00AB12542E16200D482F6 /* MainAppRouter.swift in Sources */,
 				89539A1525E89E6700D9B828 /* UserDefaults+color.swift in Sources */,
 				895ED44225DF6BBB006EEA12 /* SubscriptionInput.swift in Sources */,
 				89CD71F825521BE00017C0DA /* ContentFittingTableView.swift in Sources */,
 				89539BB425F5ABC600D9B828 /* SecretCodesView.swift in Sources */,
+				89539C1925F6C13400D9B828 /* SecretCode.swift in Sources */,
 				89539B5625F562CE00D9B828 /* RemoteBordersErrors.swift in Sources */,
 				89539BAF25F5ABC600D9B828 /* SecretCodesViewModel.swift in Sources */,
 				8953997A25E825B900D9B828 /* SubscriptionsId.swift in Sources */,
@@ -1323,6 +1381,7 @@
 				895ED3F325DF46E5006EEA12 /* ColorCollectionViewCell.swift in Sources */,
 				89539B1F25F1909F00D9B828 /* MenuCoordinator.swift in Sources */,
 				89A15B3525E309570055948C /* CopyButton.swift in Sources */,
+				89539C1525F6BF4600D9B828 /* Settings.swift in Sources */,
 				895ED43F25DF6BBB006EEA12 /* SubscriptionOutput.swift in Sources */,
 				895ED43D25DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift in Sources */,
 				89AD8E1B255B764D00660695 /* ScrollMovingUpManagerForUIControl.swift in Sources */,
@@ -1337,6 +1396,7 @@
 				895ED35525DD5061006EEA12 /* AssetsManagerProtocol.swift in Sources */,
 				89F00C192544A02C00D482F6 /* UIViewController+ModuleTransitionHandler.swift in Sources */,
 				89AD8E46255BA9C800660695 /* UITextField+placeholderPadding.swift in Sources */,
+				89539BE425F66E9C00D9B828 /* BordersGroup.swift in Sources */,
 				896F63DE25994AE50001599C /* UIView+shake.swift in Sources */,
 				89F00A9D2542E16200D482F6 /* UIConstants.swift in Sources */,
 				895ED33B25DD319B006EEA12 /* LoadingInput.swift in Sources */,
@@ -1355,6 +1415,7 @@
 				895ED40225DF50BC006EEA12 /* UIViewController+alert.swift in Sources */,
 				55464D5A255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift in Sources */,
 				89539BE025F5C3C500D9B828 /* UserStoriesModulesAccounting.swift in Sources */,
+				89539C2925F6EF4800D9B828 /* Bundle+info.swift in Sources */,
 				895ED34125DD381D006EEA12 /* PhotoCollectionViewCell.swift in Sources */,
 				89F00AC12542E16200D482F6 /* UIStyleManager.swift in Sources */,
 				895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */,

@@ -62,6 +62,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = R.font.sfuiTextBold(size: 13)
         nameLabel.text = PhotoCollectionViewCell.defaultName
+        nameLabel.numberOfLines = 2
         
         makeConstraints()
     }
@@ -96,11 +97,12 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             
             colorableIconImageView.heightAnchor.constraint(equalToConstant: 13),
             colorableIconImageView.widthAnchor.constraint(equalToConstant: 13),
-            colorableIconImageView.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: -2),
+            colorableIconImageView.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor, constant: -2),
             colorableIconImageView.rightAnchor.constraint(equalTo: nameLabel.leftAnchor, constant: 3),
             
-            nameLabel.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 13),
-            nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            nameLabel.centerYAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 18),
+            nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            nameLabel.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, constant: -10)
         ])
     }
 }

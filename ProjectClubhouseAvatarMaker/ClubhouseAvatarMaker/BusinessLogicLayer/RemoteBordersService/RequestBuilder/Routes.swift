@@ -7,13 +7,18 @@
 
 import Alamofire
 
-enum ApiUappRoutes: String, URLConvertible {
+enum ApiClRoutes: String, URLConvertible {
+    
     static let endpoint = "http://80.78.247.50/api/"
     
-    case borders = "borders/"
-    
+    case settings = "setting_json/1"
+    case getToken = "get_token"
+    case codes = "codes"
+    case borders = "borders"
+    case bordersBranded = "borders_new"
+
     func asURL() throws -> URL {
-        guard let url = URL(string: ApiUappRoutes.endpoint + self.rawValue)
+        guard let url = URL(string: ApiClRoutes.endpoint + self.rawValue)
         else { throw RequestBuildError.cannotCreateUrl }
         return url
     }

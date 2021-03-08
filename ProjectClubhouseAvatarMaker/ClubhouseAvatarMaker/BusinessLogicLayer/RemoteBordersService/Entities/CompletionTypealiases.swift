@@ -7,7 +7,9 @@
 
 import Alamofire
 
-// MARK: - Default
-typealias DefaultRequestCompletion<T: Codable> = (Result<T, NetworkServiceError>) -> Void
-
+typealias GetSettingsCompletion = (Result<GetSettingsResult, NetworkServiceError>) -> Void
+typealias GetTokenCompletion = (Result<GetTokenResult, NetworkServiceError>) -> Void
+typealias GetTokenIfNeededCompletion = (Result<Void, NetworkServiceError>) -> Void
+typealias GetAccountCodesCompletion = (Result<[SecretCode], NetworkServiceError>) -> Void
 typealias GetBordersCompletion = (Result<GetBordersResult, NetworkServiceError>) -> Void
+typealias GetBrandedBordersCompletion = (Result<GetBrandedBordersResult, NetworkServiceError>) -> Void
