@@ -647,6 +647,29 @@
 			path = SettingsService;
 			sourceTree = "<group>";
 		};
+		89539C2C25F6EF8C00D9B828 /* UIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				89F00A362542E16200D482F6 /* UIViewController+Keyboard.swift */,
+				89CD71DD2550D4FA0017C0DA /* String+SizeCalculator.swift */,
+				89A15B6A25E32FEC0055948C /* UIView+attentionScaleAnimation.swift */,
+				555D06AA2552FB23005E926B /* UIView+TapAnimation.swift */,
+				89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */,
+				89AD8EA7255D71F000660695 /* UIViewController+addChildViewControllerToView.swift */,
+				55464D59255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift */,
+				896F63DD25994AE50001599C /* UIView+shake.swift */,
+				895ED34425DD3E54006EEA12 /* UIView+RoundedCorners.swift */,
+				89539A3525E8A07800D9B828 /* UIColor+rgba.swift */,
+				895ED38725DEEA4D006EEA12 /* UIImage+merge.swift */,
+				895ED3EE25DF2FC9006EEA12 /* UIView+layerAnimation.swift */,
+				895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */,
+				895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */,
+				89A15B6625E31FDF0055948C /* UIView+flash.swift */,
+				89539A8F25E8C62E00D9B828 /* UIImageView+setDefaultLoadingInicator.swift */,
+			);
+			path = UIExtensions;
+			sourceTree = "<group>";
+		};
 		895ED2DF25DD19FC006EEA12 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,26 +901,10 @@
 		89F00A332542E16200D482F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				89F00A362542E16200D482F6 /* UIViewController+Keyboard.swift */,
 				89F00A392542E16200D482F6 /* Array+safeIndex.swift */,
-				89CD71DD2550D4FA0017C0DA /* String+SizeCalculator.swift */,
-				89A15B6A25E32FEC0055948C /* UIView+attentionScaleAnimation.swift */,
-				555D06AA2552FB23005E926B /* UIView+TapAnimation.swift */,
-				89AD8E45255BA9C800660695 /* UITextField+placeholderPadding.swift */,
-				89AD8EA7255D71F000660695 /* UIViewController+addChildViewControllerToView.swift */,
-				55464D59255DEB6C006BE51F /* UIScrollView+ScrollToBottom.swift */,
-				896F63DD25994AE50001599C /* UIView+shake.swift */,
 				8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */,
-				895ED34425DD3E54006EEA12 /* UIView+RoundedCorners.swift */,
-				89539A3525E8A07800D9B828 /* UIColor+rgba.swift */,
-				895ED38725DEEA4D006EEA12 /* UIImage+merge.swift */,
-				895ED3EE25DF2FC9006EEA12 /* UIView+layerAnimation.swift */,
-				895ED40125DF50BC006EEA12 /* UIViewController+alert.swift */,
-				895ED40B25DF5855006EEA12 /* UIImage+overlayedColor.swift */,
-				89A15B6625E31FDF0055948C /* UIView+flash.swift */,
 				8953998525E8338500D9B828 /* SKProduct+localizedPrice.swift */,
 				89539A1425E89E6700D9B828 /* UserDefaults+color.swift */,
-				89539A8F25E8C62E00D9B828 /* UIImageView+setDefaultLoadingInicator.swift */,
 				89539C2825F6EF4800D9B828 /* Bundle+info.swift */,
 			);
 			path = Extensions;
@@ -984,6 +991,7 @@
 		89F00A592542E16200D482F6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				89539C2C25F6EF8C00D9B828 /* UIExtensions */,
 				89539BB925F5AC9400D9B828 /* ModuleBaseClasses */,
 				89539A3925E8AFAE00D9B828 /* AlertManager */,
 				89F00A632542E16200D482F6 /* Code */,
