@@ -2,10 +2,8 @@
 
 import UIKit
 
-final class ___VARIABLE_productName:identifier___Coordinator {
+final class ___VARIABLE_productName:identifier___Coordinator: DefaultCoordinator {
     
-    weak var transition: ModuleTransitionHandler!
-
     static func createModule(_ configuration: ((Customizable___VARIABLE_productName:identifier___ViewModel) -> Void)? = nil) -> UIViewController {
         guard let view = <#Create vc here#> as? ___VARIABLE_productName:identifier___ViewController
         else { 

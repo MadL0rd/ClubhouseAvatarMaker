@@ -5,8 +5,6 @@
 //  Created by Антон Текутов on 17.02.2021.
 //
 
-protocol EditorCoordinatorProtocol: class {
+protocol EditorCoordinatorProtocol: DefaultCoordinatorProtocol {
     
-    func openMenu()
-    func openSubscribtion(output: SubscriptionOutput)
 }

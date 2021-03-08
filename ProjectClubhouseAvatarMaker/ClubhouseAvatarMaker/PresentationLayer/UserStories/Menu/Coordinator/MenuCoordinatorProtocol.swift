@@ -5,9 +5,6 @@
 //  Created by Антон Текутов on 05.03.2021.
 //
 
-protocol MenuCoordinatorProtocol: class {
+protocol MenuCoordinatorProtocol: DefaultCoordinatorProtocol {
     
-    func dismiss()
-    func openAboutUsScreen()
-    func openSubscribtion()
 }

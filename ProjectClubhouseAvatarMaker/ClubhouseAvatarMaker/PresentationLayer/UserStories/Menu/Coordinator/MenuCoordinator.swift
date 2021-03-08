@@ -7,10 +7,8 @@
 
 import UIKit
 
-final class MenuCoordinator {
+final class MenuCoordinator: DefaultCoordinator {
     
-    weak var transition: ModuleTransitionHandler!
-
     static func createModule(_ configuration: ((CustomizableMenuViewModel) -> Void)? = nil) -> UIViewController {
         let view = MenuViewController()
         let viewModel = MenuViewModel()
@@ -34,17 +32,4 @@ final class MenuCoordinator {
 // MARK: - Interface for view
 extension MenuCoordinator: MenuCoordinatorProtocol {
 
-    func dismiss() {
-        transition.dismissSelf()
-    }
-    
-    func openAboutUsScreen() {
-        let vc = AboutUsCoordinator.createModule()
-        transition.showInRootNavigationController(vc)
-    }
-    
-    func openSubscribtion() {
-        let vc = SubscriptionCoordinator.createModule()
-        transition.present(vc)
-    }
 }

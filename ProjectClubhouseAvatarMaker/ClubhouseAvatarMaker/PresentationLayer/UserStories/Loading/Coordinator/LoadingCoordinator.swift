@@ -7,10 +7,8 @@
 
 import UIKit
 
-final class LoadingCoordinator {
+final class LoadingCoordinator: DefaultCoordinator {
     
-    weak var transition: ModuleTransitionHandler!
-
     static func createModule(_ configuration: ((CustomizableLoadingViewModel) -> Void)? = nil) -> UIViewController {
         let view = LoadingViewController()
         let viewModel = LoadingViewModel()

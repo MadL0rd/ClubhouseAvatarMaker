@@ -7,10 +7,8 @@
 
 import UIKit
 
-final class SubscriptionCoordinator {
+final class SubscriptionCoordinator: DefaultCoordinator {
     
-    weak var transition: ModuleTransitionHandler!
-
     static func createModule(_ configuration: ((CustomizableSubscriptionViewModel) -> Void)? = nil) -> UIViewController {
         let view = SubscriptionViewController()
         let viewModel = SubscriptionViewModel()
@@ -33,8 +31,5 @@ final class SubscriptionCoordinator {
 
 // MARK: - Interface for view
 extension SubscriptionCoordinator: SubscriptionCoordinatorProtocol {
-
-    func dismiss() {
-        transition.dismissSelf()
-    }
+    
 }

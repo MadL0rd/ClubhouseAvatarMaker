@@ -190,7 +190,8 @@ final class EditorViewController: UIViewController {
             case .active:
                 self.pickNewPhoto()
             case .notPurchased:
-                self.coordinator.openSubscribtion(output: self)
+                self.coordinator.openModuleWithOutput(.subscription(output: self),
+                                                      openingMode: .present)
             }
         }
     }
@@ -249,7 +250,7 @@ final class EditorViewController: UIViewController {
     
     @objc private func openAboutUsPage(sender: UIButton) {
         sender.tapAnimation()
-        coordinator.openMenu()
+        coordinator.openModule(.menu)
     }
     
     @objc private func recropImage(sender: UIButton) {

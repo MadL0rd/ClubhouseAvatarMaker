@@ -24,6 +24,8 @@ final class ___VARIABLE_productName:identifier___View: UIView {
     }
 
     private func makeConstraints() {
-
+        NSLayoutConstraint.activate([
+            
+        ])
     }
 }

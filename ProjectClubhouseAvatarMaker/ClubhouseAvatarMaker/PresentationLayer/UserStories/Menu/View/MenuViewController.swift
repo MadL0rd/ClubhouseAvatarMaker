@@ -52,6 +52,7 @@ final class MenuViewController: UIViewController {
         _view.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifire)
         
         navigationController?.navigationBar.tintColor = R.color.tintColorDark()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: R.font.sfuiTextBold(size: 17)!]
         navigationItem.title = NSLocalizedString("Settings", comment: "")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.arrowLeft(),
                                                            style: .done,
@@ -77,6 +78,9 @@ final class MenuViewController: UIViewController {
         module.rows.append(MenuRow(image: R.image.settingsRestore(),
                                    title: NSLocalizedString("Restore purchase", comment: ""),
                                    action: { [ weak self ] in self?.restore() }))
+        module.rows.append(MenuRow(image: R.image.codeButton(),
+                                   title: NSLocalizedString("Use secret code", comment: ""),
+                                   action: { [ weak self ] in self?.coordinator.openModule(.secretCodes, openingMode: .present) }))
         menu.append(module)
     }
     
@@ -84,7 +88,7 @@ final class MenuViewController: UIViewController {
         var module = MenuModule(title: NSLocalizedString("Information about us", comment: ""))
         module.rows.append(MenuRow(image: R.image.aboutButton(),
                                    title: NSLocalizedString("About us", comment: ""),
-                                   action: { [ weak self ] in self?.coordinator.openAboutUsScreen() }))
+                                   action: { [ weak self ] in self?.coordinator.openModule(.aboutUs) }))
         menu.append(module)
     }
     
@@ -125,7 +129,7 @@ final class MenuViewController: UIViewController {
                 AlertManager.showSuccessHUD(on: self.view,
                                             withText: NSLocalizedString("You already have active subscription!", comment: ""))
             case .notPurchased:
-                self.coordinator.openSubscribtion()
+                self.coordinator.openModule(.subscription, openingMode: .present)
             }
         }
     }

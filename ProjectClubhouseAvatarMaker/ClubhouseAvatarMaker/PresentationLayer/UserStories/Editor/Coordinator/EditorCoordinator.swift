@@ -7,10 +7,8 @@
 
 import UIKit
 
-final class EditorCoordinator {
+final class EditorCoordinator: DefaultCoordinator {
     
-    weak var transition: ModuleTransitionHandler!
-
     static func createModule(_ configuration: ((CustomizableEditorViewModel) -> Void)? = nil) -> UIViewController {
         let view = EditorViewController()
         let viewModel = EditorViewModel()
@@ -37,15 +35,4 @@ final class EditorCoordinator {
 // MARK: - Interface for view
 extension EditorCoordinator: EditorCoordinatorProtocol {
 
-    func openMenu() {
-        let vc = MenuCoordinator.createModule()
-        transition.showInRootNavigationController(vc)
-    }
-    
-    func openSubscribtion(output: SubscriptionOutput) {
-        let vc = SubscriptionCoordinator.createModule { viewModel in
-            viewModel.output = output
-        }
-        transition.present(vc)
-    }
 }

@@ -7,10 +7,8 @@
 
 import UIKit
 
-final class AboutUsCoordinator {
+final class AboutUsCoordinator: DefaultCoordinator {
     
-    weak var transition: ModuleTransitionHandler!
-
     static func createModule(_ configuration: ((CustomizableAboutUsViewModel) -> Void)? = nil) -> UIViewController {
         let view = AboutUsViewController()
         let viewModel = AboutUsViewModel()
@@ -31,8 +29,5 @@ final class AboutUsCoordinator {
 
 // MARK: - Interface for view
 extension AboutUsCoordinator: AboutUsCoordinatorProtocol {
-
-    func dismiss() {
-        transition.dismissSelf()
-    }
+    
 }
