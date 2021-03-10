@@ -9,6 +9,6 @@ import Foundation
 
 protocol LoadingViewModelProtocol: class {
     
-    func startConfiguration()
-    func checkUpdateIsAvailable(callback: @escaping AppStoreInfoCompletion)
+    func checkUpdateIsAvailable(completion: @escaping AppStoreInfoCompletion)
+    func configureRemoteBordersAccount(completion: @escaping() -> Void)
 }

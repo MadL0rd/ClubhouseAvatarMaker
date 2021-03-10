@@ -13,8 +13,8 @@ class UIStyleManager {
     
     static func textDefaultInput(_ view: UIView, addHeightConstraint: Bool = true) {
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 16
-        view.backgroundColor = R.color.lightGray()
+        view.layer.cornerRadius = 12
+        view.backgroundColor = R.color.main()
 
         guard addHeightConstraint
         else { return }
@@ -31,6 +31,15 @@ class UIStyleManager {
     }
     
     // MARK: - UIButton
+    
+    static func buttonDark(_ button: UIButton) {
+        textDefaultInput(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = R.color.black()
+        button.titleLabel?.font = R.font.sfuiTextBold(size: 14)
+        
+        button.setTitleColor(R.color.main(), for: .normal)
+    }
     
     static func twoStateButtonDefault(_ button: TwoStateButton) {
         button.activeText = ""
@@ -106,12 +115,25 @@ class UIStyleManager {
         textField.font = R.font.sfuiTextBold(size: 14)
         textField.setLeftPaddingPoints(24)
         textField.setRightPaddingPoints(24)
+        textField.tintColor = R.color.tintColorDark()
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = R.color.tintColorDark()?.cgColor
 
         let attributes = [
-            NSAttributedString.Key.foregroundColor: R.color.gray()!,
-            NSAttributedString.Key.font: R.font.sfuiTextLight(size: 14)!
+            NSAttributedString.Key.foregroundColor: R.color.tintColorDark()!,
+            NSAttributedString.Key.font: R.font.sfuiTextBold(size: 14)!
         ]
         textField.attributedPlaceholder = NSAttributedString(string: placeholderText,
                                                              attributes: attributes)
+        
+    }
+    
+    // MARK: - UILabel
+    
+    static func lableTitle(_ label: UILabel) {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = R.font.sfuiTextBold(size: 32)
+        label.textColor = R.color.tintColorDark()
+        label.numberOfLines = 0
     }
 }

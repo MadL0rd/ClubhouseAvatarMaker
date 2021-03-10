@@ -18,6 +18,10 @@ final class SecretCodesCoordinator: DefaultCoordinator {
         view.coordinator = coordinator
 
         coordinator.transition = view
+        
+        viewModel.remoteBordersService = RemoteBordersService.shared
+        viewModel.bordersActualityManager = BordersActualityManager.shared
+        viewModel.purchaseManager = PurchaseManager.shared
 
         if let configuration = configuration {
             configuration(viewModel)

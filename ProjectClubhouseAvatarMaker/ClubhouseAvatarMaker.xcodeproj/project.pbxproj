@@ -97,6 +97,10 @@
 		89539C8425F6FEC500D9B828 /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C7425F6FEC500D9B828 /* UIScrollView+ScrollToBottom.swift */; };
 		89539C8525F6FEC500D9B828 /* UITextField+placeholderPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C7525F6FEC500D9B828 /* UITextField+placeholderPadding.swift */; };
 		89539C9325F849D600D9B828 /* TwoLabelsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539C9225F849D600D9B828 /* TwoLabelsButton.swift */; };
+		89539CA225F9396800D9B828 /* CustomArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CA025F9396700D9B828 /* CustomArrayEncoding.swift */; };
+		89539CA325F9396800D9B828 /* CustomPatchEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CA125F9396700D9B828 /* CustomPatchEncoding.swift */; };
+		89539CA825F948D600D9B828 /* BordersActualityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CA725F948D600D9B828 /* BordersActualityManager.swift */; };
+		89539CB625F949F700D9B828 /* Array+weakObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CB525F949F700D9B828 /* Array+weakObjects.swift */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
 		895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */; };
@@ -272,6 +276,10 @@
 		89539C7425F6FEC500D9B828 /* UIScrollView+ScrollToBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollToBottom.swift"; sourceTree = "<group>"; };
 		89539C7525F6FEC500D9B828 /* UITextField+placeholderPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+placeholderPadding.swift"; sourceTree = "<group>"; };
 		89539C9225F849D600D9B828 /* TwoLabelsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelsButton.swift; sourceTree = "<group>"; };
+		89539CA025F9396700D9B828 /* CustomArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomArrayEncoding.swift; sourceTree = "<group>"; };
+		89539CA125F9396700D9B828 /* CustomPatchEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPatchEncoding.swift; sourceTree = "<group>"; };
+		89539CA725F948D600D9B828 /* BordersActualityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BordersActualityManager.swift; sourceTree = "<group>"; };
+		89539CB525F949F700D9B828 /* Array+weakObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+weakObjects.swift"; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -569,6 +577,8 @@
 			isa = PBXGroup;
 			children = (
 				89539B7625F566F000D9B828 /* DataParser.swift */,
+				89539CA025F9396700D9B828 /* CustomArrayEncoding.swift */,
+				89539CA125F9396700D9B828 /* CustomPatchEncoding.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -720,6 +730,14 @@
 				89539C7525F6FEC500D9B828 /* UITextField+placeholderPadding.swift */,
 			);
 			path = UIExtensions;
+			sourceTree = "<group>";
+		};
+		89539CA625F948B500D9B828 /* BordersActualityManager */ = {
+			isa = PBXGroup;
+			children = (
+				89539CA725F948D600D9B828 /* BordersActualityManager.swift */,
+			);
+			path = BordersActualityManager;
 			sourceTree = "<group>";
 		};
 		895ED2DF25DD19FC006EEA12 /* Editor */ = {
@@ -949,6 +967,7 @@
 				8953998525E8338500D9B828 /* SKProduct+localizedPrice.swift */,
 				89539A1425E89E6700D9B828 /* UserDefaults+color.swift */,
 				89539C2825F6EF4800D9B828 /* Bundle+info.swift */,
+				89539CB525F949F700D9B828 /* Array+weakObjects.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -962,6 +981,7 @@
 				89539A6725E8B98400D9B828 /* RemoteBordersService */,
 				8953995925E81E8100D9B828 /* PurchaseManager */,
 				895ED34825DD5061006EEA12 /* AssetsManager */,
+				89539CA625F948B500D9B828 /* BordersActualityManager */,
 			);
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
@@ -1342,6 +1362,7 @@
 				89539A2F25E89F5900D9B828 /* UserDefaultsEditorManagerProtocol.swift in Sources */,
 				89539C5E25F6FA2D00D9B828 /* AppUpdater.swift in Sources */,
 				89539C4E25F6F00E00D9B828 /* PickerViewManager.swift in Sources */,
+				89539CB625F949F700D9B828 /* Array+weakObjects.swift in Sources */,
 				89539B2325F1909F00D9B828 /* MenuOutput.swift in Sources */,
 				895ED33925DD319B006EEA12 /* LoadingView.swift in Sources */,
 				89539BB125F5ABC600D9B828 /* SecretCodesCoordinatorProtocol.swift in Sources */,
@@ -1410,6 +1431,7 @@
 				89539C1925F6C13400D9B828 /* SecretCode.swift in Sources */,
 				89539C7925F6FEC500D9B828 /* UIView+RoundedCorners.swift in Sources */,
 				89539C5425F6F00E00D9B828 /* ScrollMovingUpManagerForUIControl.swift in Sources */,
+				89539CA825F948D600D9B828 /* BordersActualityManager.swift in Sources */,
 				89539B5625F562CE00D9B828 /* RemoteBordersErrors.swift in Sources */,
 				89539BAF25F5ABC600D9B828 /* SecretCodesViewModel.swift in Sources */,
 				8953997A25E825B900D9B828 /* SubscriptionsId.swift in Sources */,
@@ -1420,6 +1442,7 @@
 				895ED43F25DF6BBB006EEA12 /* SubscriptionOutput.swift in Sources */,
 				895ED43D25DF6BBB006EEA12 /* SubscriptionViewModelProtocol.swift in Sources */,
 				895ED42D25DF6BB4006EEA12 /* AboutUsView.swift in Sources */,
+				89539CA225F9396800D9B828 /* CustomArrayEncoding.swift in Sources */,
 				89539B2025F1909F00D9B828 /* MenuInput.swift in Sources */,
 				895ED35825DD5062006EEA12 /* AssetsManagerErrors.swift in Sources */,
 				89539A9425E8CAF400D9B828 /* RemoteBordersService.swift in Sources */,
@@ -1445,6 +1468,7 @@
 				89539C2925F6EF4800D9B828 /* Bundle+info.swift in Sources */,
 				895ED34125DD381D006EEA12 /* PhotoCollectionViewCell.swift in Sources */,
 				895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */,
+				89539CA325F9396800D9B828 /* CustomPatchEncoding.swift in Sources */,
 				895ED42825DF6BB4006EEA12 /* AboutUsViewModel.swift in Sources */,
 				895ED42E25DF6BB4006EEA12 /* AboutUsViewController.swift in Sources */,
 				89539C5125F6F00E00D9B828 /* LabelsSegmentedControl.swift in Sources */,

@@ -25,7 +25,11 @@ extension LoadingViewModel: CustomizableLoadingViewModel {
 
 extension LoadingViewModel: LoadingViewModelProtocol {
     
-    func startConfiguration() {
+    func checkUpdateIsAvailable(completion: @escaping AppStoreInfoCompletion) {
+        AppUpdater.shared.checkUpdateIsAvailable(callback: completion)
+    }
+    
+    func configureRemoteBordersAccount(completion: @escaping() -> Void) {
         remoteBordersService.getTokenIfNeeded { [ weak self ] _ in
             self?.remoteBordersService.getAccountCodes { result in
                 switch result {
@@ -37,12 +41,11 @@ extension LoadingViewModel: LoadingViewModelProtocol {
                 case .failure(let error):
                     print(error)
                 }
+                
+                completion()
             }
         }
     }
-    
-    func checkUpdateIsAvailable(callback: @escaping AppStoreInfoCompletion) {
-        AppUpdater.shared.checkUpdateIsAvailable(callback: callback)
-    }
+
 }
 

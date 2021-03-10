@@ -24,6 +24,11 @@ struct GetTokenResult: Codable {
 
 typealias GetAccountCodesResult = [SecretCode]
 
+struct ApplyCodeResult: Codable {
+    
+    let errors: [String]?
+}
+
 struct GetBordersResult: Codable {
     let count: Int
     let next: String?

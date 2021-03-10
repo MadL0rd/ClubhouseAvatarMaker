@@ -23,6 +23,7 @@ final class EditorCoordinator: DefaultCoordinator {
         viewModel.purchaseManager = PurchaseManager.shared
         viewModel.defaults = UserDefaultsEditorManager()
         viewModel.remoteBordersService = RemoteBordersService.shared
+        viewModel.bordersActualityManager = BordersActualityManager.shared
 
         if let configuration = configuration {
             configuration(viewModel)

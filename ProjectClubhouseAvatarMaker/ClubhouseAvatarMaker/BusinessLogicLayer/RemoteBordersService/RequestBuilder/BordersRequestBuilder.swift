@@ -32,9 +32,13 @@ extension BordersRequestBuilder: DataRequestExecutable {
             return AF.request(ApiClRoutes.codes, method: .get, headers: header)
             
         case .useCode(token: let token, code: let code):
-            let header = ApiClRoutes.makeAuthHeadersFromToken(token: token)
+            let header = ApiClRoutes.makeAuthHeadersFromToken(token: token, contentType: .json)
             let parameters: [String: Any] = ["code": code]
-            return AF.request(ApiClRoutes.codes, method: .post, parameters: parameters, headers: header)
+            return AF.request(ApiClRoutes.codes,
+                              method: .post,
+                              parameters: parameters,
+                              encoding: CustomPatchEncoding(),
+                              headers: header)
             
         case .bordersBranded(token: let token):
             let header = ApiClRoutes.makeAuthHeadersFromToken(token: token)

@@ -7,4 +7,5 @@
 
 protocol SecretCodesViewModelProtocol: class {
     
+    func applySecretCode(_ code: String, completion: @escaping(Result<Void, NetworkServiceError>) -> Void)
 }

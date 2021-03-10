@@ -50,7 +50,21 @@ extension RemoteBordersService: RemoteBordersServiceProtocol {
     }
     
     private func getTokenIfNeeded(force: Bool, completion: @escaping GetTokenIfNeededCompletion) {
-        if token != nil || force == false {
+        if token == nil || force == true {
+            getToken { [ weak self ] result in
+                guard let self = self
+                else { return }
+                switch result {
+                case .success(let result):
+                    self.token = result.token
+                    completion(.success(()))
+                    
+                case .failure(let error):
+                    completion(.failure(error))
+                    
+                }
+            }
+        } else {
             getAccountCodes { [ weak self ] result in
                 switch result {
                 case .success:
@@ -66,20 +80,6 @@ extension RemoteBordersService: RemoteBordersServiceProtocol {
                     
                 }
             }
-        } else {
-            getToken { [ weak self ] result in
-                guard let self = self
-                else { return }
-                switch result {
-                case .success(let result):
-                    self.token = result.token
-                    completion(.success(()))
-                    
-                case .failure(let error):
-                    completion(.failure(error))
-                    
-                }
-            }
         }
     }
 
@@ -91,6 +91,17 @@ extension RemoteBordersService: RemoteBordersServiceProtocol {
         }
         
         makeDefaultRequest(dataRequest: requestBuilder.getUsedCodes(token: token),
+                           completion: completion)
+    }
+    
+    func applySecretCode(_ code: String, completion: @escaping ApplySecretCodeCompletion) {
+        guard let token = token
+        else {
+            completion(.failure(.badToken))
+            return
+        }
+        
+        makeDefaultRequest(dataRequest: requestBuilder.useCode(token: token, code: code),
                            completion: completion)
     }
     

@@ -42,6 +42,16 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         colorableIconImageView.isHidden = !visible
         nameLabel.transform = .init(translationX: visible ? 8 : 0, y: 0)
     }
+    
+    func setBorder(_ border: BorderProtocol) {
+        manageColorableIconVisibility(visible: border.colorable)
+        if let title = border.title,
+           !title.isEmpty {
+            nameLabel.text = title
+        } else {
+            nameLabel.text = PhotoCollectionViewCell.defaultName
+        }
+    }
 
     // MARK: - Private setup methods
     

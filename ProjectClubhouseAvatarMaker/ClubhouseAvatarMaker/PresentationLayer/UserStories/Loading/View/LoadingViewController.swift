@@ -15,6 +15,11 @@ final class LoadingViewController: UIViewController {
     var updateUrl: URL?
     var showEditorDelay: DispatchTime?
     
+    private let loadingCheckedQueue = DispatchQueue(label: "loadingCheckedQueue", qos: .userInitiated)
+    var updateChecked = false
+    var accountChecked = false
+    var loadingChecked: Bool { updateChecked && accountChecked }
+
     private var _view: LoadingView {
         return view as! LoadingView
     }
@@ -32,7 +37,12 @@ final class LoadingViewController: UIViewController {
     private func configureSelf() {
         _view.updateButton.addTarget(self, action: #selector(updateButtonTapped(sender:)), for: .touchUpInside)
         
-        viewModel.startConfiguration()
+        viewModel.configureRemoteBordersAccount { [ weak self ] in
+            self?.loadingCheckedQueue.sync {
+                self?.accountChecked = true
+                self?.checkLoadingCompletion()
+            }
+        }
         
         viewModel.checkUpdateIsAvailable { [ weak self ] result in
             guard let self = self
@@ -45,7 +55,10 @@ final class LoadingViewController: UIViewController {
                     self._view.showUpdateButton(version: data.version)
                     return
                 }
-                self.showNextScreen()
+                self.loadingCheckedQueue.sync {
+                    self.updateChecked = true
+                    self.checkLoadingCompletion()
+                }
                 
             case .failure(let error):
                 print(error)
@@ -58,6 +71,12 @@ final class LoadingViewController: UIViewController {
         }
         
         showEditorDelay = .now() + _view.changeLogoDuration * 0.7
+    }
+    
+    private func checkLoadingCompletion() {
+        if loadingChecked == true {
+            showNextScreen()
+        }
     }
     
     private func showNextScreen() {

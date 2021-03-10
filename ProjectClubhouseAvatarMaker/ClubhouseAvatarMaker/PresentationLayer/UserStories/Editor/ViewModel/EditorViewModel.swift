@@ -14,10 +14,17 @@ final class EditorViewModel {
     var assetsManager: AssetsManagerProtocol!
     var purchaseManager: PurchaseManagerProtocol!
     var remoteBordersService: RemoteBordersServiceProtocol!
+    var bordersActualityManager: BordersActualityManagerProtocol! {
+        didSet {
+            bordersActualityManager.subscribe(self)
+        }
+    }
     
     private var subscriptionIsActive: SubscriptionVerification?
     private var pageCurrentNumber = 1
     var canLoadNextPage = true
+    
+    var bordersDidChangedHandler: (() -> Void)?
     
     var defaults: UserDefaultsEditorManagerProtocol!
 
@@ -27,9 +34,6 @@ final class EditorViewModel {
     
     init() {
         colors = (0...360).compactMap { $0 % 15 == 0 ? colorFromDegreesAngle(CGFloat($0)) : nil }
-        
-        appendLocalBorders()
-        bordersGroups.append(BordersGroupRemote(title: NSLocalizedString("Remote", comment: ""), remotesBorders: []))
     }
     
     private func colorFromDegreesAngle(_ angle: CGFloat) -> UIColor {
@@ -117,6 +121,21 @@ final class EditorViewModel {
         ]
         bordersGroups.append(BordersGroupLocal(title: NSLocalizedString("Local", comment: ""), borders: localBorders))
     }
+    private func loadBrandedBorders(completion: @escaping() -> Void) {
+        remoteBordersService.getBrandedBorders { [ weak self ] result in
+            guard let self = self
+            else { return }
+            
+            switch result {
+            case .success(let data):
+                self.bordersGroups.insert(contentsOf: data, at: 1)
+                completion()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
 }
 
@@ -150,6 +169,10 @@ extension EditorViewModel: EditorViewModelProtocol {
     }
     
     func checkSubscriptionsStatus(force: Bool, _ completionHandler: @escaping(SubscriptionVerification) -> Void) {
+        if purchaseManager.subscriptionIsActive == .some(.active) {
+            subscriptionIsActive = .active
+        }
+        
         if let isActive = subscriptionIsActive,
            !force {
             completionHandler(isActive)
@@ -195,8 +218,23 @@ extension EditorViewModel: EditorViewModelProtocol {
         }
     }
     
-    func loadBrandedBorders(completion: @escaping() -> Void) {
-        
+    func reloadBorders() {
+        bordersGroups.removeAll()
+        appendLocalBorders()
+        bordersGroups.append(BordersGroupRemote(title: NSLocalizedString("Remote", comment: ""), remotesBorders: []))
+        pageCurrentNumber = 1
+        canLoadNextPage = true
+        bordersDidChangedHandler?()
+        loadBrandedBorders { [ weak self ] in
+            self?.bordersDidChangedHandler?()
+        }
     }
 }
 
+// MARK: - BordersActualityManagerSubscriber
+extension EditorViewModel: BordersActualityManagerSubscriber {
+    
+    func needToReloadBorders() {
+        reloadBorders()
+    }
+}

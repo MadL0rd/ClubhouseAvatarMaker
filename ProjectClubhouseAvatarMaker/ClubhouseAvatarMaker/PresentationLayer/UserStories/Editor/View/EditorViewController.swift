@@ -21,6 +21,7 @@ final class EditorViewController: UIViewController {
             _view.recropButton.isHidden = false
         }
     }
+    private var previousCropRect: CGRect?
     private var currentPhoto = R.image.defaultPhoto() {
         didSet {
             DispatchQueue.main.async { [ weak self ] in
@@ -102,14 +103,7 @@ final class EditorViewController: UIViewController {
         _view.photosCollectionView.register(CollectionHeaderView.self,
                                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                             withReuseIdentifier: CollectionHeaderView.identifier)
-        
-        let bottomRefreshController = UIRefreshControl()
-        bottomRefreshController.tintColor = R.color.main()
-        bottomRefreshController.triggerVerticalOffset = 50
-        bottomRefreshController.addTarget(self, action: #selector(loadNextPage), for: .valueChanged)
-
-        _view.photosCollectionView.bottomRefreshControl = bottomRefreshController
-        
+                
         _view.colorsCollectionView.dataSource = self
         _view.colorsCollectionView.delegate = self
         _view.colorsCollectionView.register(ColorCollectionViewCell.self, forCellWithReuseIdentifier: ColorCollectionViewCell.identifier)
@@ -129,9 +123,11 @@ final class EditorViewController: UIViewController {
         
         loadDefaults()
         
-        viewModel.loadBrandedBorders { [ weak self ] in
+        viewModel.bordersDidChangedHandler = { [ weak self ] in
             self?._view.photosCollectionView.reloadData()
+            self?.setupRefreshController()
         }
+        viewModel.reloadBorders()
     }
     
     private func loadDefaults() {
@@ -161,10 +157,20 @@ final class EditorViewController: UIViewController {
     
     // MARK: - Private methods
     
+    private func setupRefreshController() {
+        let bottomRefreshController = UIRefreshControl()
+        bottomRefreshController.tintColor = R.color.main()
+        bottomRefreshController.triggerVerticalOffset = 50
+        bottomRefreshController.addTarget(self, action: #selector(loadNextPage), for: .valueChanged)
+        
+        _view.photosCollectionView.bottomRefreshControl = bottomRefreshController
+    }
+    
     private func cropSelectedImage(_ image: UIImage) {
         let cropController = CropViewController(croppingStyle: .default, image: image)
         cropController.delegate = self
         cropController.aspectRatioPreset = .presetSquare
+        cropController.resetAspectRatioEnabled = false
         cropController.aspectRatioLockEnabled = true
         cropController.toolbar.clampButtonHidden = true
         cropController.toolbar.resetButtonHidden = true
@@ -188,19 +194,17 @@ final class EditorViewController: UIViewController {
         _view.avatar.tapAnimation()
         vibroGeneratorLight.impactOccurred()
         
-        //        TODO: editing test
-        self.pickNewPhoto()
-//        viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
-//            guard let self = self
-//            else { return }
-//            switch isActive {
-//            case .active:
-//                self.pickNewPhoto()
-//            case .notPurchased:
-//                self.coordinator.openModuleWithOutput(.subscription(output: self),
-//                                                      openingMode: .present)
-//            }
-//        }
+        viewModel.checkSubscriptionsStatus { [ weak self ] isActive in
+            guard let self = self
+            else { return }
+            switch isActive {
+            case .active:
+                self.pickNewPhoto()
+            case .notPurchased:
+                self.coordinator.openModuleWithOutput(.subscription(output: self),
+                                                      openingMode: .present)
+            }
+        }
     }
     
     private func pickNewPhoto() {
@@ -261,8 +265,11 @@ final class EditorViewController: UIViewController {
     }
     
     @objc private func recropImage(sender: UIButton) {
-        guard let cropController = cropViewController
+        guard let cropController = cropViewController,
+              let cropFrame = previousCropRect
         else { return }
+        
+        cropController.imageCropFrame = cropFrame
         sender.tapAnimation()
         present(cropController, animated: true, completion: nil)
         
@@ -350,9 +357,8 @@ extension EditorViewController: UICollectionViewDataSource {
                         photoCell.avatar.emojiView.applyMoveModificator(topLeftPoint: emojiCenter)
                     }
                 }
+                photoCell.setBorder(border)
                 photoCell.avatar.borderTintColor = selectedBorderColor
-                photoCell.manageColorableIconVisibility(visible: border.colorable)
-                photoCell.nameLabel.text = border.title ?? PhotoCollectionViewCell.defaultName
                 photoCell.muteView.isHidden = !showMuteIcon
                 photoCell.newUserView.isHidden = !showNewUserIcon
             }
@@ -431,6 +437,7 @@ extension EditorViewController: CropViewControllerDelegate {
         cropViewController.dismiss(animated: true, completion: nil)
         self.cropViewController = cropViewController
         currentPhoto = image
+        previousCropRect = cropRect
     }
 }
 
