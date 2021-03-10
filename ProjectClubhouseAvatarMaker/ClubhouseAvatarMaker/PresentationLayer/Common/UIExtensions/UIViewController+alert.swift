@@ -13,7 +13,7 @@ enum AlertType {
 }
 
 extension UIViewController {
-
+    
     func showErrorAlert(with message: String?, errorHandler: (() -> Void)? = nil) {
         let alert = createAlert(title: NSLocalizedString("Error!", comment: ""),
                                 message: message,
@@ -22,7 +22,7 @@ extension UIViewController {
                                 handler: errorHandler)
         present(alert, animated: true, completion: nil)
     }
-
+    
     func showSuccessAlert(with title: String, message: String, okHandler: (() -> Void)? = nil) {
         let alert = createAlert(title: title, message: message, type: .success, style: .alert, handler: okHandler)
         present(alert, animated: true, completion: nil)
@@ -36,15 +36,15 @@ extension UIViewController {
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
                                      style: .default,
                                      handler: { (_) in
-              okHandler?()
-          })
+                                        okHandler?()
+                                     })
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .cancel,
                                          handler: { (_) in
-            cancelHandler?()
-        })
-
+                                            cancelHandler?()
+                                         })
+        
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         
@@ -63,21 +63,21 @@ extension UIViewController {
                                       handler: { (_) in resultHandler(true) }))
         present(alert, animated: true, completion: nil)
     }
-
+    
     func createAlert(title: String,
                      message: String?,
                      type: AlertType,
                      style: UIAlertController.Style,
                      handler: (() -> Void)? = nil) -> UIAlertController {
-
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
-
+        
         let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: { (_) in
             handler?()
         })
-
+        
         alert.addAction(action)
-
+        
         return alert
     }
     
@@ -104,26 +104,57 @@ extension UIViewController {
     }
     
     func showAlertWithColorPicker(startColor: UIColor?, colorReturnHandler: @escaping (_ color: UIColor) -> Void) {
-        let alert = UIAlertController(title: NSLocalizedString("Choose color", comment: ""),
-                                      message: "",
-                                      preferredStyle: UIAlertController.Style.alert)
-        let colorPicker = ColorPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 265))
-        if let startColor = startColor {
-            colorPicker.setColor(startColor)
+        
+        if #available(iOS 14.0, *) {
+            let picker = UIColorPickerViewController()
+            let pikerDelegate = ColorPickerDefaultDelegate.shared
+            pikerDelegate.colorReturnHandler = colorReturnHandler
+            picker.delegate = pikerDelegate
+            picker.selectedColor = startColor ?? .black
+            present(picker, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("Choose color", comment: ""),
+                                          message: "",
+                                          preferredStyle: UIAlertController.Style.alert)
+            let colorPicker = ColorPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 265))
+            if let startColor = startColor {
+                colorPicker.setColor(startColor)
+            }
+            
+            let vc = UIViewController()
+            vc.preferredContentSize = CGSize(width: 250, height: 265)
+            vc.view.addSubview(colorPicker)
+            alert.setValue(vc, forKey: "contentViewController")
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Cancel", comment: ""), comment: ""),
+                                          style: .cancel,
+                                          handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Select", comment: ""), comment: ""),
+                                          style: UIAlertAction.Style.default,
+                                          handler: { (_) in colorReturnHandler(colorPicker.color) }))
+            present(alert, animated: true, completion: nil)
         }
-        
-        let vc = UIViewController()
-        vc.preferredContentSize = CGSize(width: 250, height: 265)
-        vc.view.addSubview(colorPicker)
-        alert.setValue(vc, forKey: "contentViewController")
-        
-        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Cancel", comment: ""), comment: ""),
-                                      style: .cancel,
-                                      handler: nil))
-        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Select", comment: ""), comment: ""),
-                                      style: UIAlertAction.Style.default,
-                                      handler: { (_) in colorReturnHandler(colorPicker.color) }))
-        present(alert, animated: true, completion: nil)
     }
+    
+}
 
+@available(iOS 14.0, *)
+fileprivate class ColorPickerDefaultDelegate: NSObject, UIColorPickerViewControllerDelegate {
+    
+    static let shared = ColorPickerDefaultDelegate()
+    
+    var color: UIColor?
+    var colorReturnHandler: ((_ color: UIColor) -> Void)?
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        viewController.dismiss(animated: true)
+        if let color = color {
+            colorReturnHandler?(color)
+        }
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        color = viewController.selectedColor
+    }
 }
