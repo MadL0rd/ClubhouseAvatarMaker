@@ -12,6 +12,9 @@ final class LoadingViewController: UIViewController {
     var viewModel: LoadingViewModelProtocol!
     var coordinator: LoadingCoordinatorProtocol!
     
+    var updateUrl: URL?
+    var showEditorDelay: DispatchTime?
+    
     private var _view: LoadingView {
         return view as! LoadingView
     }
@@ -27,14 +30,48 @@ final class LoadingViewController: UIViewController {
     }
     
     private func configureSelf() {
+        _view.updateButton.addTarget(self, action: #selector(updateButtonTapped(sender:)), for: .touchUpInside)
+        
         viewModel.startConfiguration()
+        
+        viewModel.checkUpdateIsAvailable { [ weak self ] result in
+            guard let self = self
+            else { return }
+            
+            switch result {
+            case .success(let data):
+                if data.version.compare(Bundle.main.versionNumber, options: .numeric) == .orderedDescending {
+                    self.updateUrl = URL(string: data.trackViewUrl)
+                    self._view.showUpdateButton(version: data.version)
+                    return
+                }
+                self.showNextScreen()
+                
+            case .failure(let error):
+                print(error)
+                self._view.showUpdateCheckFaildLabel()
+            }
+        }
         
         DispatchQueue.main.async { [ weak self ] in
             self?._view.changeLogo()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + _view.changeLogoDuration * 0.7) { [ weak self ] in
-//            self?.coordinator.showEditor()
+        showEditorDelay = .now() + _view.changeLogoDuration * 0.7
+    }
+    
+    private func showNextScreen() {
+        DispatchQueue.main.asyncAfter(deadline: showEditorDelay ?? .now()) { [ weak self ] in
+            self?.coordinator.showEditor()
         }
+    }
+    
+    // MARK: - UI elements actions
+
+    @objc private func updateButtonTapped(sender: TwoLabelsButton) {
+        guard let url = updateUrl
+        else { return }
+        sender.tapAnimation()
+        UIApplication.shared.open(url)
     }
 }

@@ -46,15 +46,23 @@ extension RemoteBordersService: RemoteBordersServiceProtocol {
     }
     
     func getTokenIfNeeded(completion: @escaping GetTokenIfNeededCompletion) {
-        if token != nil {
+        getTokenIfNeeded(force: false, completion: completion)
+    }
+    
+    private func getTokenIfNeeded(force: Bool, completion: @escaping GetTokenIfNeededCompletion) {
+        if token != nil || force == false {
             getAccountCodes { [ weak self ] result in
                 switch result {
                 case .success:
                     completion(.success(()))
                     
                 case .failure:
-                    self?.token = nil
-                    self?.getTokenIfNeeded(completion: completion)
+                    guard force == false
+                    else {
+                        completion(.failure(.unknown))
+                        return
+                    }
+                    self?.getTokenIfNeeded(force: true, completion: completion)
                     
                 }
             }
@@ -74,7 +82,7 @@ extension RemoteBordersService: RemoteBordersServiceProtocol {
             }
         }
     }
-    
+
     func getAccountCodes(completion: @escaping GetAccountCodesCompletion) {
         guard let token = token
         else {

@@ -70,6 +70,26 @@ class UIStyleManager {
         }
     }
     
+    // MARK: - TwoLabelsButton
+    
+    static func twoLabelsButtonDark(_ button: TwoLabelsButton) {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = R.color.black()
+        
+        button.topLabel.textColor = R.color.main()
+        button.bottomLabel.textColor = R.color.main()
+    }
+    
+    static func twoLabelsButtonLight(_ button: TwoLabelsButton) {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = R.color.main()
+        button.layer.borderWidth = 2
+        button.layer.borderColor = R.color.black()?.cgColor
+        
+        button.topLabel.textColor = R.color.black()
+        button.bottomLabel.textColor = R.color.black()
+    }
+    
     // MARK: - UINavigationController
     
     static func navigationControllerTransparent(_ controller: UINavigationController) {

@@ -12,6 +12,7 @@ final class LoadingViewModel {
 	var output: LoadingOutput?
     
     var remoteBordersService: RemoteBordersServiceProtocol!
+    var purchaseManager: PurchaseManagerProtocol!
 }
 
 // MARK: - Configuration
@@ -25,19 +26,23 @@ extension LoadingViewModel: CustomizableLoadingViewModel {
 extension LoadingViewModel: LoadingViewModelProtocol {
     
     func startConfiguration() {
-        remoteBordersService.getTokenIfNeeded(completion: { _ in })
-        remoteBordersService.getSettings { [ weak self ] result in
-            guard let self = self
-            else { return }
-            
-            switch result {
-            case .success(let data):
-                print(data.settings.version)
-                
-            case .failure(let error):
-                print(error)
+        remoteBordersService.getTokenIfNeeded { [ weak self ] _ in
+            self?.remoteBordersService.getAccountCodes { result in
+                switch result {
+                case .success(let data):
+                    if !data.isEmpty {
+                        self?.purchaseManager.forceSetSubscriptionActive()
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
+    }
+    
+    func checkUpdateIsAvailable(callback: @escaping AppStoreInfoCompletion) {
+        AppUpdater.shared.checkUpdateIsAvailable(callback: callback)
     }
 }
 

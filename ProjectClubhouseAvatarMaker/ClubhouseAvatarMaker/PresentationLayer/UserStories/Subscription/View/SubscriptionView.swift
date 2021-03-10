@@ -11,10 +11,8 @@ final class SubscriptionView: UIView {
     
     let logo = UIImageView()
     let closeButton = ButtonWithTouchSize()
-    let yearButton = ButtonWithTouchSize()
-    let yearPriceLabel = UILabel()
-    let weekButton = ButtonWithTouchSize()
-    let weekPriceLabel = UILabel()
+    let yearButton = TwoLabelsButton()
+    let weekButton = TwoLabelsButton()
     
     let linkButtonsStack = UIStackView()
     let termsButton = ButtonWithTouchSize()
@@ -35,21 +33,11 @@ final class SubscriptionView: UIView {
     
     // MARK: - Public methods
     
-    func showPurchaseButtonWithText(button: UIButton, text: String) {
-        var label: UILabel!
-        switch button {
-        case yearButton:
-            label = yearPriceLabel
-        case weekButton:
-            label = weekPriceLabel
-        default:
-            return
-        }
-        
-        label.text = text
+    func showPurchaseButtonWithText(button: TwoLabelsButton, text: String) {
+        button.bottomLabel.text = text
         
         UIView.animate(withDuration: 0.3, delay: 1) { [ weak self ] in
-            label.alpha = 1
+            button.bottomLabel.alpha = 1
             self?.layoutIfNeeded()
         }
     }
@@ -77,25 +65,14 @@ final class SubscriptionView: UIView {
     
     private func setupSubscriptionButtons() {
         addSubview(yearButton)
-        yearButton.translatesAutoresizingMaskIntoConstraints = false
-        yearButton.backgroundColor = R.color.black()
-        yearButton.layer.cornerRadius = 12
-        setupTwoLabelsButton(button: yearButton,
-                             topText: NSLocalizedString("Subscribe yearly", comment: ""),
-                             bottomLabel: yearPriceLabel,
-                             labelsColor: R.color.main())
+        UIStyleManager.twoLabelsButtonDark(yearButton)
+        yearButton.bottomLabel.alpha = 0
+        yearButton.topLabel.text = NSLocalizedString("Subscribe yearly", comment: "")
         
         addSubview(weekButton)
-        weekButton.translatesAutoresizingMaskIntoConstraints = false
-        weekButton.backgroundColor = R.color.main()
-        weekButton.layer.cornerRadius = 12
-        weekButton.layer.borderWidth = 2
-        weekButton.layer.borderColor = R.color.black()?.cgColor
-        setupTwoLabelsButton(button: weekButton,
-                             topText: NSLocalizedString("Subscribe weekly", comment: ""),
-                             bottomLabel: weekPriceLabel,
-                             labelsColor: R.color.black())
-        
+        UIStyleManager.twoLabelsButtonLight(weekButton)
+        weekButton.bottomLabel.alpha = 0
+        weekButton.topLabel.text = NSLocalizedString("Subscribe weekly", comment: "")
     }
     
     private func setupLinkButtonsStack() {
@@ -127,41 +104,6 @@ final class SubscriptionView: UIView {
         button.setAttributedTitle(attributeString, for: .normal)
     }
     
-    private func setupTwoLabelsButton(button: UIButton, topText: String, bottomLabel: UILabel, labelsColor: UIColor?) {
-        let stack = UIStackView()
-        button.addSubview(stack)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 5
-        stack.isUserInteractionEnabled = false
-        
-        let topLabel = UILabel()
-        stack.addArrangedSubview(topLabel)
-        topLabel.translatesAutoresizingMaskIntoConstraints = false
-        topLabel.font = R.font.sfuiTextBold(size: 18)
-        topLabel.textColor = labelsColor
-        topLabel.text = topText
-        topLabel.textAlignment = .center
-        topLabel.isUserInteractionEnabled = false
-        
-        stack.addArrangedSubview(bottomLabel)
-        bottomLabel.translatesAutoresizingMaskIntoConstraints = false
-        bottomLabel.font = R.font.sfuiTextLight(size: 16)
-        bottomLabel.textColor = labelsColor
-        bottomLabel.textAlignment = .center
-        bottomLabel.isUserInteractionEnabled = false
-        bottomLabel.alpha = 0
-        bottomLabel.numberOfLines = 2
-        
-        NSLayoutConstraint.activate([
-            button.heightAnchor.constraint(equalTo: stack.heightAnchor, constant: 30),
-            
-            stack.centerXAnchor.constraint(equalTo: button.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo: button.centerYAnchor),
-            stack.widthAnchor.constraint(equalTo: button.widthAnchor, constant: -20)
-        ])
-    }
-
     private func makeConstraints() {
         NSLayoutConstraint.activate([
             logo.centerYAnchor.constraint(equalTo: centerYAnchor),

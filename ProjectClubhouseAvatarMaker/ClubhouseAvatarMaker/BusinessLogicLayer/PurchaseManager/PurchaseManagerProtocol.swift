@@ -22,4 +22,6 @@ protocol PurchaseManagerProtocol: class {
     func purchaseSubscription(_ productId: SKProduct, callback: @escaping CheckActiveSubscriptionsCompletion)
     func restorePurchases(_ callback: @escaping RestorePurchasesCompletion)
     func rateApp()
+    
+    func forceSetSubscriptionActive()
 }

@@ -123,4 +123,8 @@ class PurchaseManager: PurchaseManagerProtocol {
     func rateApp() {
         SKStoreReviewController.requestReview()
     }
+    
+    func forceSetSubscriptionActive() {
+        subscriptionIsActive = .active
+    }
 }

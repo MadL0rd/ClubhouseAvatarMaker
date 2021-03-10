@@ -9,6 +9,7 @@ import UIKit
 import JGProgressHUD
 
 final class AlertManager {
+    
     static func showSuccessHUD(on view: UIView, withText text: String? = nil, detailText: String? = nil, delegate: JGProgressHUDDelegate? = nil) {
         let successHUD = JGProgressHUD(style: .light)
         successHUD.indicatorView = JGProgressHUDSuccessIndicatorView()

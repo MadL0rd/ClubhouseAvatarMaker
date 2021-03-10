@@ -11,3 +11,10 @@ protocol DataRequestExecutable {
     
     var execute: DataRequest { get }
 }
+
+extension DataRequest: DataRequestExecutable {
+    
+    var execute: DataRequest {
+        return self
+    }
+}
