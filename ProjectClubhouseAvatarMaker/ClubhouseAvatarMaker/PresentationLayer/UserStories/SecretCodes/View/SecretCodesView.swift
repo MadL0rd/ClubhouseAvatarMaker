@@ -59,6 +59,7 @@ final class SecretCodesView: UIView {
     private func setupCodesMenu() {
         scroll.addSubview(titleLabel)
         UIStyleManager.lableTitle(titleLabel)
+        titleLabel.numberOfLines = 0
         titleLabel.text = NSLocalizedString("Use secret code", comment: "")
         
         scroll.addSubview(codeTextField)
@@ -138,8 +139,8 @@ final class SecretCodesView: UIView {
             scroll.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: scroll.topAnchor, constant: padding),
-            titleLabel.leftAnchor.constraint(equalTo: scroll.leftAnchor, constant: padding),
-            titleLabel.rightAnchor.constraint(equalTo: scroll.rightAnchor, constant: -padding),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -padding * 2),
             
             codeTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding),
             codeTextField.leftAnchor.constraint(equalTo: scroll.leftAnchor, constant: padding),

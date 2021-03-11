@@ -21,6 +21,8 @@ final class SubscriptionView: UIView {
     let termsButton = ButtonWithTouchSize()
     let restoreButton = ButtonWithTouchSize()
     let privacyButton = ButtonWithTouchSize()
+    
+    let screenSizeMultiplier: CGFloat = min(1, (UIConstants.screenBounds.height / 650))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,7 +64,7 @@ final class SubscriptionView: UIView {
         
         addSubview(topSubscriptionLabel)
         topSubscriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        topSubscriptionLabel.font = R.font.sfuiTextBold(size: 24)
+        topSubscriptionLabel.font = R.font.sfuiTextBold(size: 24 * screenSizeMultiplier)
         topSubscriptionLabel.textAlignment = .center
         topSubscriptionLabel.text = NSLocalizedString("Buy a subscribtion", comment: "")
         topSubscriptionLabel.textColor = R.color.tintColorMain()
@@ -70,7 +72,7 @@ final class SubscriptionView: UIView {
         
         addSubview(bottomSubscriptionLabel)
         bottomSubscriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        bottomSubscriptionLabel.font = R.font.sfuiTextLight(size: 24)
+        bottomSubscriptionLabel.font = R.font.sfuiTextLight(size: 24 * screenSizeMultiplier)
         bottomSubscriptionLabel.textAlignment = .center
         bottomSubscriptionLabel.text = NSLocalizedString("to customize your own photos", comment: "")
         bottomSubscriptionLabel.textColor = R.color.tintColorMain()
@@ -114,7 +116,7 @@ final class SubscriptionView: UIView {
         button.setDefaultAreaPadding()
         
         let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: R.font.sfuiTextLight(size: 12)!,
+            NSAttributedString.Key.font: R.font.sfuiTextLight(size: 12 * screenSizeMultiplier)!,
             NSAttributedString.Key.foregroundColor: R.color.tintColorDark()!,
             NSAttributedString.Key.underlineStyle: 1
         ]
