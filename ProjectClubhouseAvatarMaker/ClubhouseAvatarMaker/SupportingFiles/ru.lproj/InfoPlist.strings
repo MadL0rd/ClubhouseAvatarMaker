@@ -1,0 +1,21 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Avatar maker";
+
+/* Bundle name */
+"CFBundleName" = "ClubhouseAvatarMaker";
+
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "Приложению ClubhouseAvatarMaker нужен доступ к камере";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Приложению ClubhouseAvatarMaker нужен доступ к геолокации";
+
+/* Privacy - Location Usage Description */
+"NSLocationUsageDescription" = "Приложению ClubhouseAvatarMaker нужен доступ к геолокации";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Приложению ClubhouseAvatarMaker нужен доступ к геолокации";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Чтобы выбирать и сохранять изображение необходимо предоставить приложению доступ к галерее";
+

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="ClubhouseAvatarMaker/SupportingFiles/en.lproj/InfoPlist.strings" source-language="en" target-language="ru" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>CFBundleDisplayName</source>
+        <target>Avatar maker</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>CFBundleName</source>
+        <target>ClubhouseAvatarMaker</target>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
+        <source>NSCameraUsageDescription</source>
+        <target>Приложению ClubhouseAvatarMaker нужен доступ к камере</target>
+        <note>Privacy - Camera Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSLocationAlwaysAndWhenInUseUsageDescription" xml:space="preserve">
+        <source>NSLocationAlwaysAndWhenInUseUsageDescription</source>
+        <target>Приложению ClubhouseAvatarMaker нужен доступ к геолокации</target>
+        <note>Privacy - Location Always and When In Use Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSLocationUsageDescription" xml:space="preserve">
+        <source>NSLocationUsageDescription</source>
+        <target>Приложению ClubhouseAvatarMaker нужен доступ к геолокации</target>
+        <note>Privacy - Location Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSLocationWhenInUseUsageDescription" xml:space="preserve">
+        <source>NSLocationWhenInUseUsageDescription</source>
+        <target>Приложению ClubhouseAvatarMaker нужен доступ к геолокации</target>
+        <note>Privacy - Location When In Use Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSPhotoLibraryUsageDescription" xml:space="preserve">
+        <source>NSPhotoLibraryUsageDescription</source>
+        <target>Чтобы выбирать и сохранять изображение необходимо предоставить приложению доступ к галерее</target>
+        <note>Privacy - Photo Library Usage Description</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="ClubhouseAvatarMaker/SupportingFiles/en.lproj/Localizable.strings" source-language="en" target-language="ru" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id="&#10;    *This is a service&#10;    for branded and corporate avatars&#10;    " xml:space="preserve">
+        <source>
+    *This is a service
+    for branded and corporate avatars
+    </source>
+        <target>
+    *Это сервис 
+    для создания брендированных и корпоративных рамок
+    </target>
+        <note>No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="&#10;    How does it works?&#10;    1) Write to us of you want to brand your avatar&#10;    2) Choose a plan&#10;    3) Your special frames appears in this app&#10;    4) We send you codes for free using for employees&#10;&#10;    Note: you can choose access mode for your frames - public or staff only&#10;&#10;    Contact email:&#10;    " xml:space="preserve">
+        <source>
+    How does it works?
+    1) Write to us of you want to brand your avatar
+    2) Choose a plan
+    3) Your special frames appears in this app
+    4) We send you codes for free using for employees
+
+    Note: you can choose access mode for your frames - public or staff only
+
+    Contact email:
+    </source>
+        <target>
+    Как это работает?
+    1) Напишите нам если Вы хотите добавить свои корпоративные рамки
+    2) Выберите тарифный план
+    3) Ваши уникальные рамки появляются в приложении
+    4) Мы отправляем Вам коды для членов сообщества, применив которые, они смогут пользоваться приложением бесплатно
+
+   Примечание: Вы можете выбрать различные варианты доступа к уникальным рамкам - публичные либо доступные только по коду
+
+    Контактный email:
+    </target>
+        <note>No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="&#10;We are Developer and Designer&#10;from Cherry Dev Agency&#10;&#10;If you want to make your idea a reality, write to us:&#10;" xml:space="preserve">
+        <source>
+We are Developer and Designer
+from Cherry Dev Agency
+
+If you want to make your idea a reality, write to us:
+</source>
+        <target>
+Мы - разработчик и дизайнер
+из Cherry Dev Agency
+
+Если Вы хотите воплотить свою идею в реальность - напишите нам:
+</target>
+        <note>No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="* No active codes *" xml:space="preserve">
+        <source>* No active codes *</source>
+        <target>* Коды не применялись *</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="About us" xml:space="preserve">
+        <source>About us</source>
+        <target>О нас</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Apply" xml:space="preserve">
+        <source>Apply</source>
+        <target>Применить</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Buy a subscribtion" xml:space="preserve">
+        <source>Buy a subscribtion</source><target>Приобретите подписку</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Buy subscribtion" xml:space="preserve">
+        <source>Buy subscribtion</source>
+        <target>Купить подписку</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Отмена</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Choose color" xml:space="preserve">
+        <source>Choose color</source>
+        <target>Выбор цвета</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Congratulations!" xml:space="preserve">
+        <source>Congratulations!</source>
+        <target>Поздравляем!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Continue" xml:space="preserve">
+        <source>Continue</source>
+        <target>Продолжить</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Empty" xml:space="preserve">
+        <source>Empty</source>
+        <target>Пустой</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Enter code here" xml:space="preserve">
+        <source>Enter code here</source>
+        <target>Введите код</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Error!" xml:space="preserve">
+        <source>Error!</source>
+        <target>Ошибка!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Failed" xml:space="preserve">
+        <source>Failed</source>
+        <target>Ошибка</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Folow us in clubhouse:" xml:space="preserve">
+        <source>Folow us in clubhouse:</source>
+        <target>Подписывайтесь на нас в клабхаусе</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="How does it works?" xml:space="preserve">
+        <source>How does it works?</source>
+        <target>Как это работает?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Information about us" xml:space="preserve">
+        <source>Information about us</source>
+        <target>Информация о нас</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Legal information" xml:space="preserve">
+        <source>Legal information</source>
+        <target>Правовая информация</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New avatar saved to gallery" xml:space="preserve">
+        <source>New avatar saved to gallery</source>
+        <target>Новый аватар сохранен в галерею</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New version checking failed" xml:space="preserve">
+        <source>New version checking failed</source>
+        <target>Не удалось проверить наличие новой версии</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New version is available" xml:space="preserve">
+        <source>New version is available</source>
+        <target>Доступна новая версия</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Note:" xml:space="preserve">
+        <source>Note:</source>
+        <target>Примечание:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Nothing to restore" xml:space="preserve">
+        <source>Nothing to restore</source>
+        <target>Нечего восстанавливать</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="OK" xml:space="preserve">
+        <source>OK</source>
+        <target>ОК</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Other" xml:space="preserve">
+        <source>Other</source>
+        <target>Другие</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Privacy policy" xml:space="preserve">
+        <source>Privacy policy</source>
+        <target>Политика конфиденциальности</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Rate the app" xml:space="preserve">
+        <source>Rate the app</source>
+        <target>Оценить приложение</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Restore" xml:space="preserve">
+        <source>Restore</source>
+        <target>Восстановить</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Restore purchase" xml:space="preserve">
+        <source>Restore purchase</source>
+        <target>Восстановить покупки</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Select" xml:space="preserve">
+        <source>Select</source>
+        <target>Выбрать</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Settings" xml:space="preserve">
+        <source>Settings</source>
+        <target>Настройки</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Speaker" xml:space="preserve">
+        <source>Speaker</source>
+        <target>Speaker</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Subscribe weekly" xml:space="preserve">
+        <source>Subscribe weekly</source>
+        <target>Еженедельная подписка</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Subscribe yearly" xml:space="preserve">
+        <source>Subscribe yearly</source>
+        <target>Годовая подписка</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Success" xml:space="preserve">
+        <source>Success</source>
+        <target>Успешно</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Support" xml:space="preserve">
+        <source>Support</source>
+        <target>Поддержка</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tap to update app to new version" xml:space="preserve">
+        <source>Tap to update app to new version</source>
+        <target>Нажми, чтобы обновить приложение</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Terms of usage" xml:space="preserve">
+        <source>Terms of usage</source>
+        <target>Пользовательское соглашение</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Terms of use" xml:space="preserve">
+        <source>Terms of use</source>
+        <target>Пользовательское соглашение</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="This app is not affiliated with Alpha Exploration Co. or Clubhouse official app" xml:space="preserve">
+        <source>This app is not affiliated with Alpha Exploration Co. or Clubhouse official app</source>
+        <target>Это приложение не связано с Alpha Exploration Co. или официальным приложением Clubhouse</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="To pick photo you should provide this app access to gallery" xml:space="preserve">
+        <source>To pick photo you should provide this app access to gallery</source>
+        <target>Чтобы выбрать фото нужно предоставить приложению доступ к галерее</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="To save photo you should provide this app access to gallery" xml:space="preserve">
+        <source>To save photo you should provide this app access to gallery</source>
+        <target>Чтобы сохранить фото нужно предоставить приложению доступ к галерее</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Use secret code" xml:space="preserve">
+        <source>Use secret code</source>
+        <target>Использовать код</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Used codes" xml:space="preserve">
+        <source>Used codes</source>
+        <target>Использованные коды</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You already have active subscription!" xml:space="preserve">
+        <source>You already have active subscription!</source>
+        <target>У Вас уже есть активная подписка!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="badRequestDataFormat" xml:space="preserve">
+        <source>badRequestDataFormat</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="badRoute" xml:space="preserve">
+        <source>badRoute</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="badToken" xml:space="preserve">
+        <source>badToken</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="branded" xml:space="preserve">
+        <source>branded</source>
+        <target>брендированных</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="cannotParceData" xml:space="preserve">
+        <source>cannotParceData</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="corporate" xml:space="preserve">
+        <source>corporate</source>
+        <target>корпоративных</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="free" xml:space="preserve">
+        <source>free</source>
+        <target>бесплатно</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="then" xml:space="preserve">
+        <source>then</source>
+        <target>потом</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="to customize your own photos" xml:space="preserve">
+        <source>to customize your own photos</source><target>чтобы обрабатывать свои собственные фото</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="unknown" xml:space="preserve">
+        <source>unknown</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="unknownError" xml:space="preserve">
+        <source>unknownError</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="week" xml:space="preserve">
+        <source>week</source>
+        <target>неделя</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="year" xml:space="preserve">
+        <source>year</source>
+        <target>год</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Будет добавлено в следующих версиях" xml:space="preserve">
+        <source>Будет добавлено в следующих версиях</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -119,7 +119,7 @@ final class EditorViewModel {
             Border(colorable: false, image: R.image.border16()),
             Border(colorable: false, image: R.image.catBorder(), title: "* chpok *")
         ]
-        bordersGroups.append(BordersGroupLocal(title: NSLocalizedString("Local", comment: ""), borders: localBorders))
+        bordersGroups.append(BordersGroupLocal(title: "", borders: localBorders))
     }
     private func loadBrandedBorders(completion: @escaping() -> Void) {
         remoteBordersService.getBrandedBorders { [ weak self ] result in
@@ -221,7 +221,7 @@ extension EditorViewModel: EditorViewModelProtocol {
     func reloadBorders() {
         bordersGroups.removeAll()
         appendLocalBorders()
-        bordersGroups.append(BordersGroupRemote(title: NSLocalizedString("Remote", comment: ""), remotesBorders: []))
+        bordersGroups.append(BordersGroupRemote(title: NSLocalizedString("Other", comment: ""), remotesBorders: []))
         pageCurrentNumber = 1
         canLoadNextPage = true
         bordersDidChangedHandler?()

@@ -51,6 +51,7 @@ class CodeTableViewCell: UITableViewCell {
         codeLabel.font = R.font.sfuiTextBold(size: 16)
         codeLabel.textAlignment = .left
         codeLabel.isUserInteractionEnabled = false
+        codeLabel.textColor = R.color.tintColorDark()
         
         stack.addArrangedSubview(brandLabel)
         brandLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +59,7 @@ class CodeTableViewCell: UITableViewCell {
         brandLabel.textAlignment = .left
         brandLabel.isUserInteractionEnabled = false
         brandLabel.numberOfLines = 2
+        brandLabel.textColor = R.color.tintColorDark()
         
         makeConstraints()
     }

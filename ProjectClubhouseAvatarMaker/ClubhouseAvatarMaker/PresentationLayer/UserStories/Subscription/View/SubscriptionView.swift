@@ -11,6 +11,9 @@ final class SubscriptionView: UIView {
     
     let logo = UIImageView()
     let closeButton = ButtonWithTouchSize()
+    let topSubscriptionLabel = UILabel()
+    let bottomSubscriptionLabel = UILabel()
+    
     let yearButton = TwoLabelsButton()
     let weekButton = TwoLabelsButton()
     
@@ -56,7 +59,23 @@ final class SubscriptionView: UIView {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.setImage(R.image.cross(), for: .normal)
         closeButton.setImage(R.image.cross(), for: .highlighted)
-
+        
+        addSubview(topSubscriptionLabel)
+        topSubscriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        topSubscriptionLabel.font = R.font.sfuiTextBold(size: 24)
+        topSubscriptionLabel.textAlignment = .center
+        topSubscriptionLabel.text = NSLocalizedString("Buy a subscribtion", comment: "")
+        topSubscriptionLabel.textColor = R.color.tintColorMain()
+        topSubscriptionLabel.numberOfLines = 0
+        
+        addSubview(bottomSubscriptionLabel)
+        bottomSubscriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        bottomSubscriptionLabel.font = R.font.sfuiTextLight(size: 24)
+        bottomSubscriptionLabel.textAlignment = .center
+        bottomSubscriptionLabel.text = NSLocalizedString("to customize your own photos", comment: "")
+        bottomSubscriptionLabel.textColor = R.color.tintColorMain()
+        bottomSubscriptionLabel.numberOfLines = 0
+        
         setupSubscriptionButtons()
         setupLinkButtonsStack()
         
@@ -87,7 +106,7 @@ final class SubscriptionView: UIView {
         setupLinkButton(button: restoreButton,
                         text: NSLocalizedString("Restore", comment: ""))
         setupLinkButton(button: privacyButton,
-                        text: NSLocalizedString("Privacy Policy", comment: ""))
+                        text: NSLocalizedString("Privacy policy", comment: ""))
     }
     
     private func setupLinkButton(button: ButtonWithTouchSize, text: String) {
@@ -102,6 +121,8 @@ final class SubscriptionView: UIView {
         let attributeString = NSMutableAttributedString(string: text,
                                                         attributes: attributes)
         button.setAttributedTitle(attributeString, for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
     }
     
     private func makeConstraints() {
@@ -111,6 +132,14 @@ final class SubscriptionView: UIView {
             logo.widthAnchor.constraint(equalTo: widthAnchor),
             logo.heightAnchor.constraint(equalTo: heightAnchor),
             
+            topSubscriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            topSubscriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
+            topSubscriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            
+            bottomSubscriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bottomSubscriptionLabel.topAnchor.constraint(equalTo: topSubscriptionLabel.bottomAnchor, constant: 2),
+            bottomSubscriptionLabel.widthAnchor.constraint(equalTo: topSubscriptionLabel.widthAnchor),
+
             closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
             closeButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 25),
             closeButton.widthAnchor.constraint(equalToConstant: 20),

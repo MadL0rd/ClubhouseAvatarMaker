@@ -24,19 +24,19 @@ final class SecretCodesView: UIView {
     let promotionTitleLabel = UILabel()
     let promotionTextLabel = UILabel()
     let emailLabel = CopyLabelView()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setupView()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setupView()
     }
-
+    
     // MARK: - Private methods
     
     private func setupView() {
@@ -87,19 +87,8 @@ final class SecretCodesView: UIView {
     }
     
     private func setupPromotionInfo() {
-        let titleText = """
-        *This is a service
-        for branded and corporate avatars
-        """
-        let text = """
-        How it works?
-        1) Write to us that you want to brand your avatar
-        2) Choose a plan
-        3) Your special frames appears in this app
-        4) We send you codes for free using for employees
-
-        Note: you can choose access mode for your frames - public or staff only
-        """
+        let titleText = R.string.localizable.thisIsServiceFor()
+        let text = R.string.localizable.codesInscruction()
         
         scroll.addSubview(promotionTitleLabel)
         promotionTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -108,28 +97,34 @@ final class SecretCodesView: UIView {
         promotionTitleLabel.font = R.font.sfuiTextBold(size: 18)
         
         var attributedString = NSMutableAttributedString(string: titleText)
-        var range: NSRange = attributedString.mutableString.range(of: "branded", options: .caseInsensitive)
+        var range: NSRange = attributedString.mutableString.range(of: NSLocalizedString("branded", comment: ""),
+                                                                  options: .caseInsensitive)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: range)
-        range = attributedString.mutableString.range(of: "corporate", options: .caseInsensitive)
+        range = attributedString.mutableString.range(of: NSLocalizedString("corporate", comment: ""),
+                                                     options: .caseInsensitive)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: range)
         promotionTitleLabel.attributedText = attributedString
-
+        
         scroll.addSubview(promotionTextLabel)
         promotionTextLabel.translatesAutoresizingMaskIntoConstraints = false
         promotionTextLabel.textColor = R.color.tintColorDark()
         promotionTextLabel.numberOfLines = 0
         promotionTextLabel.font = R.font.sfuiTextLight(size: 16)
-
+        
         attributedString = NSMutableAttributedString(string: text)
-        range = attributedString.mutableString.range(of: "How it works?", options: .caseInsensitive)
+        range = attributedString.mutableString.range(of: NSLocalizedString("How does it works?", comment: ""),
+                                                     options: .caseInsensitive)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.sfuiTextBold(size: 16)!, range: range)
+        range = attributedString.mutableString.range(of: NSLocalizedString("Note:", comment: ""),
+                                                     options: .caseInsensitive)
         attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.sfuiTextBold(size: 16)!, range: range)
         promotionTextLabel.attributedText = attributedString
-
+        
         scroll.addSubview(emailLabel)
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
         emailLabel.setText(labelText: Contacts.mainContactEmail, copyText: Contacts.mainContactEmail)
     }
-
+    
     private func makeConstraints() {
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
@@ -141,7 +136,7 @@ final class SecretCodesView: UIView {
             scroll.leftAnchor.constraint(equalTo: leftAnchor),
             scroll.rightAnchor.constraint(equalTo: rightAnchor),
             scroll.bottomAnchor.constraint(equalTo: bottomAnchor),
-
+            
             titleLabel.topAnchor.constraint(equalTo: scroll.topAnchor, constant: padding),
             titleLabel.leftAnchor.constraint(equalTo: scroll.leftAnchor, constant: padding),
             titleLabel.rightAnchor.constraint(equalTo: scroll.rightAnchor, constant: -padding),
@@ -167,12 +162,12 @@ final class SecretCodesView: UIView {
             promotionTitleLabel.topAnchor.constraint(equalTo: usedCodesTableView.bottomAnchor, constant: padding * 2),
             promotionTitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding),
             promotionTitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding),
-
+            
             promotionTextLabel.topAnchor.constraint(equalTo: promotionTitleLabel.bottomAnchor, constant: padding),
             promotionTextLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding),
             promotionTextLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding),
-
-            emailLabel.topAnchor.constraint(equalTo: promotionTextLabel.bottomAnchor, constant: padding),
+            
+            emailLabel.topAnchor.constraint(equalTo: promotionTextLabel.bottomAnchor),
             emailLabel.bottomAnchor.constraint(equalTo: scroll.bottomAnchor, constant: -100),
             emailLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding),
             emailLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding)

@@ -226,7 +226,7 @@ final class EditorView: UIView {
         photosCollectionViewLayout.scrollDirection = .vertical
         photosCollectionViewLayout.itemSize = CGSize(width: photoCellWidth, height: photoCellHeight)
         photosCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 70, left: 5, bottom: 100 * screenSizeMultiplier, right: 0)
-        photosCollectionView.contentInset = UIEdgeInsets(top: sideMargin,
+        photosCollectionView.contentInset = UIEdgeInsets(top: sideMargin * 2,
                                                          left: sideMargin,
                                                          bottom: sideMargin + 58 * screenSizeMultiplier,
                                                          right: sideMargin)

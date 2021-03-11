@@ -100,7 +100,7 @@ extension SecretCodesViewController: UITableViewDataSource {
         if let code = viewModel.codes[exist: indexPath.row] {
             cell.setSecretCode(code)
         } else {
-            cell.codeLabel.text = NSLocalizedString("No active codes", comment: "")
+            cell.codeLabel.text = NSLocalizedString("* No active codes *", comment: "")
         }
         
         return cell

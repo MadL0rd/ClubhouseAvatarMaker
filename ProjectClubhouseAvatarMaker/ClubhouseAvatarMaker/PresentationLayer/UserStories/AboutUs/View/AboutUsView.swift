@@ -17,14 +17,6 @@ final class AboutUsView: UIView {
     let textLabel = UILabel()
     let emailLabel = CopyLabelView()
     
-    let mainText = NSLocalizedString("""
-We are Developer and Designer
-from Cherry Dev Agency
-
-If you want to make your idea a reality, write to us:
-""",
-                                     comment: "")
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -63,7 +55,9 @@ If you want to make your idea a reality, write to us:
         stack.addArrangedSubview(designerLabel)
         designerLabel.setText(labelText: "👩🏻  @o.kad", copyText: "@o.kad")
         
+        let mainText = R.string.localizable.whoWeAre()
         stack.addArrangedSubview(textLabel)
+        textLabel.textColor = R.color.tintColorDark()
         textLabel.font = R.font.sfuiTextLight(size: 16)
         textLabel.numberOfLines = 0
         let attributedString = NSMutableAttributedString(string: mainText)

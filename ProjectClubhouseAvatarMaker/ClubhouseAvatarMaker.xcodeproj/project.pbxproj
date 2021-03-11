@@ -103,6 +103,8 @@
 		89539CB625F949F700D9B828 /* Array+weakObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CB525F949F700D9B828 /* Array+weakObjects.swift */; };
 		89539CD025F98AED00D9B828 /* CodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CCF25F98AED00D9B828 /* CodeTableViewCell.swift */; };
 		89539CE825F9968800D9B828 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CE725F9968700D9B828 /* Contacts.swift */; };
+		89539CED25FA531400D9B828 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89539CEB25FA531300D9B828 /* InfoPlist.strings */; };
+		89539CF025FA531500D9B828 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89539CEE25FA531400D9B828 /* Localizable.strings */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
 		895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */; };
@@ -284,6 +286,9 @@
 		89539CB525F949F700D9B828 /* Array+weakObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+weakObjects.swift"; sourceTree = "<group>"; };
 		89539CCF25F98AED00D9B828 /* CodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewCell.swift; sourceTree = "<group>"; };
 		89539CE725F9968700D9B828 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		89539CEC25FA531300D9B828 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89539CEF25FA531500D9B828 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89539CF325FA600F00D9B828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -1096,6 +1101,8 @@
 			isa = PBXGroup;
 			children = (
 				89A15AAF25E0D2D50055948C /* Info.plist */,
+				89539CEE25FA531400D9B828 /* Localizable.strings */,
+				89539CEB25FA531300D9B828 /* InfoPlist.strings */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -1201,8 +1208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				895399A125E8716500D9B828 /* launchScreenImage.png in Resources */,
+				89539CED25FA531400D9B828 /* InfoPlist.strings in Resources */,
 				895399FD25E886A200D9B828 /* SFText-Light.ttf in Resources */,
 				89DD277325DCFB2C00AD2868 /* Colors.xcassets in Resources */,
+				89539CF025FA531500D9B828 /* Localizable.strings in Resources */,
 				C8E8E8C4BB4C54647917C3C7 /* LaunchScreen.storyboard in Resources */,
 				89539A0025E886A400D9B828 /* SFText-Bold.ttf in Resources */,
 				89DD277225DCFB2C00AD2868 /* Images.xcassets in Resources */,
@@ -1506,6 +1515,26 @@
 			targetProxy = DB34FCE51D48A32D030DFE82 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89539CEB25FA531300D9B828 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89539CEC25FA531300D9B828 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		89539CEE25FA531400D9B828 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89539CEF25FA531500D9B828 /* ru */,
+				89539CF325FA600F00D9B828 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		07EFE115B5F90A581C197047 /* Debug */ = {
