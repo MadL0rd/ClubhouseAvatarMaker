@@ -7,5 +7,8 @@
 
 protocol SecretCodesViewModelProtocol: class {
     
+    var codes: [SecretCode] { get set }
+    
     func applySecretCode(_ code: String, completion: @escaping(Result<Void, NetworkServiceError>) -> Void)
+    func loadCodes(completion: @escaping() -> Void)
 }

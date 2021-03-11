@@ -101,6 +101,8 @@
 		89539CA325F9396800D9B828 /* CustomPatchEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CA125F9396700D9B828 /* CustomPatchEncoding.swift */; };
 		89539CA825F948D600D9B828 /* BordersActualityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CA725F948D600D9B828 /* BordersActualityManager.swift */; };
 		89539CB625F949F700D9B828 /* Array+weakObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CB525F949F700D9B828 /* Array+weakObjects.swift */; };
+		89539CD025F98AED00D9B828 /* CodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CCF25F98AED00D9B828 /* CodeTableViewCell.swift */; };
+		89539CE825F9968800D9B828 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89539CE725F9968700D9B828 /* Contacts.swift */; };
 		895ED2EB25DD19FC006EEA12 /* EditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E025DD19FC006EEA12 /* EditorOutput.swift */; };
 		895ED2EC25DD19FC006EEA12 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */; };
 		895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */; };
@@ -280,6 +282,8 @@
 		89539CA125F9396700D9B828 /* CustomPatchEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPatchEncoding.swift; sourceTree = "<group>"; };
 		89539CA725F948D600D9B828 /* BordersActualityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BordersActualityManager.swift; sourceTree = "<group>"; };
 		89539CB525F949F700D9B828 /* Array+weakObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+weakObjects.swift"; sourceTree = "<group>"; };
+		89539CCF25F98AED00D9B828 /* CodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewCell.swift; sourceTree = "<group>"; };
+		89539CE725F9968700D9B828 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		895ED2E025DD19FC006EEA12 /* EditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorOutput.swift; sourceTree = "<group>"; };
 		895ED2E225DD19FC006EEA12 /* EditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		895ED2E325DD19FC006EEA12 /* EditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -628,6 +632,7 @@
 			children = (
 				89539BAD25F5ABC600D9B828 /* SecretCodesViewController.swift */,
 				89539BAC25F5ABC600D9B828 /* SecretCodesView.swift */,
+				89539CCF25F98AED00D9B828 /* CodeTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -955,6 +960,7 @@
 			isa = PBXGroup;
 			children = (
 				89F00A312542E16200D482F6 /* UIConstants.swift */,
+				89539CE725F9968700D9B828 /* Contacts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1359,6 +1365,7 @@
 				89539A7725E8C59E00D9B828 /* RemoteBorder.swift in Sources */,
 				89539BB325F5ABC600D9B828 /* SecretCodesInput.swift in Sources */,
 				89F00AB02542E16200D482F6 /* AppRouter.swift in Sources */,
+				89539CD025F98AED00D9B828 /* CodeTableViewCell.swift in Sources */,
 				89539A2F25E89F5900D9B828 /* UserDefaultsEditorManagerProtocol.swift in Sources */,
 				89539C5E25F6FA2D00D9B828 /* AppUpdater.swift in Sources */,
 				89539C4E25F6F00E00D9B828 /* PickerViewManager.swift in Sources */,
@@ -1403,6 +1410,7 @@
 				89539C8025F6FEC500D9B828 /* UIImage+overlayedColor.swift in Sources */,
 				89539C5925F6F00E00D9B828 /* ButtonWithTouchSize.swift in Sources */,
 				89539B6425F5647E00D9B828 /* CompletionTypealiases.swift in Sources */,
+				89539CE825F9968800D9B828 /* Contacts.swift in Sources */,
 				895ED2ED25DD19FC006EEA12 /* EditorViewModelProtocol.swift in Sources */,
 				895ED33525DD319B006EEA12 /* LoadingViewModel.swift in Sources */,
 				895ED2EF25DD19FC006EEA12 /* EditorCoordinatorProtocol.swift in Sources */,

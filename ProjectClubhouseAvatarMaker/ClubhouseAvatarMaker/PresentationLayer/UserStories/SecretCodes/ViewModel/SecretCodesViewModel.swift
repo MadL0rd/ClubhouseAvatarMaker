@@ -13,6 +13,7 @@ final class SecretCodesViewModel {
     var bordersActualityManager: BordersActualityManagerProtocol!
     var purchaseManager: PurchaseManagerProtocol!
 
+    var codes = [SecretCode]()
 }
 
 // MARK: - Configuration
@@ -40,7 +41,23 @@ extension SecretCodesViewModel: SecretCodesViewModelProtocol {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func loadCodes(completion: @escaping() -> Void) {
+        remoteBordersService.getAccountCodes { [ weak self ] result in
+            guard let self = self
+            else { return }
             
+            switch result {
+            case .success(let data):
+                self.codes = data
+                
+            case .failure(let error):
+                print(error)
+            }
+            
+            completion()
         }
     }
 }

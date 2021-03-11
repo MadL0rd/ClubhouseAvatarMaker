@@ -72,7 +72,7 @@ If you want to make your idea a reality, write to us:
         textLabel.attributedText = attributedString
 
         stack.addArrangedSubview(emailLabel)
-        emailLabel.setText(labelText: "Cherry.Dev.Agency@gmail.com", copyText: "Cherry.Dev.Agency@gmail.com")
+        emailLabel.setText(labelText: Contacts.mainContactEmail, copyText: Contacts.mainContactEmail)
         
         makeConstraints()
     }

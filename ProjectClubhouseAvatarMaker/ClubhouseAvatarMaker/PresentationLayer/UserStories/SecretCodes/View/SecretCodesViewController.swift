@@ -34,6 +34,15 @@ final class SecretCodesViewController: UIViewController {
         _view.closeButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         _view.useCodeButton.addTarget(self, action: #selector(applyButtonTapped(sender:)), for: .touchUpInside)
         addTapGestureToHideKeyboard()
+        
+        _view.usedCodesTableView.dataSource = self
+        reloadCodes()
+    }
+    
+    private func reloadCodes() {
+        viewModel.loadCodes { [ weak self ] in
+            self?._view.usedCodesTableView.reloadData()
+        }
     }
     
     // MARK: - UI elements actions
@@ -69,11 +78,31 @@ final class SecretCodesViewController: UIViewController {
             switch result {
             case .success:
                 AlertManager.showSuccessHUD(on: self.view, withText: code)
+                self.reloadCodes()
                 
             case .failure:
                 AlertManager.showErrorHUD(on: self.view, withText: code)
             }
             
         }
+    }
+}
+
+extension SecretCodesViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return max(1, viewModel.codes.count)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CodeTableViewCell.identifier) as! CodeTableViewCell
+        
+        if let code = viewModel.codes[exist: indexPath.row] {
+            cell.setSecretCode(code)
+        } else {
+            cell.codeLabel.text = NSLocalizedString("No active codes", comment: "")
+        }
+        
+        return cell
     }
 }
