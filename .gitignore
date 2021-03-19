@@ -59,3 +59,7 @@ archive
 
 #  Resources reference
 R.generated.swift
+
+#	Loacl constants
+*LocalOnly*
+
