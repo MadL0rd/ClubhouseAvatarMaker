@@ -11,7 +11,9 @@ import StoreKit
 class PurchaseManager: PurchaseManagerProtocol {
     
     static let shared: PurchaseManagerProtocol = PurchaseManager()
-
+    
+    private var sharedSecret: String { LocalOnlyConstants.sharedSecret }
+    
     var termsOfUsageUrl: URL? {
         return URL(string: "http://80.78.247.50/static/TermsConditions.html")
     }

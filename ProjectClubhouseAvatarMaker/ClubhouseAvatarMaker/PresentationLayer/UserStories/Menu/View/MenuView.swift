@@ -10,7 +10,7 @@ import UIKit
 final class MenuView: UIView {
 
     let tableView = UITableView()
-    let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 120))
     let footerLabel = UILabel()
 
     override init(frame: CGRect) {
@@ -53,6 +53,7 @@ final class MenuView: UIView {
         footerLabel.textColor = R.color.tintColorDark()
         footerLabel.alpha = 0.7
         footerLabel.text = NSLocalizedString("This app is not affiliated with Alpha Exploration Co. or Clubhouse official app", comment: "")
+        footerLabel.text! += "\n\nVersion: \(Bundle.main.versionNumber)"
     }
 
     private func makeConstraints() {

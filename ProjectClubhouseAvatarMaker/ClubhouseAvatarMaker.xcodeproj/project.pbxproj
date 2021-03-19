@@ -152,6 +152,7 @@
 		895ED44325DF6BBB006EEA12 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */; };
 		895ED44425DF6BBB006EEA12 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */; };
 		8965D9DF25A390D9007FDE48 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */; };
+		8968AF3F260426F3003A91B0 /* LocalOnlyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8968AF3E260426F3003A91B0 /* LocalOnlyConstants.swift */; };
 		89A15B1425E164570055948C /* EmojiContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A15B1325E164570055948C /* EmojiContainer.swift */; };
 		89DD264B25DC9F0000AD2868 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD264A25DC9F0000AD2868 /* R.generated.swift */; };
 		89DD277225DCFB2C00AD2868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89DD277025DCFB2C00AD2868 /* Images.xcassets */; };
@@ -336,6 +337,7 @@
 		895ED43B25DF6BBB006EEA12 /* SubscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		895ED43C25DF6BBB006EEA12 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		8965D9DE25A390D8007FDE48 /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
+		8968AF3E260426F3003A91B0 /* LocalOnlyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalOnlyConstants.swift; sourceTree = "<group>"; };
 		89A15AAF25E0D2D50055948C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A15B1325E164570055948C /* EmojiContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiContainer.swift; sourceTree = "<group>"; };
 		89DD264A25DC9F0000AD2868 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -966,6 +968,7 @@
 			children = (
 				89F00A312542E16200D482F6 /* UIConstants.swift */,
 				89539CE725F9968700D9B828 /* Contacts.swift */,
+				8968AF3E260426F3003A91B0 /* LocalOnlyConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1360,6 +1363,7 @@
 				89539C0825F68D2A00D9B828 /* UserDefaultsStorage.swift in Sources */,
 				895ED35B25DD5062006EEA12 /* PHPickerResult+ImageAssetProtocol.swift in Sources */,
 				89539C5025F6F00E00D9B828 /* AnnouncementViewController.swift in Sources */,
+				8968AF3F260426F3003A91B0 /* LocalOnlyConstants.swift in Sources */,
 				895ED42725DF6BB4006EEA12 /* AboutUsViewModelProtocol.swift in Sources */,
 				895ED42A25DF6BB4006EEA12 /* AboutUsCoordinatorProtocol.swift in Sources */,
 				89539C5325F6F00E00D9B828 /* UIStyleManager.swift in Sources */,
