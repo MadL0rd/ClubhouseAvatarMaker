@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -800,8 +800,8 @@
 		895ED32825DD319A006EEA12 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
-				895ED32C25DD319A006EEA12 /* LoadingOutput.swift */,
 				895ED33325DD319B006EEA12 /* LoadingInput.swift */,
+				895ED32C25DD319A006EEA12 /* LoadingOutput.swift */,
 				895ED32D25DD319A006EEA12 /* Coordinator */,
 				895ED32925DD319A006EEA12 /* ViewModel */,
 				895ED33025DD319A006EEA12 /* View */,
@@ -1282,7 +1282,6 @@
 		};
 		89539BDE25F5C31D00D9B828 /* User stories modules accounting */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
