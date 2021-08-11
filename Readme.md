@@ -1,5 +1,6 @@
 # ClubhouseAvatarMaker
-=============
+[![Swift](https://img.shields.io/badge/Genegated--With-AT--Project--Generator-723A78.svg?style=for-the-badge&color=723A78)](https://github.com/MadL0rd/ATProjectGenerator) [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=for-the-badge)](https://developer.apple.com/swift/) 
+
 
 ClubhouseAvatarMaker iOS client.
 
