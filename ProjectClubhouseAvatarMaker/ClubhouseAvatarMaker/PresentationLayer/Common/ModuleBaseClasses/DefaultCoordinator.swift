@@ -13,7 +13,7 @@ enum ModuleOpeningMode {
     case showInRootNavigationController
 }
 
-protocol DefaultCoordinatorProtocol: class {
+protocol DefaultCoordinatorProtocol: AnyObject {
     
     func dismiss()
     func openModule(_ module: UserStoriesModulesDefault, openingMode: ModuleOpeningMode)

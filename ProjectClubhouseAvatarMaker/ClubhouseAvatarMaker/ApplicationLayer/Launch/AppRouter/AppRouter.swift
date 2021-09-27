@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AppRouter: class {
+protocol AppRouter: AnyObject {
 
 	var window: UIWindow! { get set }
     

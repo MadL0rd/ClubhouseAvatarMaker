@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol UserDefaultsEditorManagerProtocol: class {
+protocol UserDefaultsEditorManagerProtocol: AnyObject {
     
     var emoji: String { get set }
     var avatarEmojiCenterX: Float { get set }

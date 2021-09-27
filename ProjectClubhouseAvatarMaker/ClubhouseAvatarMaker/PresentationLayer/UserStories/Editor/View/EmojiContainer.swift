@@ -8,7 +8,7 @@
 import UIKit
 import ISEmojiView
 
-protocol EmojiContainerDelegate: class {
+protocol EmojiContainerDelegate: AnyObject {
     func locationDidChanged(emojiContainer: EmojiContainer)
     func emojiDidChanged(emojiContainer: EmojiContainer, emoji: String)
 }

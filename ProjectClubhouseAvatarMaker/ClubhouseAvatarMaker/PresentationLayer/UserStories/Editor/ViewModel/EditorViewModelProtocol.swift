@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol EditorViewModelProtocol: class {
+protocol EditorViewModelProtocol: AnyObject {
     
     var defaults: UserDefaultsEditorManagerProtocol! { get }
     var bordersGroups: [BordersGroupProtocol] { get }

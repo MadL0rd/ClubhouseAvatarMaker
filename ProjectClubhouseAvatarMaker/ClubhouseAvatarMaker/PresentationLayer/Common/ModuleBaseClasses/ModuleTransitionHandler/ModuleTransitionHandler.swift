@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ModuleTransitionHandler: class {
+protocol ModuleTransitionHandler: AnyObject {
     
     func dismissSelf(animated: Bool, completionHandler: (() -> Void)?)
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)

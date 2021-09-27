@@ -7,12 +7,12 @@
 
 import Foundation
 
-@objc protocol BordersActualityManagerSubscriber: class {
+@objc protocol BordersActualityManagerSubscriber: AnyObject {
     
     func needToReloadBorders()
 }
 
-protocol BordersActualityManagerProtocol: class {
+protocol BordersActualityManagerProtocol: AnyObject {
     
     func subscribe(_ subscriber: BordersActualityManagerSubscriber)
     func needToReloadBorders()

@@ -21,7 +21,7 @@ struct AppInfo: Codable {
     var trackViewUrl: String
 }
 
-protocol AppUpdaterProtocol: class {
+protocol AppUpdaterProtocol: AnyObject {
     func checkUpdateIsAvailable(callback: @escaping AppStoreInfoCompletion)
 }
 

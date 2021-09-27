@@ -5,7 +5,7 @@
 //  Created by Антон Текутов on 19.02.2021.
 //
 
-protocol SubscriptionOutput: class {
+protocol SubscriptionOutput: AnyObject {
     
     func subscriptionStatusDidChanged()
 }

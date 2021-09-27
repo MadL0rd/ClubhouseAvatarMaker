@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SubscriptionViewModelProtocol: class {
+protocol SubscriptionViewModelProtocol: AnyObject {
     
     var output: SubscriptionOutput? { get }
     

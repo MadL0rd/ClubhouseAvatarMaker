@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MenuViewModelProtocol: class {
+protocol MenuViewModelProtocol: AnyObject {
     
     var termsOfUsageUrl: URL? { get }
     var privacyPolicyUrl: URL? { get }

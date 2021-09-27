@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoadingViewModelProtocol: class {
+protocol LoadingViewModelProtocol: AnyObject {
     
     func checkUpdateIsAvailable(completion: @escaping AppStoreInfoCompletion)
     func configureRemoteBordersAccount(completion: @escaping() -> Void)

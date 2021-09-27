@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SegmentedControlDelegate: class {
+protocol SegmentedControlDelegate: AnyObject {
     
     func selectionDidChange(_ control: SegmentedControl, oldSelectedIndex: Int, newSelectedIndex: Int)
 }

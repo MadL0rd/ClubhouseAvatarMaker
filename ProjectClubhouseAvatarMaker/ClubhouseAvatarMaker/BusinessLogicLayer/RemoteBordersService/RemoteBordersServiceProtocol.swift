@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RemoteBordersServiceProtocol: class {
+protocol RemoteBordersServiceProtocol: AnyObject {
     
     func getSettings(completion: @escaping GetSettingsCompletion)
     func getTokenIfNeeded(completion: @escaping GetTokenIfNeededCompletion)

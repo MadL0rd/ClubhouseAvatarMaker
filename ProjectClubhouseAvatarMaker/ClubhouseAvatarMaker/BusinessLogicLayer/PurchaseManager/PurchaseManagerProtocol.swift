@@ -8,7 +8,7 @@
 import SwiftyStoreKit
 import StoreKit
 
-protocol PurchaseManagerProtocol: class {
+protocol PurchaseManagerProtocol: AnyObject {
     
     var termsOfUsageUrl: URL? { get }
     var privacyPolicyUrl: URL? { get }
