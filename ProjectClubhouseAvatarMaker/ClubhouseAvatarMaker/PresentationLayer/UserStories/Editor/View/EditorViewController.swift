@@ -68,7 +68,11 @@ final class EditorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.tintColor = R.color.tintColorDark()
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

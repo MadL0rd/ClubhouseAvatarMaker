@@ -11,7 +11,7 @@ import JGProgressHUD
 struct MenuRow {
     let image: UIImage?
     let title: String
-    let action: () -> Void
+    let action: (() -> Void)?
 }
 struct MenuModule {
     let title: String
@@ -35,6 +35,14 @@ final class MenuViewController: UIViewController {
     override func loadView() {
         self.view = MenuView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.tintColor = R.color.tintColorDark()
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,30 +58,22 @@ final class MenuViewController: UIViewController {
         _view.tableView.dataSource = self
         _view.tableView.delegate = self
         _view.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifire)
-        
-        navigationController?.navigationBar.tintColor = R.color.tintColorDark()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: R.font.sfuiTextBold(size: 17)!]
-        navigationItem.title = NSLocalizedString("Settings", comment: "")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.arrowLeft(),
-                                                           style: .done,
-                                                           target: self,
-                                                           action: #selector(backButtonTapped))
     }
     
     private func generateBaseMenuModule() {
         var module = MenuModule(title: "")
         module.rows.append(MenuRow(image: R.image.settingsPremium(),
                                    title: NSLocalizedString("Buy subscribtion", comment: ""),
-                                   action: { [ weak self ] in self?.subscribtionCheck() }))
+                                   action: subscribtionCheck))
         module.rows.append(MenuRow(image: R.image.settingsSupport(),
                                    title: NSLocalizedString("Support", comment: ""),
-                                   action: {[ weak self ] in self?.coordinator.openUrl(self?.viewModel.supportUrl) }))
+                                   action: { [ weak self ] in self?.coordinator.openUrl(self?.viewModel.supportUrl) }))
         module.rows.append(MenuRow(image: R.image.settingsRate(),
                                    title: NSLocalizedString("Rate the app", comment: ""),
-                                   action: { [ weak self ] in self?.viewModel.rateApp() }))
+                                   action: viewModel.rateApp))
         module.rows.append(MenuRow(image: R.image.settingsRestore(),
                                    title: NSLocalizedString("Restore purchase", comment: ""),
-                                   action: { [ weak self ] in self?.restore() }))
+                                   action: restore))
         module.rows.append(MenuRow(image: R.image.codeButton(),
                                    title: NSLocalizedString("Use secret code", comment: ""),
                                    action: { [ weak self ] in self?.coordinator.openModule(.secretCodes, openingMode: .present) }))
@@ -234,7 +234,7 @@ extension MenuViewController: UITableViewDataSource {
 extension MenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        menu[indexPath.section].rows[indexPath.row].action()
+        menu[indexPath.section].rows[indexPath.row].action?()
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

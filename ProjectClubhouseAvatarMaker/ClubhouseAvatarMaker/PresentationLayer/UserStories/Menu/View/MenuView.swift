@@ -9,6 +9,7 @@ import UIKit
 
 final class MenuView: UIView {
 
+    let titleLabel = UILabel()
     let tableView = UITableView()
     let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 120))
     let footerLabel = UILabel()
@@ -30,13 +31,20 @@ final class MenuView: UIView {
     private func setupView() {
         backgroundColor = R.color.main()
         
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = R.font.sfuiTextBold(size: 18)
+        titleLabel.text = NSLocalizedString("Settings", comment: "")
+        titleLabel.textColor = R.color.tintColorDark()
+        titleLabel.textAlignment = .center
+        
         addSubview(tableView)
         tableView.separatorColor = R.color.main()
         tableView.backgroundColor = R.color.main()
         tableView.sectionIndexColor = R.color.main()?.withAlphaComponent(0.2)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = footer
-        tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         tableView.showsVerticalScrollIndicator = false
         
         setupFooter()
@@ -58,6 +66,10 @@ final class MenuView: UIView {
 
     private func makeConstraints() {
         NSLayoutConstraint.activate([
+            titleLabel.centerYAnchor.constraint(equalTo: topAnchor, constant: UIConstants.navigationBarCenterY),
+            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 24),
+            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -24),
+            
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -20),

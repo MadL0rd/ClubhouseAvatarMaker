@@ -19,6 +19,14 @@ final class AboutUsViewController: UIViewController {
     override func loadView() {
         self.view = AboutUsView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.tintColor = R.color.tintColorDark()
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +35,6 @@ final class AboutUsViewController: UIViewController {
     }
 
     private func configureSelf() {
-        navigationController?.navigationBar.tintColor = R.color.tintColorDark()
-        let dismissButton = UIBarButtonItem(image: R.image.arrowLeft(),
-                                            style: .done,
-                                            target: self,
-                                            action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem = dismissButton
-    }
-    
-    // MARK: - UI elements actions
-    
-    @objc private func backButtonTapped() {
-        coordinator.dismiss()
+        
     }
 }
