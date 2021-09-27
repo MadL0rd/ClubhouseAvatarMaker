@@ -9,7 +9,7 @@ import Alamofire
 
 enum ApiClRoutes: String, URLConvertible {
     
-    static let endpoint = "http://80.78.247.50/api/"
+    static let endpoint = "http://ava.cherrydev.tech/api/"
     
     case settings = "setting_json/1/"
     case getToken = "get_token/"
