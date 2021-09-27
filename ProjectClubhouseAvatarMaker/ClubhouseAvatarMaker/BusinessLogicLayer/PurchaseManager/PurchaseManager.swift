@@ -15,10 +15,10 @@ class PurchaseManager: PurchaseManagerProtocol {
     private var sharedSecret: String { LocalOnlyConstants.sharedSecret }
     
     var termsOfUsageUrl: URL? {
-        return URL(string: "http://80.78.247.50/static/TermsConditions.html")
+        return URL(string: "https://docs.ava.cherrydev.tech/TermsOfUse.html")
     }
     var privacyPolicyUrl: URL? {
-        return URL(string: "http://80.78.247.50/static/PrivacyPolicy.html")
+        return URL(string: "https://docs.ava.cherrydev.tech/PrivacyPolicy.html")
     }
     var supportUrl: URL? {
         return URL(string: "https://vk.com/clubhouseborderedavatar")
