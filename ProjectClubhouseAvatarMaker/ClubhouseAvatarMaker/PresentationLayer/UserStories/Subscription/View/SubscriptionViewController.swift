@@ -120,14 +120,10 @@ final class SubscriptionViewController: UIViewController {
         
         switch sender {
         case _view.termsButton:
-            guard let url = viewModel.termsOfUsageUrl
-            else { return }
-            UIApplication.shared.open(url)
+            coordinator.openUrl(viewModel.termsOfUsageUrl)
         
         case _view.privacyButton:
-            guard let url = viewModel.privacyPolicyUrl
-            else { return }
-            UIApplication.shared.open(url)
+            coordinator.openUrl(viewModel.privacyPolicyUrl)
             
         case _view.restoreButton:
             let loadingHUD = AlertManager.getLoadingHUD(on: _view)

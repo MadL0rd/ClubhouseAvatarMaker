@@ -91,6 +91,6 @@ final class LoadingViewController: UIViewController {
         guard let url = updateUrl
         else { return }
         sender.tapAnimation()
-        UIApplication.shared.open(url)
+        coordinator.openUrl(url)
     }
 }

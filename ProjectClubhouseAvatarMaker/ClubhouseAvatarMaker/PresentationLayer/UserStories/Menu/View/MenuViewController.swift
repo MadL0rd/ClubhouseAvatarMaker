@@ -67,11 +67,7 @@ final class MenuViewController: UIViewController {
                                    action: { [ weak self ] in self?.subscribtionCheck() }))
         module.rows.append(MenuRow(image: R.image.settingsSupport(),
                                    title: NSLocalizedString("Support", comment: ""),
-                                   action: {[ weak self ] in
-                                    guard let url = self?.viewModel.supportUrl
-                                    else { return }
-                                    UIApplication.shared.open(url)
-                                   }))
+                                   action: {[ weak self ] in self?.coordinator.openUrl(self?.viewModel.supportUrl) }))
         module.rows.append(MenuRow(image: R.image.settingsRate(),
                                    title: NSLocalizedString("Rate the app", comment: ""),
                                    action: { [ weak self ] in self?.viewModel.rateApp() }))
@@ -96,18 +92,10 @@ final class MenuViewController: UIViewController {
         var module = MenuModule(title: NSLocalizedString("Legal information", comment: ""))
         module.rows.append(MenuRow(image: R.image.settingsLegal(),
                                    title: NSLocalizedString("Terms of use", comment: ""),
-                                   action: { [ weak self ] in
-                                    guard let url = self?.viewModel.termsOfUsageUrl
-                                    else { return }
-                                    UIApplication.shared.open(url)
-                                   }))
+                                   action: { [ weak self ] in self?.coordinator.openUrl(self?.viewModel.termsOfUsageUrl) }))
         module.rows.append(MenuRow(image: R.image.settingsLegal(),
                                    title: NSLocalizedString("Privacy policy", comment: ""),
-                                   action: {[ weak self ] in
-                                    guard let url = self?.viewModel.privacyPolicyUrl
-                                    else { return }
-                                    UIApplication.shared.open(url)
-                                   }))
+                                   action: { [ weak self ] in self?.coordinator.openUrl(self?.viewModel.privacyPolicyUrl) }))
         menu.append(module)
     }
     
