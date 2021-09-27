@@ -1,0 +1,49 @@
+@use "sass:color";
+/*
+Style variables
+____________________
+*/
+/*
+____________________
+*/
+body {
+  background-color: #333;
+  color: #EFECDF;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  text-align: left;
+  margin: 0%; }
+
+header {
+  padding: 20px;
+  text-align: left; }
+  header h1 {
+    margin-bottom: 0%;
+    padding-bottom: 0%; }
+  header h3 {
+    margin-top: 0%;
+    padding-top: 0%; }
+
+footer {
+  padding: 20px; }
+
+a {
+  color: #26A456;
+  text-decoration: none; }
+  a:focus, a:hover {
+    border-bottom: 1px solid #26A456; }
+
+main {
+  padding: 20px;
+  background-color: #EFECDF;
+  color: #333333; }
+  main h1 {
+    font-size: large; }
+  main a {
+    color: #26A456;
+    text-decoration: none; }
+    main a:focus, main a:hover {
+      border-bottom: 1px solid #26A456; }
+
+li.homapage_menu a {
+  font-size: larger;
+  text-decoration: none; }

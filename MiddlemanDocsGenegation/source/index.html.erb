@@ -1,0 +1,9 @@
+---
+title: Documents list
+---
+
+<% current_resource.children.each do |page| %>
+    <% if page.data.show_on_main_page == true %>
+        <li class="homapage_menu"><a href="<%= page.path %>"> <span class="s1"><%= page.data.title %> </span> </a> <tr/> </li>
+    <% end %>
+<% end %>

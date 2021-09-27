@@ -1,0 +1,84 @@
+@use "sass:color";
+
+/*
+Style variables
+____________________
+*/
+$background-primary-color: #333;
+$text-primary-color: #EFECDF;
+$tint-primary-color: #26A456;
+
+$background-secondary-color: #EFECDF;
+$text-secondary-color: #333333;
+$tint-secondary-color: #26A456;
+
+/*
+____________________
+*/
+
+body {
+  background-color: $background-primary-color;
+  color: $text-primary-color;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  text-align: left;
+  margin: 0%;
+}
+
+header {
+  padding: 20px;
+  text-align: left;
+
+  h1 {
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+  }
+
+  h3 {
+    margin-top: 0%;
+    padding-top: 0%;
+  }
+}
+
+footer {
+  padding: 20px;
+}
+
+a {
+  color: $tint-primary-color;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    border-bottom: 1px solid $tint-primary-color;
+  }
+}
+
+main {
+  padding: 20px;
+  background-color: $background-secondary-color;
+  color: $text-secondary-color;
+
+  h1 {
+    font-size: large;
+  }
+
+  a {
+    color: $tint-secondary-color;
+    text-decoration: none;
+    
+    &:focus,
+    &:hover {
+      border-bottom: 1px solid $tint-secondary-color;
+    }
+  }
+}
+
+li.homapage_menu {
+  a {
+    font-size: larger;
+    text-decoration: none;
+  }
+}
